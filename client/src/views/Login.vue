@@ -3,8 +3,8 @@
     <h1 class="title">Spot The <span class="difference alt">Difference</span></h1>
     <div v-if="other_profile" class="about">
       Compare your music taste with 
-      <a :href="other_profile.href">{{ other_profile.display_name }}</a>!
-      <img class="avatar" :src="other_profile.avatar"/>
+      <a :href="other_profile.external_urls.spotify">{{ other_profile.display_name }}</a>!
+      <img class="avatar" :src="other_profile.images[0].url"/>
     </div>
     <a class="login-button button" :href="spotify_auth_link">
       Log In With Spotify
@@ -51,26 +51,21 @@ export default {
                     console.log("/authorise failed: ", reason)
                   }
                 )
-    } else if (this.$route.params.token1) {
-      this.get_profile(this.$route.params.token1)
+    } else if (this.$route.params.share_code_1) {
+      this.get_profile(this.$route.params.share_code_1)
     }
   },
   methods: {
-    get_profile(share_token) {
+    get_profile(share_code) {
       //We get the profile's data from the /profile endpoint.
-      axios.post(API_Path+"/profile", { token: share_token }
+      axios.post(API_Path+"/profile", { share_code: share_code }
       ).then(function(response){
         console.log(response)
+        this.other_profile = response.data
         //TODO!
       }.bind(this)).catch(
         function(reason) {
           console.log("/profile failed: ", reason)
-          //Dummy data to fill in while I await implementation of /profile.
-          this.other_profile = {
-            avatar: "https://i.scdn.co/image/ab6775700000ee85addafcb811631836a9deddfc",
-            display_name: "TheTeaCat",
-            href:"https://open.spotify.com/user/theteacat?si=9ts1HGJbRqmWWUbN0rTsJQ"
-          }
         }.bind(this)
       )
     },
@@ -96,7 +91,7 @@ export default {
              "&client_id="+client_id+
              "&redirect_uri="+redirect_uri+
              "&scope="+scope+
-             (this.$route.params.token1 ? "&state="+this.$route.params.token1 : "")
+             (this.$route.params.share_code_1 ? "&state="+this.$route.params.share_code_1 : "")
     }
   }
 }
