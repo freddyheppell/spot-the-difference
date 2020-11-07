@@ -39,7 +39,7 @@ export default {
       axios.post(API_Path+"/authorise", params
                 ).then(
                   function(response) {
-                    //We redirect to a new path which will contain one or two share codes.
+                    //We redirect to a new path which will contain one or two share codes!
                     if (response.data.share_codes[1]) {
                       this.$router.push(response.data.share_codes[0]+"/"+response.data.share_codes[1])
                     } else {
@@ -72,19 +72,6 @@ export default {
       )
     }
   },
-  computed: {
-    spotify_auth_link() {
-      const client_id = "4c4fa8272fc04f028b61d332524d2611";
-      const redirect_uri = window.location.origin;
-      const scope = "user-top-read";
-      return "https://accounts.spotify.com/authorize"+
-             "?response_type=code"+
-             "&client_id="+client_id+
-             "&redirect_uri="+redirect_uri+
-             "&scope="+scope+
-             (this.$route.params.token1 ? "&state="+this.$route.params.token1 : "")
-    }
-  },
   methods: {
     share() {
       if (navigator.canShare) {
@@ -96,6 +83,19 @@ export default {
       } else {
         navigator.clipboard.writeText(window.location.href)
       }
+    }
+  },
+  computed: {
+    spotify_auth_link() {
+      const client_id = "4c4fa8272fc04f028b61d332524d2611";
+      const redirect_uri = window.location.origin;
+      const scope = "user-top-read";
+      return "https://accounts.spotify.com/authorize"+
+             "?response_type=code"+
+             "&client_id="+client_id+
+             "&redirect_uri="+redirect_uri+
+             "&scope="+scope+
+             (this.$route.params.token1 ? "&state="+this.$route.params.token1 : "")
     }
   }
 }
