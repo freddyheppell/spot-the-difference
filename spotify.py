@@ -1,6 +1,7 @@
 import requests
 from os import environ
 from base64 import b64encode
+import time
 
 def sanitise_profile_response(spotify_response):
     response = {
@@ -44,3 +45,23 @@ def basic_encoded():
     key_string_b64 = b64encode(key_string_encoded)
 
     return "Basic " +  key_string_b64.decode('ascii')
+
+def refresh(user):
+    if int(user["expiry_time"]) > int(time.time()):
+        return user
+    else:
+        body = {
+            "grant_type": "refresh_token",
+            "refresh_token": user["refresh_token"]
+        } 
+
+        headers = {
+            "Authorization": basic_encoded()
+        }
+
+        resp = requests.post('https://accounts.spotify.com/api/token', data=body, headers=headers)
+
+        if resp.status_code != 200:
+            raise Exception(resp.json())
+
+        return resp.json()

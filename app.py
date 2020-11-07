@@ -5,11 +5,12 @@ import requests
 import spotify
 import boto3
 import share_code
+import user_db
+import datetime
 
 app = Flask(__name__)
 CORS(app)
 
-USERS_TABLE = environ.get('USERS_TABLE')
 IS_OFFLINE = environ.get('IS_OFFLINE')
 
 word_list = share_code.load()
@@ -30,10 +31,33 @@ def health():
 
 @app.route("/profile", methods=['POST'])
 def profile():
-    token = request.get_json()['token']
-    response = spotify.get_user_from_token(token)
+    share_code = request.get_json()['share_code']
+    print(share_code)
+    user = user_db.get_user_by_share_code(client, share_code)
 
-    return spotify.sanitise_profile_response(response)
+    if not user:
+        return {
+            "error": "Share code not found"
+        }, 404
+
+    # See if the user's API token needs to be refreshed
+    try:
+        refreshed_keys = spotify.refresh(user)
+    except Exception as e:
+        return {
+            "desc": "Error refreshing API token",
+            "error": str(e)
+        }, 500
+
+    print(user["expiry_time"])
+
+    if refreshed_keys["access_token"] != user["access_token"]:
+        # Key has been refreshed
+        user_db.update_user(client, share_code, refreshed_keys["access_token"], refreshed_keys["refresh_token"], refreshed_keys["expiry_time"])
+
+    spotify_profile = spotify.get_user_from_token(refreshed_keys["access_token"])
+
+    return spotify.sanitise_profile_response(spotify_profile)
 
 @app.route("/authorise", methods=["POST"])
 def authorise():
@@ -41,7 +65,13 @@ def authorise():
     spotify_code = json["spotify_code"]
     passthrough_share_code = json["share_code"] if "share_code" in json else None
 
-    access_token = spotify.exchange_code(spotify_code)
+    try:
+        access_token = spotify.exchange_code(spotify_code)
+    except Exception as e:
+        return {
+            "desc": "Error exchanging code",
+            "error": str(e)
+        }, 500
 
     data = {
         "access_token": access_token["access_token"],
@@ -50,22 +80,29 @@ def authorise():
     }
 
     # Get the user's ID
-    user_id = spotify.get_user_from_token(data["access_token"])["id"]
+    try:
+        user_id = spotify.get_user_from_token(data["access_token"])["id"]
+    except Exception as e:
+        return {
+            "desc": "Error retrieving user",
+            "error": str(e)
+        }, 500
 
-    # Persist to db
-    resp = client.put_item(
-        TableName=USERS_TABLE,
-        Item= {
-            "share_code": {'S': share_code.generate_share_code(word_list)},
-            "access_token": {'S': access_token["access_token"]},
-            "refresh_token": {'S': access_token["refresh_token"]},
-            "expires_in": {'S': access_token["expires_in"]},
-            "user_id": {'S': user_id},
-        }
+    user_share_code = share_code.generate_share_code(word_list)
+
+    expiry_time = datetime.datetime.today() + datetime.timedelta(seconds=access_token["expires_in"])
+
+    user_db.persist_user(
+        client,
+        user_share_code,
+        access_token["access_token"],
+        access_token["refresh_token"],
+        expiry_time.strftime('%s'),
+        user_id
     )
 
     return {
-        "share_codes": [data["share_code"], passthrough_share_code]
+        "share_codes": [user_share_code, passthrough_share_code]
     }
 
 # @app.route("/compare", methods=["POST"])
@@ -79,4 +116,8 @@ def authorise():
 #     resp = {}
 
 #     for share_code in share_codes:
-        
+#         user = user_db.get_user_by_share_code(share_code)
+#         display_name, data = spotify.get_music_data_for_token(token)
+#         resp[display_name] = data
+
+#     return resp
