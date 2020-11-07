@@ -108,3 +108,5 @@ node_modules/
 
 .vscode/
 .dynamodb/
+
+env.json

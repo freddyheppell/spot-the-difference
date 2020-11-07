@@ -42,13 +42,22 @@ provider:
 
   environment:
     USERS_TABLE: ${self:custom.tableName}
+    REDIRECT_URI: ${file(env.json):REDIRECT_URI}
+    CLIENT_ID: ${file(env.json):CLIENT_ID}
+    CLIENT_SECRET: ${file(env.json):CLIENT_SECRET}
 
 functions:
   app:
     handler: wsgi_handler.handler
     events:
-      - http: ANY /
-      - http: ANY {proxy+}
+      - http:
+          method: any
+          path: /
+          cors: true
+      - http:
+          method: any
+          path: /{proxy+}
+          cors: true
 
 resources:
   Resources:
