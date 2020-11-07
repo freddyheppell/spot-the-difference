@@ -26,7 +26,7 @@ export default {
   }},
   mounted() {
     const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
-    
+
     //Check the route query for a code given to us by the spotify API after redirect...
     if (this.$route.query.code) {
       var params = {
@@ -39,8 +39,12 @@ export default {
       axios.post(API_Path+"/authorise", params
                 ).then(
                   function(response) {
-                    console.log(response.data.share_codes[0])
-                    this.$router.push(response.data.share_codes[0])
+                    //We redirect to a new path which will contain one or two share codes.
+                    if (response.data.share_codes[1]) {
+                      this.$router.push(response.data.share_codes[0]+"/"+response.data.share_codes[1])
+                    } else {
+                      this.$router.push(response.data.share_codes[0])
+                    }
                   }.bind(this)
                 ).catch(
                   function(reason) {
