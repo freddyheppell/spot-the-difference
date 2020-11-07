@@ -10,7 +10,8 @@
   background-size: cover;
   min-height:100%;
   display:flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
   &::before {
     content:"";
@@ -21,7 +22,6 @@
   }
   .view {
     z-index: 1;
-    max-width:600px;
     height:100%;
   }
 }
