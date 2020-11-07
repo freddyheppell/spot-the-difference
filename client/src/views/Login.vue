@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <h1 class="title">Spot The <span class="difference alt">Difference</span></h1>
-    <div v-if="$route.params.token1" class="about">
+    <div v-if="other_profile" class="about">
       Compare your music taste with 
       <a :href="other_profile.href">{{ other_profile.display_name }}</a>!
       <img class="avatar" :src="other_profile.avatar"/>
@@ -9,7 +9,7 @@
     <a class="login-button button" :href="spotify_auth_link">
       Log In With Spotify
     </a>
-    <div class="shareables" v-if="$route.params.token1">
+    <div class="shareables" v-if="other_profile">
       Or share this link so others can compare their tastes with {{ other_profile.display_name }}!
       <button class="copy-link button" @click="share">Copy Link</button>
     </div>
@@ -22,11 +22,7 @@ import axios from "axios"
 export default {
   name: 'Login',
   data() {return {
-    other_profile: {
-      avatar: "https://i.scdn.co/image/ab6775700000ee85addafcb811631836a9deddfc",
-      display_name: "TheTeaCat",
-      href:"placeholder"
-    }
+    other_profile: undefined
   }},
   mounted() {
     const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
@@ -46,14 +42,30 @@ export default {
                     console.log(response.data.share_codes[0])
                     this.$router.push(response.data.share_codes[0])
                   }.bind(this)
+                ).catch(
+                  function(reason) {
+                    console.log("/authorise failed: ", reason)
+                  }
                 )
     }
 
     //Otherwise we just check if we've got someone else's share code in the path
     if (this.$route.params.token1) {
-      console.log("bruh!")
+      //If we have, then we can get their profile data and display it!
       axios.post(API_Path+"/profile", { token: this.$route.params.token1 }
-      ).then(a => console.log(a))
+      ).then(function(response){
+        console.log(response)
+      }.bind(this)).catch(
+        function(reason) {
+          console.log("/profile failed: ", reason)
+          //Dummy data
+          this.other_profile = {
+            avatar: "https://i.scdn.co/image/ab6775700000ee85addafcb811631836a9deddfc",
+            display_name: "TheTeaCat",
+            href:"https://open.spotify.com/user/theteacat?si=9ts1HGJbRqmWWUbN0rTsJQ"
+          }
+        }.bind(this)
+      )
     }
   },
   computed: {
