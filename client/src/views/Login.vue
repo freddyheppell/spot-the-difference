@@ -11,7 +11,7 @@
     </a>
     <div class="shareables" v-if="$route.params.token1">
       Or share this link so others can compare their tastes with {{ other_profile.display_name }}!
-      <button class="copy-link button">Copy Link</button>
+      <button class="copy-link button" @click="share">Copy Link</button>
     </div>
   </div>
 </template>
@@ -67,6 +67,19 @@ export default {
              "&redirect_uri="+redirect_uri+
              "&scope="+scope+
              (this.$route.params.token1 ? "&state="+this.$route.params.token1 : "")
+    }
+  },
+  methods: {
+    share() {
+      if (navigator.canShare) {
+        navigator.share({
+          url: window.location.href,
+          title: "Spot The Difference",
+          text: "Compare your music taste to " + this.other_profile.display_name + "!"
+        })
+      } else {
+        navigator.clipboard.writeText(window.location.href)
+      }
     }
   }
 }
