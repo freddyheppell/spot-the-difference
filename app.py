@@ -24,6 +24,10 @@ if IS_OFFLINE:
 else:
     client = boto3.client('dynamodb')
 
+def get_expiry_time(expires_in):
+    return (datetime.datetime.today() + datetime.timedelta(seconds=expires_in)).strftime('%s')
+
+
 @app.route("/health")
 def health():
     return "I'm healthy!"
@@ -32,7 +36,6 @@ def health():
 @app.route("/profile", methods=['POST'])
 def profile():
     share_code = request.get_json()['share_code']
-    print(share_code)
     user = user_db.get_user_by_share_code(client, share_code)
 
     if not user:
@@ -49,11 +52,15 @@ def profile():
             "error": str(e)
         }, 500
 
-    print(user["expiry_time"])
-
     if refreshed_keys["access_token"] != user["access_token"]:
         # Key has been refreshed
-        user_db.update_user(client, share_code, refreshed_keys["access_token"], refreshed_keys["refresh_token"], refreshed_keys["expiry_time"])
+        user_db.update_user(
+            client,
+            share_code,
+            refreshed_keys["access_token"],
+            refreshed_keys["refresh_token"] if "refresh_token" in refreshed_keys else user["refresh_token"],
+            get_expiry_time(refreshed_keys["expires_in"])
+        )
 
     spotify_profile = spotify.get_user_from_token(refreshed_keys["access_token"])
 
@@ -90,14 +97,14 @@ def authorise():
 
     user_share_code = share_code.generate_share_code(word_list)
 
-    expiry_time = datetime.datetime.today() + datetime.timedelta(seconds=access_token["expires_in"])
+    expiry_time = get_expiry_time(access_token["expires_in"])
 
     user_db.persist_user(
         client,
         user_share_code,
         access_token["access_token"],
         access_token["refresh_token"],
-        expiry_time.strftime('%s'),
+        expiry_time,
         user_id
     )
 

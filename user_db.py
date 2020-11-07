@@ -19,13 +19,13 @@ def update_user(client, share_code, access_token, refresh_token, expiry_time):
     return client.update_item(
         TableName=USERS_TABLE,
         Key={
-            "share_code": share_code
+            "share_code": {'S': share_code}
         },
         UpdateExpression="set access_token=:access_token, refresh_token=:refresh_token, expiry_time=:expiry_time",
         ExpressionAttributeValues= {
-            ":access_token": access_token,
-            ":refresh_token": refresh_token,
-            ":expiry_time": str(expiry_time)
+            ":access_token": {'S': access_token},
+            ":refresh_token": {'S': refresh_token},
+            ":expiry_time": {'N':str(expiry_time)}
         }
     )
 
