@@ -4,19 +4,20 @@ import requests
 
 app = Flask(__name__)
 
+@app.route("/health")
+def health():
+    return "I'm healthy!"
+
 def build_profile_response(spotify_response):
     json = spotify_response.json()
     response = {
+        "id": json['id'],
         "display_name": json['display_name'],
         "external_urls": json['external_urls'],
         "images": json['images']
     }
 
     return response
-
-@app.route("/health")
-def health():
-    return "I'm healthy!"
 
 @app.route("/profile", methods=['POST'])
 def profile():
