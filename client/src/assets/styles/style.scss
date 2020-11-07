@@ -3,6 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
 @import '_vars.scss';
 
+@font-face {
+  font-family: "MS Sans Serif Bold";
+  src: url("/assets/fonts/MS Sans Serif Bold.ttf")
+}
+
 html {
   height:100%;
 }
