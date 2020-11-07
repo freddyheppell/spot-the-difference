@@ -1,16 +1,16 @@
 <template>
   <div id="login">
     <h1 class="title">Spot The <span class="difference alt">Difference</span></h1>
-    <div v-if="other_profile" class="about">
-      Compare your music taste with 
-      <a :href="other_profile.external_urls.spotify">{{ other_profile.display_name }}</a>!
-      <img class="avatar" :src="other_profile.images[0].url"/>
+    <div v-if="profile_data" class="about">
+      {{ profile_data.self ? "Hey " : "Compare your music taste with " }} 
+      <a :href="profile_data.external_urls.spotify">{{ profile_data.display_name }}</a>!
+      <img class="avatar" :src="profile_data.images[0].url"/>
     </div>
-    <a class="login-button button" :href="spotify_auth_link">
+    <a v-if="!profile_data || !profile_data.self" class="login-button button" :href="spotify_auth_link">
       Log In With Spotify
     </a>
-    <div class="shareables" v-if="other_profile">
-      Or share this link so others can compare their tastes with {{ other_profile.display_name }}!
+    <div class="shareables" v-if="profile_data">
+      Share this link so others can compare their tastes with {{ profile_data.self ? "you" : profile_data.display_name }}!
       <button class="copy-link button" @click="share">Copy Link</button>
     </div>
   </div>
@@ -23,7 +23,7 @@ const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
 export default {
   name: 'Login',
   data() {return {
-    other_profile: undefined
+    profile_data: undefined
   }},
   mounted() {
     //Check the route query for a code given to us by the spotify API after redirect...
@@ -40,10 +40,10 @@ export default {
                   function(response) {
                     //We redirect to a new path which will contain one or two share codes!
                     if (response.data.share_codes[1]) {
-                      this.$router.push(response.data.share_codes[0]+"/"+response.data.share_codes[1])
+                      this.$router.push(response.data.share_codes[1]+"/"+response.data.share_codes[0])
                     } else {
                       this.$router.push(response.data.share_codes[0])
-                      this.get_profile(response.data.share_codes[0])
+                      this.get_profile(response.data.share_codes[0],true)
                     }
                   }.bind(this)
                 ).catch(
@@ -52,16 +52,17 @@ export default {
                   }
                 )
     } else if (this.$route.params.share_code_1) {
-      this.get_profile(this.$route.params.share_code_1)
+      this.get_profile(this.$route.params.share_code_1,false)
     }
   },
   methods: {
-    get_profile(share_code) {
+    get_profile(share_code,self) {
       //We get the profile's data from the /profile endpoint.
       axios.post(API_Path+"/profile", { share_code: share_code }
       ).then(function(response){
         console.log(response)
-        this.other_profile = response.data
+        response.data.self = self
+        this.profile_data = response.data
         //TODO!
       }.bind(this)).catch(
         function(reason) {
@@ -74,7 +75,7 @@ export default {
         navigator.share({
           url: window.location.href,
           title: "Spot The Difference",
-          text: "Compare your music taste to " + this.other_profile.display_name + "!"
+          text: "Compare your music taste to " + this.profile_data.display_name + "!"
         })
       } else {
         navigator.clipboard.writeText(window.location.href)
