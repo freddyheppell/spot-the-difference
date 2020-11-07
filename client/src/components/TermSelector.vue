@@ -39,6 +39,8 @@ export default {
   flex-wrap: nowrap;
   .term-li {
     flex-grow:1;
+    color: $magenta-l;
+    text-shadow: 0px 0px 15px $magenta-d;
     &.selected {
       color: $cyan-l;
       text-shadow: 0px 0px 15px $cyan-d;
