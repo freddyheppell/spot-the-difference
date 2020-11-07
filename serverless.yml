@@ -5,6 +5,7 @@ plugins:
   - serverless-python-requirements
   - serverless-wsgi
   - serverless-dynamodb-local
+  - serverless-domain-manager
 
 custom:
   tableName: 'users-table-${self:provider.stage}'
@@ -21,6 +22,15 @@ custom:
       - dev
     start:
       migrate: true
+
+  domain:
+    dev: "api-dev.spotdiff.online"
+
+  customDomain:
+    domainName: ${self:custom.domain.${opt:stage}}
+    hostedZoneId: Z051670734W62CVYQ4B6H
+    stage: ${opt:stage}
+    endpointType: regional
 
 provider:
   name: aws
@@ -58,6 +68,11 @@ functions:
           method: any
           path: /{proxy+}
           cors: true
+
+package:
+  exclude:
+    - client/**
+    - venv/**
 
 resources:
   Resources:
