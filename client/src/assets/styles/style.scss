@@ -23,15 +23,16 @@ body {
 
 h1 {
   font-family: 'Faster One', serif;
+  font-weight: 400;
   text-transform: uppercase;
   line-height:1;
 
-  text-shadow: 0px 0px 15px $magenta-d;
+  text-shadow: 0px 0px 20px $magenta-d;
   color: $magenta-l;
 
   .alt {
     color: $cyan;
-    text-shadow: 0px 0px 15px $cyan-d;
+    text-shadow: 0px 0px 20px $cyan-d;
   }
 }
 

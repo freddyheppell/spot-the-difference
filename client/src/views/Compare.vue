@@ -1,8 +1,7 @@
 <template>
-  <div id="app">
+  <div id="compare">
+    <h1 class="title">Compare!</h1>
     {{ $route.params }}
-    <h1>Compare!</h1>
-    Comparing {{ share_codes[0] }} and {{ share_codes[1] }}!
   </div>
 </template>
 
@@ -11,11 +10,32 @@ export default {
   name: 'Compare',
   components: {
   },
-  data() {return {
-    share_codes: []
-  }}
+  mounted() {
+    console.log(this.$route.params)
+  }
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+#compare {
+  padding: $spacer*4;
+
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+
+  text-align:center;
+
+  >* {
+    max-width:100%;
+  }
+
+  .title {
+    margin-bottom: $spacer*4;
+    font-size: $font-size-l;
+    @media(min-width:$breakpoint-width) {
+      font-size: $font-size-ll;
+    }
+  }
+}
 </style>
