@@ -72,7 +72,7 @@ export default {
     spotify_auth_link() {
       const client_id = "4c4fa8272fc04f028b61d332524d2611";
       const redirect_uri = window.location.origin;
-      const scope = "";
+      const scope = "user-top-read";
       return "https://accounts.spotify.com/authorize"+
              "?response_type=code"+
              "&client_id="+client_id+
