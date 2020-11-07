@@ -1,0 +1,1425 @@
+{
+  "items" : [ {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3zmfs9cQwzJl575W1ZYXeT"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 361748
+    },
+    "genres" : [ ],
+    "href" : "https://api.spotify.com/v1/artists/3zmfs9cQwzJl575W1ZYXeT",
+    "id" : "3zmfs9cQwzJl575W1ZYXeT",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/572bde73a079b45302241372470881496189b701",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/29529ce56fb356af9ca04a194bb4dbb55da4aa3f",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/47e95028cd5f1506403794c88f23f45871c79564",
+      "width" : 160
+    } ],
+    "name" : "Men I Trust",
+    "popularity" : 68,
+    "type" : "artist",
+    "uri" : "spotify:artist:3zmfs9cQwzJl575W1ZYXeT"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/1ybAN3utgdoUL1MUCtH4QM"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 200519
+    },
+    "genres" : [ "art pop", "chillwave", "denver indie", "electropop", "indie pop", "indie rock", "indie surf", "shimmer pop" ],
+    "href" : "https://api.spotify.com/v1/artists/1ybAN3utgdoUL1MUCtH4QM",
+    "id" : "1ybAN3utgdoUL1MUCtH4QM",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/320d8c892b6eecd7f7eb619c3e899db0be7a32b0",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/1de57ac6dc243b7ae933a3311a8a07f7ecd29412",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/9ee1d54e0f6f61a0620f36bf9616ccd4088747a6",
+      "width" : 160
+    } ],
+    "name" : "Tennis",
+    "popularity" : 59,
+    "type" : "artist",
+    "uri" : "spotify:artist:1ybAN3utgdoUL1MUCtH4QM"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4frXpPxQQZwbCu3eTGnZEw"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 606039
+    },
+    "genres" : [ "afrofuturism", "hip hop" ],
+    "href" : "https://api.spotify.com/v1/artists/4frXpPxQQZwbCu3eTGnZEw",
+    "id" : "4frXpPxQQZwbCu3eTGnZEw",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/2de0565d544c3cbdd2517b724930bb0dcee6a1c8",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/871a3437240ff355903f11e577dd44ff16c005b8",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/6902f8964faf82a934d03c0cb6dfb113397780a1",
+      "width" : 160
+    } ],
+    "name" : "Thundercat",
+    "popularity" : 74,
+    "type" : "artist",
+    "uri" : "spotify:artist:4frXpPxQQZwbCu3eTGnZEw"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2mVVjNmdjXZZDvhgQWiakk"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 743400
+    },
+    "genres" : [ "neo-psychedelic" ],
+    "href" : "https://api.spotify.com/v1/artists/2mVVjNmdjXZZDvhgQWiakk",
+    "id" : "2mVVjNmdjXZZDvhgQWiakk",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/865c453789287d6d52e59d84d8563c8c2c9d2efe",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/4753357726b7747f94a410bab9756dcb6e4aa2a2",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/6cda3715ceb522cd4d55f8b4d101d6dec0d37903",
+      "width" : 160
+    } ],
+    "name" : "Khruangbin",
+    "popularity" : 74,
+    "type" : "artist",
+    "uri" : "spotify:artist:2mVVjNmdjXZZDvhgQWiakk"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3Oim8XBPbznAa8Jj8QzNc8"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 239343
+    },
+    "genres" : [ "alternative dance", "art pop", "chillwave", "experimental pop", "indie pop", "indie rock", "indie surf", "indietronica", "new rave", "nu gaze", "shimmer pop" ],
+    "href" : "https://api.spotify.com/v1/artists/3Oim8XBPbznAa8Jj8QzNc8",
+    "id" : "3Oim8XBPbznAa8Jj8QzNc8",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/d8590147b6e88981485c08bfef05f4122f7f257f",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/1e2bf3726497136dcc580e455bd547a6ea07c8c8",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/4d0fbd9c8b69a05a72ef1a740824fdb5caf1e1ed",
+      "width" : 160
+    } ],
+    "name" : "Cults",
+    "popularity" : 65,
+    "type" : "artist",
+    "uri" : "spotify:artist:3Oim8XBPbznAa8Jj8QzNc8"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/56ZTgzPBDge0OvCGgMO3OY"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 1025917
+    },
+    "genres" : [ "art pop", "baltimore indie", "chillwave", "dream pop", "freak folk", "indie pop", "indie rock", "modern dream pop" ],
+    "href" : "https://api.spotify.com/v1/artists/56ZTgzPBDge0OvCGgMO3OY",
+    "id" : "56ZTgzPBDge0OvCGgMO3OY",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/b34aff7ff25bb5882346fee11f05a46f38fbfbd3",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/13fd407d5bd9a056e4f2cbdbbe27f2e44e0d0a4b",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/ae5990c725d013e72cef504be145116707f2e2db",
+      "width" : 160
+    } ],
+    "name" : "Beach House",
+    "popularity" : 72,
+    "type" : "artist",
+    "uri" : "spotify:artist:56ZTgzPBDge0OvCGgMO3OY"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/6NrkINd80slV25wkBu9mEB"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 248000
+    },
+    "genres" : [ "art pop", "chillwave", "dream pop", "indie pop", "indie rock", "indie surf", "modern dream pop", "nu gaze", "shimmer pop", "shoegaze" ],
+    "href" : "https://api.spotify.com/v1/artists/6NrkINd80slV25wkBu9mEB",
+    "id" : "6NrkINd80slV25wkBu9mEB",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/bb29c9c404e843d415634baf19b94c62d1bfe63c",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/4e9a801647b1e49e8f43610cfcab4f07d8f3f7ee",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/2eaad705b6350f2abe7bc55dab6a698b574339e2",
+      "width" : 160
+    } ],
+    "name" : "Wild Nothing",
+    "popularity" : 55,
+    "type" : "artist",
+    "uri" : "spotify:artist:6NrkINd80slV25wkBu9mEB"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/7fSjnDr8tBO37Xbb2UXuYr"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 29804
+    },
+    "genres" : [ "alternative country", "freak folk", "indie folk", "indie rock", "neo-psychedelic", "stomp and holler" ],
+    "href" : "https://api.spotify.com/v1/artists/7fSjnDr8tBO37Xbb2UXuYr",
+    "id" : "7fSjnDr8tBO37Xbb2UXuYr",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/a4bf04767c7fe138b73921d12d420bdb403aaaed",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/21374fb974d3325b4f90ff96aace78837ba78bc2",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/ad13f63e8e830e2c2332147db2c2e52bf31a226c",
+      "width" : 160
+    } ],
+    "name" : "Richard Swift",
+    "popularity" : 51,
+    "type" : "artist",
+    "uri" : "spotify:artist:7fSjnDr8tBO37Xbb2UXuYr"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2SdK1QDmZIP2hk94rSaLl9"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 87995
+    },
+    "genres" : [ "art pop", "chillwave", "indie rock", "indie soul", "quebec indie", "shiver pop" ],
+    "href" : "https://api.spotify.com/v1/artists/2SdK1QDmZIP2hk94rSaLl9",
+    "id" : "2SdK1QDmZIP2hk94rSaLl9",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ea2fa21d243120eaf34963db680f2090e72a9985",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/a7c86361743773b902a599773fdeb372175e2dba",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/893897b3f8487c8bb0b22f02eee11a9cc456fc86",
+      "width" : 160
+    } ],
+    "name" : "TOPS",
+    "popularity" : 56,
+    "type" : "artist",
+    "uri" : "spotify:artist:2SdK1QDmZIP2hk94rSaLl9"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/0jUjkZEu17LkjSEQJmcqqi"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 29378
+    },
+    "genres" : [ "funk", "indie soul" ],
+    "href" : "https://api.spotify.com/v1/artists/0jUjkZEu17LkjSEQJmcqqi",
+    "id" : "0jUjkZEu17LkjSEQJmcqqi",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/86c097bfa504331ab64f55d0a0ec803859c8d5f5",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/a337db4f3d5050304bb7287c5554b9f7deabefee",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/85bd67202efd001e21ce49319a4520de10c75e89",
+      "width" : 160
+    } ],
+    "name" : "Fat Night",
+    "popularity" : 49,
+    "type" : "artist",
+    "uri" : "spotify:artist:0jUjkZEu17LkjSEQJmcqqi"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/7pXu47GoqSYRajmBCjxdD6"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 573924
+    },
+    "genres" : [ "ann arbor indie", "funk rock", "instrumental funk" ],
+    "href" : "https://api.spotify.com/v1/artists/7pXu47GoqSYRajmBCjxdD6",
+    "id" : "7pXu47GoqSYRajmBCjxdD6",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/4dcfc1c4476e9859f72b19cb51dcfdeb72d566a4",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/f2171b80f9dcad9e03922d495922380fcb7855e2",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/8d5eccff271153b237d2857a748ed943bc2a73a5",
+      "width" : 160
+    } ],
+    "name" : "Vulfpeck",
+    "popularity" : 67,
+    "type" : "artist",
+    "uri" : "spotify:artist:7pXu47GoqSYRajmBCjxdD6"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/7tr9pbgNEKtG0GQTKe08Tz"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 45199
+    },
+    "genres" : [ "alternative r&b", "indie r&b", "indie soul", "vapor soul" ],
+    "href" : "https://api.spotify.com/v1/artists/7tr9pbgNEKtG0GQTKe08Tz",
+    "id" : "7tr9pbgNEKtG0GQTKe08Tz",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/6a6a65b5c3b6a59a2991c5202441fdb72d50c811",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/a21f034b6d0d661cdfd020f64a605d5b5c8b992e",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/e1bcf48fee5b046d6f0b0cb31d4f5020e046ed1b",
+      "width" : 160
+    } ],
+    "name" : "Mk.gee",
+    "popularity" : 56,
+    "type" : "artist",
+    "uri" : "spotify:artist:7tr9pbgNEKtG0GQTKe08Tz"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/31SBgHxc8eqZUk9MdveH42"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 125701
+    },
+    "genres" : [ "alternative r&b" ],
+    "href" : "https://api.spotify.com/v1/artists/31SBgHxc8eqZUk9MdveH42",
+    "id" : "31SBgHxc8eqZUk9MdveH42",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/e05ee914c982ba13df4a586a055c2fee83bbe303",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/1434960cba50f96f489214f0cce230956516eb7a",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/2be523b00b7db82d390aa9c00e43df48d5fbd6d3",
+      "width" : 160
+    } ],
+    "name" : "PREP",
+    "popularity" : 59,
+    "type" : "artist",
+    "uri" : "spotify:artist:31SBgHxc8eqZUk9MdveH42"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/39cDMNnxwjrKJE1dyt47jh"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 44694
+    },
+    "genres" : [ "indie jazz", "indie r&b", "indie soul", "neo r&b", "uk contemporary jazz" ],
+    "href" : "https://api.spotify.com/v1/artists/39cDMNnxwjrKJE1dyt47jh",
+    "id" : "39cDMNnxwjrKJE1dyt47jh",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/a7bc4500d7c0c75530588c38a4d3852be17859e8",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/7140cdecdb6af4e4b98c9740105751c0fae11ea8",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/76d5382742620dc7bf2afd904e4e45e201e73214",
+      "width" : 160
+    } ],
+    "name" : "Oscar Jerome",
+    "popularity" : 51,
+    "type" : "artist",
+    "uri" : "spotify:artist:39cDMNnxwjrKJE1dyt47jh"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/5hAhrnb0Ch4ODwWu4tsbpi"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 344248
+    },
+    "genres" : [ "alternative rock", "anti-folk", "art pop", "dream pop", "freak folk", "indie pop", "indie rock", "lo-fi", "new jersey indie", "permanent wave" ],
+    "href" : "https://api.spotify.com/v1/artists/5hAhrnb0Ch4ODwWu4tsbpi",
+    "id" : "5hAhrnb0Ch4ODwWu4tsbpi",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/a00baadbf8101dbecbe07c605ba739f2db37be83",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/4091dbe240f8f7c88a7566b3a97f960a773a36a9",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/f8bff5b8eb68d1407799f41e1c45bf0399d3cb8b",
+      "width" : 160
+    } ],
+    "name" : "Yo La Tengo",
+    "popularity" : 64,
+    "type" : "artist",
+    "uri" : "spotify:artist:5hAhrnb0Ch4ODwWu4tsbpi"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/0ihBDeJlIlXo4LFfAllsGm"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 45419
+    },
+    "genres" : [ "american post-rock", "chicago indie", "freak folk", "indie rock", "post-rock" ],
+    "href" : "https://api.spotify.com/v1/artists/0ihBDeJlIlXo4LFfAllsGm",
+    "id" : "0ihBDeJlIlXo4LFfAllsGm",
+    "images" : [ {
+      "height" : 305,
+      "url" : "https://i.scdn.co/image/d41c8955a7536978522b82f4b38cfd2a3836d087",
+      "width" : 457
+    }, {
+      "height" : 133,
+      "url" : "https://i.scdn.co/image/2c7d471b814e17ce2cdb24ae0eddced899b70757",
+      "width" : 199
+    }, {
+      "height" : 43,
+      "url" : "https://i.scdn.co/image/85ab8e5571b72da52d40662a65d61777d5eb25e6",
+      "width" : 64
+    } ],
+    "name" : "The Sea and Cake",
+    "popularity" : 42,
+    "type" : "artist",
+    "uri" : "spotify:artist:0ihBDeJlIlXo4LFfAllsGm"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/0KydPQPUUoTNhmiHKOg5Er"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 282124
+    },
+    "genres" : [ "alternative dance", "chillwave", "dance-punk", "denton tx indie", "experimental pop", "indie pop", "indietronica", "neo-synthpop", "new rave", "nu gaze", "shimmer pop" ],
+    "href" : "https://api.spotify.com/v1/artists/0KydPQPUUoTNhmiHKOg5Er",
+    "id" : "0KydPQPUUoTNhmiHKOg5Er",
+    "images" : [ {
+      "height" : 561,
+      "url" : "https://i.scdn.co/image/0a7117fe1f32cdebed99402fe3f56bf5234e3977",
+      "width" : 543
+    }, {
+      "height" : 207,
+      "url" : "https://i.scdn.co/image/8ce6ae0bc9e1a1d43d81c1d467e8f78d498a03eb",
+      "width" : 200
+    }, {
+      "height" : 66,
+      "url" : "https://i.scdn.co/image/a280bc330f3d7ae0766168731511a8636a4fdfa5",
+      "width" : 64
+    } ],
+    "name" : "Neon Indian",
+    "popularity" : 53,
+    "type" : "artist",
+    "uri" : "spotify:artist:0KydPQPUUoTNhmiHKOg5Er"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3BYXi96LqI8TwNljFKE0DZ"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 95650
+    },
+    "genres" : [ "anti-folk", "art pop", "bubblegrunge", "indie punk", "indie rock" ],
+    "href" : "https://api.spotify.com/v1/artists/3BYXi96LqI8TwNljFKE0DZ",
+    "id" : "3BYXi96LqI8TwNljFKE0DZ",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/b9e75655858177874e092f212454223b789be3c5",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/265f7ccec9de434d2d5ad5a6df01968ec41a248e",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/a7c70f99ad099799bc03e286e68df18a47dd5a63",
+      "width" : 160
+    } ],
+    "name" : "Girlpool",
+    "popularity" : 50,
+    "type" : "artist",
+    "uri" : "spotify:artist:3BYXi96LqI8TwNljFKE0DZ"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4WrK3qZXMjfwl0dQj09QSD"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 15487
+    },
+    "genres" : [ "chillwave", "shiver pop" ],
+    "href" : "https://api.spotify.com/v1/artists/4WrK3qZXMjfwl0dQj09QSD",
+    "id" : "4WrK3qZXMjfwl0dQj09QSD",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/c25775eda9cdeb92d5590a1a31bd86345fcaf470",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/2e5cc7915c618b4e2821cafc570061af8f195e84",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/8c34fe4bc41a7fa49763f7fece67177aeb8df9df",
+      "width" : 160
+    } ],
+    "name" : "Pure Bathing Culture",
+    "popularity" : 35,
+    "type" : "artist",
+    "uri" : "spotify:artist:4WrK3qZXMjfwl0dQj09QSD"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2gG1LfmQPkHZNptgVpYlpr"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 33468
+    },
+    "genres" : [ ],
+    "href" : "https://api.spotify.com/v1/artists/2gG1LfmQPkHZNptgVpYlpr",
+    "id" : "2gG1LfmQPkHZNptgVpYlpr",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/e1fa16ce340882decfd6dff18b0c1ffe73d0b0d4",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/efc0bcda91429e042653af7dc55ed07d278b66de",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/146b35c91a47ef3ca1bf591134f953c1a919bed7",
+      "width" : 160
+    } ],
+    "name" : "El Huervo",
+    "popularity" : 48,
+    "type" : "artist",
+    "uri" : "spotify:artist:2gG1LfmQPkHZNptgVpYlpr"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/1H58rS29XotmFJWT3KCnl0"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 25434
+    },
+    "genres" : [ "art pop", "chamber psych", "chillwave", "garage psych", "metropopolis", "nu gaze", "shoegaze", "swedish indie pop", "swedish synthpop" ],
+    "href" : "https://api.spotify.com/v1/artists/1H58rS29XotmFJWT3KCnl0",
+    "id" : "1H58rS29XotmFJWT3KCnl0",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/e0e89596697f5f11d8570cb4ef6158b56506d37d",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/04b69be8494b5297c274000f5bb989580776fdb6",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/ce4c103df9c8184cb90b787b9ad88e1b4c0ad6b8",
+      "width" : 160
+    } ],
+    "name" : "I Break Horses",
+    "popularity" : 36,
+    "type" : "artist",
+    "uri" : "spotify:artist:1H58rS29XotmFJWT3KCnl0"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/6EHS9kZ9PpeXaJ4wZO3FSX"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 12660
+    },
+    "genres" : [ "bedroom pop" ],
+    "href" : "https://api.spotify.com/v1/artists/6EHS9kZ9PpeXaJ4wZO3FSX",
+    "id" : "6EHS9kZ9PpeXaJ4wZO3FSX",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/f7438de3090e9677ca1e5ae16fda989d3eb564d2",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/614f194344d786fb3ecb7adf66b259685adaa9fd",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/5521ab9de1d899b4b367ee07ec0269fdf84559f2",
+      "width" : 160
+    } ],
+    "name" : "Salami Rose Joe Louis",
+    "popularity" : 40,
+    "type" : "artist",
+    "uri" : "spotify:artist:6EHS9kZ9PpeXaJ4wZO3FSX"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4piFCokRN13muTud5Y2lhz"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 108391
+    },
+    "genres" : [ "bubblegrunge", "indie surf" ],
+    "href" : "https://api.spotify.com/v1/artists/4piFCokRN13muTud5Y2lhz",
+    "id" : "4piFCokRN13muTud5Y2lhz",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/8e45b828844aab104b99c2d7102f4a16240e32a7",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/c87c517348ef5dda00da794d1ee07fb0056b24dc",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/8311b82b6ed5d6c6629dae455a373ef13e18ebb7",
+      "width" : 160
+    } ],
+    "name" : "Hinds",
+    "popularity" : 49,
+    "type" : "artist",
+    "uri" : "spotify:artist:4piFCokRN13muTud5Y2lhz"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4PwlsrN0t5mLN0C827cbEU"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 191488
+    },
+    "genres" : [ "french indie pop", "french indietronica", "french synthpop", "indie soul", "new french touch" ],
+    "href" : "https://api.spotify.com/v1/artists/4PwlsrN0t5mLN0C827cbEU",
+    "id" : "4PwlsrN0t5mLN0C827cbEU",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/d4530a34df824be0f30b258d3e631620d0ec5097",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/796859ecc50c28a5ac7d74d13df7f1064251c458",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/c9fedeade4a924118d4f2cc61aa9e19fcff70db8",
+      "width" : 160
+    } ],
+    "name" : "L'Impératrice",
+    "popularity" : 63,
+    "type" : "artist",
+    "uri" : "spotify:artist:4PwlsrN0t5mLN0C827cbEU"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/0l5fDpqfSweuzhaAtWa76A"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 26767
+    },
+    "genres" : [ "chillwave", "indie dream pop", "rome indie" ],
+    "href" : "https://api.spotify.com/v1/artists/0l5fDpqfSweuzhaAtWa76A",
+    "id" : "0l5fDpqfSweuzhaAtWa76A",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/0270cf2a3d29fb613c800a35b2c4732b8d9b6826",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/655e536af1e7e1aefe02e2a8c3d1d3907e4079e9",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/e624d1221db505afa37dc133532e3f2b4a52f40b",
+      "width" : 160
+    } ],
+    "name" : "Porcelain Raft",
+    "popularity" : 31,
+    "type" : "artist",
+    "uri" : "spotify:artist:0l5fDpqfSweuzhaAtWa76A"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/1itM5tXaK5THggpXA7ovAe"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 145861
+    },
+    "genres" : [ "indie soul", "psychedelic soul" ],
+    "href" : "https://api.spotify.com/v1/artists/1itM5tXaK5THggpXA7ovAe",
+    "id" : "1itM5tXaK5THggpXA7ovAe",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/e7037cff3df768f43634218a4d04ecf70f3db1a7",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/fad7d45409e7281d60d7725a4eda1815eb6d954d",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/8c74ab329666241012938d934898d847a4039163",
+      "width" : 160
+    } ],
+    "name" : "Skinshape",
+    "popularity" : 60,
+    "type" : "artist",
+    "uri" : "spotify:artist:1itM5tXaK5THggpXA7ovAe"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2OYDcH3MLWeNjj7gQVUbEF"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 19212
+    },
+    "genres" : [ "chamber psych", "experimental pop", "freak folk", "garage psych", "neo-psychedelic" ],
+    "href" : "https://api.spotify.com/v1/artists/2OYDcH3MLWeNjj7gQVUbEF",
+    "id" : "2OYDcH3MLWeNjj7gQVUbEF",
+    "images" : [ {
+      "height" : 1000,
+      "url" : "https://i.scdn.co/image/ab6772690000c46c69c8fb43c48dd7bbeb7fa9b8",
+      "width" : 1000
+    }, {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab6772690000dd2269c8fb43c48dd7bbeb7fa9b8",
+      "width" : 640
+    }, {
+      "height" : 200,
+      "url" : "https://i.scdn.co/image/ab6772690000bac369c8fb43c48dd7bbeb7fa9b8",
+      "width" : 200
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67726900008f7469c8fb43c48dd7bbeb7fa9b8",
+      "width" : 64
+    } ],
+    "name" : "Chris Cohen",
+    "popularity" : 38,
+    "type" : "artist",
+    "uri" : "spotify:artist:2OYDcH3MLWeNjj7gQVUbEF"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4AGNJdJiVltImYk1UTLE0K"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 80973
+    },
+    "genres" : [ "indie garage rock", "indie pop", "tulsa indie" ],
+    "href" : "https://api.spotify.com/v1/artists/4AGNJdJiVltImYk1UTLE0K",
+    "id" : "4AGNJdJiVltImYk1UTLE0K",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/7cfd303b4d246b5eb8d85ec770b3fce1c71438db",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/a4cc0fbc8426cf5d86cb0ae20f35295b938b7c1a",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/bb65613e4412c924f7b0365ca5050a408e462080",
+      "width" : 160
+    } ],
+    "name" : "Sports",
+    "popularity" : 56,
+    "type" : "artist",
+    "uri" : "spotify:artist:4AGNJdJiVltImYk1UTLE0K"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3y6SKYXXP4lrliD6CzVXH3"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 63572
+    },
+    "genres" : [ "bay area indie", "indie garage rock", "neo-psychedelic", "oakland indie" ],
+    "href" : "https://api.spotify.com/v1/artists/3y6SKYXXP4lrliD6CzVXH3",
+    "id" : "3y6SKYXXP4lrliD6CzVXH3",
+    "images" : [ {
+      "height" : 1000,
+      "url" : "https://i.scdn.co/image/142384d190d685b0b175a9b8d0b424285deb42a6",
+      "width" : 1000
+    }, {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/6a1e887ab7d4bde5b317120507282fb74f098eee",
+      "width" : 640
+    }, {
+      "height" : 200,
+      "url" : "https://i.scdn.co/image/37a91e97d1efc017ba847392f1f31fb0b9203324",
+      "width" : 200
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/160ebc9721df0a8ea3e3bf11d22cd2b486417f8f",
+      "width" : 64
+    } ],
+    "name" : "Sugar Candy Mountain",
+    "popularity" : 49,
+    "type" : "artist",
+    "uri" : "spotify:artist:3y6SKYXXP4lrliD6CzVXH3"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2SaIA1enj83vEmJikZdjQ3"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 70989
+    },
+    "genres" : [ "indie garage rock" ],
+    "href" : "https://api.spotify.com/v1/artists/2SaIA1enj83vEmJikZdjQ3",
+    "id" : "2SaIA1enj83vEmJikZdjQ3",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/7bd9468a4118cf15db46ecf16b1fc33ba54f85e8",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/fb3359c837a924a814e480bd4d6a81912c7e4f9a",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/c65b54459e1782f66f88ed06a011ac7987d1e79e",
+      "width" : 160
+    } ],
+    "name" : "Triathalon",
+    "popularity" : 52,
+    "type" : "artist",
+    "uri" : "spotify:artist:2SaIA1enj83vEmJikZdjQ3"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/7gRH7pJQJaAvrwvi8STYEl"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 13966
+    },
+    "genres" : [ "deep new americana", "lexington ky indie", "retro soul" ],
+    "href" : "https://api.spotify.com/v1/artists/7gRH7pJQJaAvrwvi8STYEl",
+    "id" : "7gRH7pJQJaAvrwvi8STYEl",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/3a1810f32bcf0a8fc162e5b987242dd1e8beaa4b",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/92a96af8431745a2726a8bb2bec68b1347849c8d",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/8281eff13878af0a63b584b9eb1e836e75e08533",
+      "width" : 160
+    } ],
+    "name" : "Matt Duncan",
+    "popularity" : 47,
+    "type" : "artist",
+    "uri" : "spotify:artist:7gRH7pJQJaAvrwvi8STYEl"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/0WtTGUjbur1R1cNzBvbsMU"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 104754
+    },
+    "genres" : [ "alternative rock", "art pop", "art rock", "chamber psych", "chillwave", "dance-punk", "dream pop", "electronica", "experimental", "freak folk", "garage psych", "hauntology", "indie pop", "indietronica", "nu gaze" ],
+    "href" : "https://api.spotify.com/v1/artists/0WtTGUjbur1R1cNzBvbsMU",
+    "id" : "0WtTGUjbur1R1cNzBvbsMU",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/ab67616d0000b273bf553ed27db40d056eb217f7",
+      "width" : 640
+    }, {
+      "height" : 300,
+      "url" : "https://i.scdn.co/image/ab67616d00001e02bf553ed27db40d056eb217f7",
+      "width" : 300
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/ab67616d00004851bf553ed27db40d056eb217f7",
+      "width" : 64
+    } ],
+    "name" : "Broadcast",
+    "popularity" : 52,
+    "type" : "artist",
+    "uri" : "spotify:artist:0WtTGUjbur1R1cNzBvbsMU"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/6QCstr3yhEVSZPQyDvvYjK"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 10171
+    },
+    "genres" : [ "australian alternative pop", "australian r&b" ],
+    "href" : "https://api.spotify.com/v1/artists/6QCstr3yhEVSZPQyDvvYjK",
+    "id" : "6QCstr3yhEVSZPQyDvvYjK",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/01be138bffaabb0c423d4f26755e803b7c5f03cc",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/8034a49bfc068ab035d97b9e4a470d037bee52de",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/a86de385aefe8721d799cc4549b0cd68f9154502",
+      "width" : 160
+    } ],
+    "name" : "FELIVAND",
+    "popularity" : 44,
+    "type" : "artist",
+    "uri" : "spotify:artist:6QCstr3yhEVSZPQyDvvYjK"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/5KTykbPcDB4GYS49jcHbWh"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 51166
+    },
+    "genres" : [ "ambient folk", "art pop", "chamber psych", "freak folk", "indie folk", "indie rock" ],
+    "href" : "https://api.spotify.com/v1/artists/5KTykbPcDB4GYS49jcHbWh",
+    "id" : "5KTykbPcDB4GYS49jcHbWh",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/b5b6fa702d5700e72c94fca2037a454419c90bcc",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/81cc9704133c9da4b857e5c5fa1666315be1b88d",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/395e038e76536cc37e385d2caee49e1ea5a46f7c",
+      "width" : 160
+    } ],
+    "name" : "Jessica Pratt",
+    "popularity" : 50,
+    "type" : "artist",
+    "uri" : "spotify:artist:5KTykbPcDB4GYS49jcHbWh"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3Sz7ZnJQBIHsXLUSo0OQtM"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 1646079
+    },
+    "genres" : [ "edmonton indie" ],
+    "href" : "https://api.spotify.com/v1/artists/3Sz7ZnJQBIHsXLUSo0OQtM",
+    "id" : "3Sz7ZnJQBIHsXLUSo0OQtM",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/e3d3e28c604a1c86e796e0d2aa7d4dc249f62e6f",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/2be26e2a2f49947fb61c31984f27bb1497319dad",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/7806af9f06526b3ca2e33ecae7cb02c8c6bcc221",
+      "width" : 160
+    } ],
+    "name" : "Mac DeMarco",
+    "popularity" : 77,
+    "type" : "artist",
+    "uri" : "spotify:artist:3Sz7ZnJQBIHsXLUSo0OQtM"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2aFm5gM8lQefcKzOvP2eH8"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 7679
+    },
+    "genres" : [ "experimental pop", "hauntology", "neo-psychedelic" ],
+    "href" : "https://api.spotify.com/v1/artists/2aFm5gM8lQefcKzOvP2eH8",
+    "id" : "2aFm5gM8lQefcKzOvP2eH8",
+    "images" : [ {
+      "height" : 603,
+      "url" : "https://i.scdn.co/image/ac42f2afa7829a87533aefdd1f03e7fdd775fff7",
+      "width" : 1000
+    }, {
+      "height" : 386,
+      "url" : "https://i.scdn.co/image/5b735f53882ed9289e19e074f97d0c3600a0c0e9",
+      "width" : 640
+    }, {
+      "height" : 121,
+      "url" : "https://i.scdn.co/image/ad6f2c157e52923178df274536606e3a09112683",
+      "width" : 200
+    }, {
+      "height" : 39,
+      "url" : "https://i.scdn.co/image/48676a779eacc24b553067258e6c30673af5e06e",
+      "width" : 64
+    } ],
+    "name" : "Pram",
+    "popularity" : 28,
+    "type" : "artist",
+    "uri" : "spotify:artist:2aFm5gM8lQefcKzOvP2eH8"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/5juOkIIy18sFw9L30syt1Z"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 403880
+    },
+    "genres" : [ "alternative dance", "chillwave", "indie pop", "indie rock", "indietronica", "neo-synthpop", "nu gaze", "shimmer pop" ],
+    "href" : "https://api.spotify.com/v1/artists/5juOkIIy18sFw9L30syt1Z",
+    "id" : "5juOkIIy18sFw9L30syt1Z",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/9dabb571678ff026321fa92396c1e5ba4a71c2b3",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/173d263facbe4e0584d532d48c165b08145b05e7",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/8cf9023c7842116eda7fa0bcf1d2caae1c9f9566",
+      "width" : 160
+    } ],
+    "name" : "Washed Out",
+    "popularity" : 63,
+    "type" : "artist",
+    "uri" : "spotify:artist:5juOkIIy18sFw9L30syt1Z"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/03uMw43UVu9MsQCcHVSGjX"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 123751
+    },
+    "genres" : [ "south african alternative" ],
+    "href" : "https://api.spotify.com/v1/artists/03uMw43UVu9MsQCcHVSGjX",
+    "id" : "03uMw43UVu9MsQCcHVSGjX",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/07fbd93e50f41ac4f7c6750cee2ba5e26ea099fd",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/ec61d8f88dd1237636b52a39c210b59f5e70353e",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/9ee18d57a40bee713161c18a13ed4ce36324ccf2",
+      "width" : 160
+    } ],
+    "name" : "Alice Phoebe Lou",
+    "popularity" : 55,
+    "type" : "artist",
+    "uri" : "spotify:artist:03uMw43UVu9MsQCcHVSGjX"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4DMSJzGjw2SMkKAT5EEE5u"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 299045
+    },
+    "genres" : [ "indie garage rock", "montreal indie", "quebec indie" ],
+    "href" : "https://api.spotify.com/v1/artists/4DMSJzGjw2SMkKAT5EEE5u",
+    "id" : "4DMSJzGjw2SMkKAT5EEE5u",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/2719cb043762c6f076ab62b570a9478712dea187",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/da68be9c760513c506e995aaa43f133dcf1cffbc",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/233a025f8a2561b5e9a6865d9f1e7001651137c0",
+      "width" : 160
+    } ],
+    "name" : "HOMESHAKE",
+    "popularity" : 60,
+    "type" : "artist",
+    "uri" : "spotify:artist:4DMSJzGjw2SMkKAT5EEE5u"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/6eO95BjZhrWHREMfwC4vVN"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 95708
+    },
+    "genres" : [ "bay area indie", "chillwave", "freak folk", "indie pop", "indie rock", "indie surf", "noise pop", "nu gaze" ],
+    "href" : "https://api.spotify.com/v1/artists/6eO95BjZhrWHREMfwC4vVN",
+    "id" : "6eO95BjZhrWHREMfwC4vVN",
+    "images" : [ {
+      "height" : 405,
+      "url" : "https://i.scdn.co/image/e142cfa0a151fc9b0113aaa602b2af6295efa80a",
+      "width" : 600
+    }, {
+      "height" : 135,
+      "url" : "https://i.scdn.co/image/1e00d8cf0a4216edbff6260c17fae4b2e3a0f27c",
+      "width" : 200
+    }, {
+      "height" : 43,
+      "url" : "https://i.scdn.co/image/0ece47a71d7f31ce2d4da29ba0830e17ba946501",
+      "width" : 64
+    } ],
+    "name" : "Girls",
+    "popularity" : 45,
+    "type" : "artist",
+    "uri" : "spotify:artist:6eO95BjZhrWHREMfwC4vVN"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/6QRlkjrHz5A62mqeNZz7t3"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 49965
+    },
+    "genres" : [ "indie garage rock", "indie surf" ],
+    "href" : "https://api.spotify.com/v1/artists/6QRlkjrHz5A62mqeNZz7t3",
+    "id" : "6QRlkjrHz5A62mqeNZz7t3",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/0d75259be5781c0bbf61395f54e2f29fc55b8e52",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/71a16223c447eff9232dadbe47724a45c7d48dfa",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/d52fc0dc379f02dded83fde93a7d67c1dd133a6b",
+      "width" : 160
+    } ],
+    "name" : "La Luz",
+    "popularity" : 42,
+    "type" : "artist",
+    "uri" : "spotify:artist:6QRlkjrHz5A62mqeNZz7t3"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/6WHacyjvIAiEADQHJMsts7"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 2514
+    },
+    "genres" : [ "halifax indie" ],
+    "href" : "https://api.spotify.com/v1/artists/6WHacyjvIAiEADQHJMsts7",
+    "id" : "6WHacyjvIAiEADQHJMsts7",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/784ecdd9f9cb1c667ac3d2e12ce2615e4d729b0e",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/954bbc5dbc5a5c5d87f42834d0b3b4fae07572e2",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/fca47c5b2ed821b2f78de5d68cfd78139e922786",
+      "width" : 160
+    } ],
+    "name" : "Mauno",
+    "popularity" : 16,
+    "type" : "artist",
+    "uri" : "spotify:artist:6WHacyjvIAiEADQHJMsts7"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4ftctxasGrW5Ud5Pbw6kWq"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 64444
+    },
+    "genres" : [ "indie garage rock", "indie rock", "neo-psychedelic", "victoria bc indie" ],
+    "href" : "https://api.spotify.com/v1/artists/4ftctxasGrW5Ud5Pbw6kWq",
+    "id" : "4ftctxasGrW5Ud5Pbw6kWq",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/a56debe58fde243f4a33371d1e7534f2a49d0365",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/7fbad9d6b980c55c0177fc22c06c2a5a037a9b62",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/06588dc2a5ac3d43eea92f93492370aa460e628a",
+      "width" : 160
+    } ],
+    "name" : "Loving",
+    "popularity" : 54,
+    "type" : "artist",
+    "uri" : "spotify:artist:4ftctxasGrW5Ud5Pbw6kWq"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/4zXEe25IWFWVU48Q0BaK9q"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 9688
+    },
+    "genres" : [ "chamber psych", "garage psych", "montreal indie", "neo-psychedelic" ],
+    "href" : "https://api.spotify.com/v1/artists/4zXEe25IWFWVU48Q0BaK9q",
+    "id" : "4zXEe25IWFWVU48Q0BaK9q",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/fb4ae8228e7ed392acb2da620a6eff75583aa916",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/bb25944dac517833cc87783a10ca71cb050b813c",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/85600e9923e11043385f8c847cabd5b3563b3697",
+      "width" : 160
+    } ],
+    "name" : "Pottery",
+    "popularity" : 36,
+    "type" : "artist",
+    "uri" : "spotify:artist:4zXEe25IWFWVU48Q0BaK9q"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/7MoIc5s9KXolCBH1fy9kkw"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 227053
+    },
+    "genres" : [ "art pop", "bubblegrunge", "eugene indie", "indie pop", "indie rock", "philly indie" ],
+    "href" : "https://api.spotify.com/v1/artists/7MoIc5s9KXolCBH1fy9kkw",
+    "id" : "7MoIc5s9KXolCBH1fy9kkw",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/bbd086624a222bb8a528abea07acc91ff4124cb4",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/8568177a797b2ad99de211c013baf0be24349567",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/798d40f32dda5d98e26d1e3bf7419d43a15101b6",
+      "width" : 160
+    } ],
+    "name" : "Japanese Breakfast",
+    "popularity" : 58,
+    "type" : "artist",
+    "uri" : "spotify:artist:7MoIc5s9KXolCBH1fy9kkw"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/1wmiQ6ytATiGnJs6uFluKO"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 89019
+    },
+    "genres" : [ "art pop", "bay area indie", "chillwave", "indie folk", "indie pop", "indie rock", "oakland indie", "small room" ],
+    "href" : "https://api.spotify.com/v1/artists/1wmiQ6ytATiGnJs6uFluKO",
+    "id" : "1wmiQ6ytATiGnJs6uFluKO",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/1d5125bd6a1d23ff8dbb194b57da44ef431b3347",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/322a9eeb6e22d1cc9a94c839fa370918e12392dd",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/e3f808c1a27428242cec346f11dcd00fe91467f7",
+      "width" : 160
+    } ],
+    "name" : "Jay Som",
+    "popularity" : 54,
+    "type" : "artist",
+    "uri" : "spotify:artist:1wmiQ6ytATiGnJs6uFluKO"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/3TdVTSmMfLh55VrJDUpIQ2"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 33808
+    },
+    "genres" : [ "art pop", "chillwave", "dream pop", "dreamgaze", "garage psych", "grave wave", "metropopolis", "nu gaze", "shoegaze" ],
+    "href" : "https://api.spotify.com/v1/artists/3TdVTSmMfLh55VrJDUpIQ2",
+    "id" : "3TdVTSmMfLh55VrJDUpIQ2",
+    "images" : [ {
+      "height" : 1000,
+      "url" : "https://i.scdn.co/image/c72e1f843f9e6faff213cb01af098bf5f24c7df6",
+      "width" : 1000
+    }, {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/321a659a5101444f8eea151286804af1f97fe1ef",
+      "width" : 640
+    }, {
+      "height" : 200,
+      "url" : "https://i.scdn.co/image/2b7288d83742cc05e8b1d9001dce945f5a901e97",
+      "width" : 200
+    }, {
+      "height" : 64,
+      "url" : "https://i.scdn.co/image/d79be1c3c707e4110a4b878f1e036ffb28d02ecf",
+      "width" : 64
+    } ],
+    "name" : "Tamaryn",
+    "popularity" : 39,
+    "type" : "artist",
+    "uri" : "spotify:artist:3TdVTSmMfLh55VrJDUpIQ2"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/60tZRF2LOOUONoZXo2ATtd"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 3610
+    },
+    "genres" : [ ],
+    "href" : "https://api.spotify.com/v1/artists/60tZRF2LOOUONoZXo2ATtd",
+    "id" : "60tZRF2LOOUONoZXo2ATtd",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/b1e279d0e32eec9bd9926eb6cfa54f242ed0f873",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/1595b80a4aa22958573cce699a57db8cf6fd32b1",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/5d7187b298735d725b78f666c123373991933202",
+      "width" : 160
+    } ],
+    "name" : "Nick Dorian",
+    "popularity" : 36,
+    "type" : "artist",
+    "uri" : "spotify:artist:60tZRF2LOOUONoZXo2ATtd"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/0HMLp79IAd9Z8zMgxqpyxn"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 32096
+    },
+    "genres" : [ "anti-folk", "grand rapids indie", "indie garage rock", "indie punk", "indie rock", "philly indie" ],
+    "href" : "https://api.spotify.com/v1/artists/0HMLp79IAd9Z8zMgxqpyxn",
+    "id" : "0HMLp79IAd9Z8zMgxqpyxn",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/58f9bd0744d3c1c3c42b6cbfb0bb754cb7a9787e",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/296c7a291d4a0daf946c46a67bda44f43b4223ee",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/36d01c1e35e37e7a49e56d8405053b996591fc61",
+      "width" : 160
+    } ],
+    "name" : "Radiator Hospital",
+    "popularity" : 47,
+    "type" : "artist",
+    "uri" : "spotify:artist:0HMLp79IAd9Z8zMgxqpyxn"
+  }, {
+    "external_urls" : {
+      "spotify" : "https://open.spotify.com/artist/2qFOYqFxPaIwEnffVhJhEn"
+    },
+    "followers" : {
+      "href" : null,
+      "total" : 66488
+    },
+    "genres" : [ "deep new americana", "funk", "indie folk", "retro soul" ],
+    "href" : "https://api.spotify.com/v1/artists/2qFOYqFxPaIwEnffVhJhEn",
+    "id" : "2qFOYqFxPaIwEnffVhJhEn",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/a064394a1f74b9d81a7085d007d500205adf2223",
+      "width" : 640
+    }, {
+      "height" : 320,
+      "url" : "https://i.scdn.co/image/bb6ee1f62b76ba2e25779ace05dc3db48d678792",
+      "width" : 320
+    }, {
+      "height" : 160,
+      "url" : "https://i.scdn.co/image/6d25b3233f3b1e8a4d7cab72d141c1b687664067",
+      "width" : 160
+    } ],
+    "name" : "The Dip",
+    "popularity" : 57,
+    "type" : "artist",
+    "uri" : "spotify:artist:2qFOYqFxPaIwEnffVhJhEn"
+  } ],
+  "total" : 50,
+  "limit" : 50,
+  "offset" : 0,
+  "previous" : null,
+  "href" : "https://api.spotify.com/v1/me/top/artists?limit=50&offset=0",
+  "next" : null
+}

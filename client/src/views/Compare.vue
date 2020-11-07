@@ -1,9 +1,11 @@
 <template>
   <div id="compare">
     <div class="container">
-      <div class="loading-notice" v-if="loading">
+      <div v-if="loading" class="loading-notice">
+        <h1 class="title">Loading Your Data</h1>
       </div>
-      <div class="results" v-else>
+
+      <div v-else class="results">
         <div class="header">
           <h1 class="title">
             <span class="comparing">Comparing</span>
@@ -15,8 +17,10 @@
             <span class="display-name">{{ data[1].profile.display_name }}</span>
           </h1>
         </div>
+
+        <!-- Different data visualisation components will live here! -->
+
       </div>
-      {{ $route.params }}
     </div>
   </div>
 </template>
@@ -51,7 +55,7 @@ export default {
             },
             listening_data: {
               short_term: { artists: [], tracks: [] },
-              medium_term: { artists: [], tracks: [] },
+              medium_term: { artists: require("../assets/mock_data/mock_artists_1.json"), tracks: [] },
               long_term: { artists: [], tracks: [] }
             }
           },
@@ -63,7 +67,7 @@ export default {
             },
             listening_data: {
               short_term: { artists: [], tracks: [] },
-              medium_term: { artists: [], tracks: [] },
+              medium_term: { artists: require("../assets/mock_data/mock_artists_2.json"), tracks: [] },
               long_term: { artists: [], tracks: [] }
             }
           }
@@ -87,6 +91,15 @@ export default {
   .container {
     width:100%;
     max-width:1280px;
+
+    .loading-notice {
+      .title {
+        font-size: $font-size-m;
+        @media(min-width:$breakpoint-width) {
+          font-size: $font-size-l;
+        }
+      }
+    }
 
     .results {
       width:100%;
