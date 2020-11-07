@@ -30,7 +30,6 @@ custom:
     domainName: ${self:custom.domain.${opt:stage}}
     hostedZoneId: Z051670734W62CVYQ4B6H
     stage: ${opt:stage}
-    endpointType: regional
 
 provider:
   name: aws
