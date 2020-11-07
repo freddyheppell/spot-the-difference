@@ -14,6 +14,10 @@ def build_profile_response(spotify_response):
 
     return response
 
+@app.route("/health")
+def health():
+    return "I'm healthy!"
+
 @app.route("/profile", methods=['POST'])
 def profile():
     token = request.get_json()['token']
