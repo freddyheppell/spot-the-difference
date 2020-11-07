@@ -18,7 +18,7 @@
 
 <script>
 import axios from "axios"
-const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
+const API_Path = "https://api-dev.spotdiff.online/dev"
 
 export default {
   name: 'Login',

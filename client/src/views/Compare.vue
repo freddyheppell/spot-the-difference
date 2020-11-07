@@ -18,6 +18,8 @@
           </h1>
         </div>
 
+        <TermSelector :selected_term="selected_term" @select="selected_term = $event"/>
+        {{ selected_term }}
         <!-- Different data visualisation components will live here! -->
 
       </div>
@@ -27,13 +29,16 @@
 
 <script>
 import axios from "axios"
-const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
+import TermSelector from "../components/TermSelector.vue"
+const API_Path = "https://api-dev.spotdiff.online/dev"
 
 export default {
   name: 'Compare',
+  components: { TermSelector },
   data(){return{
     data: undefined,
-    loading: true
+    loading: true,
+    selected_term:"long_term",
   }},
   mounted() {
     axios.post(API_Path+"/compare",{
@@ -113,15 +118,7 @@ export default {
         }
 
         hr {
-          border:none;
           margin: $spacer*4 0 $spacer*2 0;
-          height:2px;
-          background: $cyan;
-          box-shadow: 0px 0px 10px $cyan-d;
-          &.alt {
-            background: $magenta-l;
-            box-shadow: 0px 0px 10px $magenta-d;
-          }
         }
 
         .comparing, .and { text-align: left }
