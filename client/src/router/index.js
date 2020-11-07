@@ -6,12 +6,12 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/:token1/:token2',
+    path: '/:share_code_1/:share_code_2',
     name: 'Compare',
     component: () => import('../views/Compare.vue')
   },
   {
-    path: '/:token1',
+    path: '/:share_code_1',
     name: 'Login',
     component: Login
   },
