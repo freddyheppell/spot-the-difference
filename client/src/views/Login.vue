@@ -18,6 +18,7 @@
 
 <script>
 import axios from "axios"
+const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
 
 export default {
   name: 'Login',
@@ -25,8 +26,6 @@ export default {
     other_profile: undefined
   }},
   mounted() {
-    const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
-
     //Check the route query for a code given to us by the spotify API after redirect...
     if (this.$route.query.code) {
       var params = {
@@ -44,6 +43,7 @@ export default {
                       this.$router.push(response.data.share_codes[0]+"/"+response.data.share_codes[1])
                     } else {
                       this.$router.push(response.data.share_codes[0])
+                      this.get_profile(response.data.share_codes[0])
                     }
                   }.bind(this)
                 ).catch(
@@ -51,18 +51,21 @@ export default {
                     console.log("/authorise failed: ", reason)
                   }
                 )
+    } else if (this.$route.params.token1) {
+      this.get_profile(this.$route.params.token1)
     }
-
-    //Otherwise we just check if we've got someone else's share code in the path
-    if (this.$route.params.token1) {
-      //If we have, then we can get their profile data and display it!
-      axios.post(API_Path+"/profile", { token: this.$route.params.token1 }
+  },
+  methods: {
+    get_profile(share_token) {
+      //We get the profile's data from the /profile endpoint.
+      axios.post(API_Path+"/profile", { token: share_token }
       ).then(function(response){
         console.log(response)
+        //TODO!
       }.bind(this)).catch(
         function(reason) {
           console.log("/profile failed: ", reason)
-          //Dummy data
+          //Dummy data to fill in while I await implementation of /profile.
           this.other_profile = {
             avatar: "https://i.scdn.co/image/ab6775700000ee85addafcb811631836a9deddfc",
             display_name: "TheTeaCat",
@@ -70,9 +73,7 @@ export default {
           }
         }.bind(this)
       )
-    }
-  },
-  methods: {
+    },
     share() {
       if (navigator.canShare) {
         navigator.share({
@@ -101,7 +102,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '../assets/styles/_vars.scss';
 
 #login {
