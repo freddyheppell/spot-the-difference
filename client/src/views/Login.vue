@@ -1,24 +1,125 @@
 <template>
-  <div id="app">
-    {{ $route.params }}
-    <h1>Login!</h1>
-    <LoginForm :sharecode="sharecode"/>
+  <div id="login">
+    <h1 class="title">Spot The <span class="difference alt">Difference</span></h1>
+    <div v-if="$route.params.token1" class="about">
+      Compare your music taste with 
+      <a :href="other_profile.href">{{ other_profile.display_name }}</a>!
+      <img class="avatar" :src="other_profile.avatar"/>
+    </div>
+    <a class="login-button button" :href="spotify_auth_link">
+      Log In With Spotify
+    </a>
+    <div class="shareables" v-if="$route.params.token1">
+      Or share this link so others can compare their tastes with {{ other_profile.display_name }}!
+      <button class="copy-link button">Copy Link</button>
+    </div>
   </div>
 </template>
 
 <script>
-import LoginForm from '../components/LoginForm.vue'
+import axios from "axios"
 
 export default {
   name: 'Login',
-  components: {
-    LoginForm
-  },
   data() {return {
-    share_code: null
-  }}
+    other_profile: {
+      avatar: "https://i.scdn.co/image/ab6775700000ee85addafcb811631836a9deddfc",
+      display_name: "TheTeaCat",
+      href:"placeholder"
+    }
+  }},
+  mounted() {
+    const API_Path = "https://negka4m5ph.execute-api.eu-west-1.amazonaws.com/dev"
+    
+    //Check the route query for a code given to us by the spotify API after redirect...
+    if (this.$route.query.code) {
+      var params = {
+        spotify_code: this.$route.query.code
+      }
+      //If we've also got someone else's share code in the state then we add that to the params given to /authorise
+      if (this.$route.query.state) {
+        params.share_code = this.$route.query.state
+      }
+      axios.post(API_Path+"/authorise", params
+                ).then(
+                  function(response) {
+                    console.log(response.data.share_codes[0])
+                    this.$router.push(response.data.share_codes[0])
+                  }.bind(this)
+                )
+    }
+
+    //Otherwise we just check if we've got someone else's share code in the path
+    if (this.$route.params.token1) {
+      console.log("bruh!")
+      axios.post(API_Path+"/profile", { token: this.$route.params.token1 }
+      ).then(a => console.log(a))
+    }
+  },
+  computed: {
+    spotify_auth_link() {
+      const client_id = "4c4fa8272fc04f028b61d332524d2611";
+      const redirect_uri = window.location.origin;
+      const scope = "";
+      return "https://accounts.spotify.com/authorize"+
+             "?response_type=code"+
+             "&client_id="+client_id+
+             "&redirect_uri="+redirect_uri+
+             "&scope="+scope+
+             (this.$route.params.token1 ? "&state="+this.$route.params.token1 : "")
+    }
+  }
 }
 </script>
 
 <style lang="scss">
+@import '../assets/styles/_vars.scss';
+
+#login {
+  padding: $spacer*4;
+
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+
+  text-align:center;
+
+  >* {
+    max-width:100%;
+  }
+
+  .title {
+    margin-bottom: $spacer*4;
+    font-size: $font-size-l;
+    @media(min-width:$breakpoint-width) {
+      font-size: $font-size-ll;
+    }
+    .difference {
+      display:block;
+    }
+  }
+
+  .about {
+    margin-top: $spacer*4;
+    .avatar {
+      display:block;
+      margin:$spacer*4 auto;
+
+      width:200px;
+      height:200px;      
+      object-fit: cover;
+      border-radius:50%;
+    }
+  }
+
+  .shareables {
+    margin-top: $spacer*8;
+    padding-top: $spacer*4;
+    border-top: 1px solid $white;
+    .copy-link {
+      display:block;
+      margin: $spacer*4 auto 0 auto;
+    }
+  }
+}
 </style>
