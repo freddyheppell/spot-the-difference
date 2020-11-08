@@ -1,6 +1,11 @@
 <template>
   <div>
     <hr class="alt">
+    <ol class="key">
+      <li class="display-name-1">{{ display_name_1 }}</li>
+      <li class="both">Both</li>
+      <li class="display-name-2">{{ display_name_2 }}</li>
+    </ol>
     <div class="network-graph-container">
       <d3-network class="d3-network"
                   :net-nodes="Object.values(artists).map(a=>a.node)" 
@@ -35,7 +40,7 @@ export default {
   components: {
     D3Network
   },
-  props: ["artists_1_raw", "artists_2_raw"],
+  props: ["artists_1_raw", "artists_2_raw", "display_name_1", "display_name_2"],
   watch: {
     artists_1_raw: function(){this.artist_selected=undefined},
     artists_2_raw: function(){this.artist_selected=undefined}
@@ -121,6 +126,30 @@ export default {
 </script>
 
 <style lang="scss">
+.key {
+  font-family: 'Lato', sans-serif;
+  font-weight:700;
+  font-size: $font-size;
+  @media(min-width:$breakpoint-width) {
+    font-size: $font-size-m;
+  }
+
+  text-align:left;
+  text-transform: uppercase;
+
+  >*{ display:inline-block }
+  :first-child::after {content:"|"}
+  :last-child::before {content:"|"}
+
+  .display-name-1 {
+    text-shadow: 0px 0px 20px $magenta-d;
+    color: $magenta-l;    
+  }  
+  .display-name-2 {
+    text-shadow: 0px 0px 20px $cyan-d;
+    color: $cyan-l;    
+  }  
+}
 .network-graph-container {
   height:70vh;
 
