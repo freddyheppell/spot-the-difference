@@ -29,12 +29,6 @@
                         :display_name_1="data[0].profile.display_name"
                         :display_name_2="data[1].profile.display_name"/>
         
-        <CommonGenres class="common-genres"
-                      :artists_1_raw="data[0].listening_data[selected_term].artists"
-                      :artists_2_raw="data[1].listening_data[selected_term].artists"
-                      :display_name_1="data[0].profile.display_name"
-                      :display_name_2="data[1].profile.display_name"/>
-        
         <TrackTrade class="track-trade"
                     :artists_1_raw="data[0].listening_data[selected_term].artists"
                     :artists_2_raw="data[1].listening_data[selected_term].artists"
@@ -45,6 +39,11 @@
                     :avatar_1="data[0].profile.images[0].url"
                     :avatar_2="data[1].profile.images[0].url"/>
 
+        <CommonGenres class="common-genres"
+                      :artists_1_raw="data[0].listening_data[selected_term].artists"
+                      :artists_2_raw="data[1].listening_data[selected_term].artists"
+                      :display_name_1="data[0].profile.display_name"
+                      :display_name_2="data[1].profile.display_name"/>
       </div>
     </div>
   </div>
