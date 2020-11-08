@@ -171,7 +171,7 @@ export default {
       }
     }
     .link { 
-      stroke: $cyan;
+      stroke: $white;
       opacity: 0.1;
     }
   }
