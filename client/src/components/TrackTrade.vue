@@ -140,8 +140,7 @@ export default {
     text-align:left;
   }
   .grid {
-    margin-top: $spacer*8;
-    margin-bottom: $spacer*4;
+    margin: $spacer*4 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -156,6 +155,7 @@ export default {
      #track1 { grid-area: b }
      #track2 { grid-area: c }
      @media (min-width: $breakpoint-width) {
+      margin-top: $spacer*8;
       #avatar1 { grid-area: a }
       #avatar2 { grid-area: b }
       #track1 { grid-area: c }
