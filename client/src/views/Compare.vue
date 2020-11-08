@@ -35,7 +35,7 @@
 import axios from "axios"
 import TermSelector from "../components/TermSelector.vue"
 import ArtistsNetwork from "../components/ArtistsNetwork.vue"
-const API_Path = "https://api-dev.spotdiff.online"
+const API_Path = process.env.VUE_APP_API_BASE_URI ? process.env.VUE_APP_API_BASE_URI : "https://api-dev.spotdiff.online"
 
 export default {
   name: 'Compare',

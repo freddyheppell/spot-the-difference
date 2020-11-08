@@ -18,7 +18,7 @@
 
 <script>
 import axios from "axios"
-const API_Path = "https://api-dev.spotdiff.online"
+const API_Path = process.env.VUE_APP_API_BASE_URI ? process.env.VUE_APP_API_BASE_URI : "https://api-dev.spotdiff.online"
 
 export default {
   name: 'Login',
