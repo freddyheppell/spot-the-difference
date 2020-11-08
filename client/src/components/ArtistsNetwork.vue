@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <div class="container">
     <hr class="alt">
+    <h1 class="title">Artists</h1>
     <ol class="key">
       <li class="display-name-1">{{ display_name_1 }}</li>
       <li class="both">Both</li>
       <li class="display-name-2">{{ display_name_2 }}</li>
     </ol>
-    <p class="links-desc">Links represent mutual genres.</p>
+    <p class="desc">Links represent mutual genres.</p>
     <div class="network-graph-container">
       <d3-network class="d3-network"
                   :net-nodes="Object.values(artists).map(a=>a.node)" 
@@ -76,13 +77,13 @@ export default {
     },
     artists() {
       var artists = {}
-      for (var artist of this.artists_1_raw.slice(25)) {
+      for (var artist of this.artists_1_raw.slice(0,15)) {
         artists[artist.name] = artist
         artists[artist.name].node = {
           id:artist.name, _cssClass:"user1-artist-node"
         }
       }
-      for (artist of this.artists_2_raw.slice(25)) {
+      for (artist of this.artists_2_raw.slice(0,15)) {
         if (artists[artist.name]) {
           artists[artist.name].node._cssClass="both-artist-node"
         } else {
@@ -126,108 +127,115 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.key {
-  font-family: 'Lato', sans-serif;
-  font-weight:700;
-  font-size: $font-size;
-  @media(min-width:$breakpoint-width) {
-    font-size: $font-size-m;
-  }
-
-  text-align:left;
-  text-transform: uppercase;
-
-  >*{ display:inline-block }
-  :first-child::after {content:"|"}
-  :last-child::before {content:"|"}
-
-  .display-name-1 {
-    text-shadow: 0px 0px 20px $magenta-d;
-    color: $magenta-l;    
-  }  
-  .display-name-2 {
-    text-shadow: 0px 0px 20px $cyan-d;
-    color: $cyan-l;    
-  }  
-}
-.links-desc {
-  text-align:left;
-}
-.network-graph-container {
-  height:70vh;
-
-  .d3-network {
-    width:100%;height:100%;
-
-    .user1-artist-node { fill: $magenta; }
-    .user2-artist-node { fill: $cyan; }
-    .both-artist-node { fill: $white; }
-
-    .node {
-      r: 5px;
-      &.selected {
-        r:10px;
-      }
-    }
-    .link { 
-      stroke: $white;
-      opacity: 0.15;
-    }
-  }
-}
-.selected-artist {
-  font-family: 'Lato', sans-serif;
-  line-height:1;
-  padding: $spacer*2;
-  .artist-name {
+<style lang="scss" scoped>
+.container {
+  .title {
     text-align:left;
     font-size: $font-size-m;
     @media(min-width:$breakpoint-width) {
       font-size: $font-size-l;
     }
   }
-  .artist-genres-ul {
-    padding-top: $spacer*3;
+  .key {
+    font-family: 'Lato', sans-serif;
+    font-weight:700;
+
     text-align:left;
-    .artist-genres-li {
-      display: inline;
-      &::after {
-        content:", "
+    text-transform: uppercase;
+
+    >*{ display:inline-block }
+    :first-child::after {content:"|"}
+    :last-child::before {content:"|"}
+
+    .display-name-1 {
+      text-shadow: 0px 0px 20px $magenta-d;
+      color: $magenta-l;    
+    }  
+    .display-name-2 {
+      text-shadow: 0px 0px 20px $cyan-d;
+      color: $cyan-l;    
+    }  
+  }
+  .desc {
+    text-align:left;
+  }
+  .network-graph-container {
+    height:70vh;
+  }
+  .selected-artist {
+    font-family: 'Lato', sans-serif;
+    line-height:1;
+    padding: $spacer*2;
+    .artist-name {
+      text-align:left;
+      font-size: $font-size-m;
+      @media(min-width:$breakpoint-width) {
+        font-size: $font-size-l;
       }
-      &:last-child {
+    }
+    .artist-genres-ul {
+      padding-top: $spacer*3;
+      text-align:left;
+      .artist-genres-li {
+        display: inline;
         &::after {
-          content:""
+          content:", "
+        }
+        &:last-child {
+          &::after {
+            content:""
+          }
+        }
+      }
+    }
+    .similar-artists-ul {
+      padding-top: $spacer*3;
+
+      font-family: 'Lato', sans-serif;
+      font-weight:700;
+      font-size: $font-size;
+      @media(min-width:$breakpoint-width) {
+        font-size: $font-size-m;
+      }
+
+      text-align:left;
+      text-transform: uppercase;
+      text-shadow: 0px 0px 20px $magenta-d;
+      color: $magenta-l;
+
+      .similar-artists-li {
+        display: inline;
+        &::after {
+          content:", "
+        }
+        &:last-child {
+          &::after {
+            content:""
+          }
         }
       }
     }
   }
-  .similar-artists-ul {
-    padding-top: $spacer*3;
+}
+</style>
 
-    font-family: 'Lato', sans-serif;
-    font-weight:700;
-    font-size: $font-size;
-    @media(min-width:$breakpoint-width) {
-      font-size: $font-size-m;
+<style lang="scss">
+.d3-network {
+  width:100%;height:100%;
+
+  .user1-artist-node { fill: $magenta; }
+  .user2-artist-node { fill: $cyan; }
+  .both-artist-node { fill: $white; }
+
+  .node {
+    r: 5px;
+    &.selected {
+      r:10px;
     }
-
-    text-align:left;
-    text-transform: uppercase;
-    text-shadow: 0px 0px 20px $magenta-d;
-    color: $magenta-l;
-
-    .similar-artists-li {
-      display: inline;
-      &::after {
-        content:", "
-      }
-      &:last-child {
-        &::after {
-          content:""
-        }
-      }
-    }
+  }
+  .link { 
+    stroke: $white;
+    opacity: 0.15;
   }
 }
 </style>
