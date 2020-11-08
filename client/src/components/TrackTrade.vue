@@ -140,7 +140,8 @@ export default {
     text-align:left;
   }
   .grid {
-    margin: $spacer*4 0;
+    margin-top: $spacer*8;
+    margin-bottom: $spacer*4;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
