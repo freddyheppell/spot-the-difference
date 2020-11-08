@@ -42,8 +42,8 @@ export default {
   },
   props: ["artists_1_raw", "artists_2_raw", "display_name_1", "display_name_2"],
   watch: {
-    artists_1_raw: function(){this.artist_selected=undefined},
-    artists_2_raw: function(){this.artist_selected=undefined}
+    artists_1_raw: function(){this.artist_selected=undefined;this.selection.nodes={}},
+    artists_2_raw: function(){this.artist_selected=undefined;this.selection.nodes={}}
   },
   data(){return{
     artist_selected:undefined,
