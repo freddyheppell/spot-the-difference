@@ -34,8 +34,7 @@
           <ul class="matching-genres-ul">
             <li class="matching-genres-li"
                 v-for="genre of recommendation_1.genres" :key="genre">
-                {{ genre }}
-            </li>
+                {{ genre }}</li>
           </ul>
         </span>
         <hr>
