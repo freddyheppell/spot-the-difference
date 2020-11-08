@@ -60,7 +60,6 @@ export default {
       //We get the profile's data from the /profile endpoint.
       axios.post(API_Path+"/profile", { share_code: share_code }
       ).then(function(response){
-        console.log(response)
         response.data.self = self
         this.profile_data = response.data
         //TODO!

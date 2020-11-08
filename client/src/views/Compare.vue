@@ -56,8 +56,6 @@ export default {
         share_code_1: this.$route.params.share_code_1,
         share_code_2: this.$route.params.share_code_2
      }).then(function(response) {
-       console.log(response.data.data)
-       //TODO - Waiting for Freddy to implement this endpoint xoxo
        this.data = response.data.data
        this.loading = false;
      }.bind(this)
