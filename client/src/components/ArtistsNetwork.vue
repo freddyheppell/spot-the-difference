@@ -161,11 +161,12 @@ export default {
   }
   .network-graph-container {
     height:70vh;
+    max-height: 500px;
   }
   .selected-artist {
     font-family: 'Lato', sans-serif;
     line-height:1;
-    padding: $spacer*2;
+    padding: $spacer*2 0;
     .artist-name {
       text-align:left;
       font-size: $font-size-m;
