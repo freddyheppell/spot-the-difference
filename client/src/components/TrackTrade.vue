@@ -90,6 +90,7 @@ export default {
       var artist_scores = {}
       var artists_raw = display_name == this.display_name_1 ? this.artists_2_raw : this.artists_1_raw
       var tracks_raw = display_name == this.display_name_1 ? this.tracks_2_raw : this.tracks_1_raw
+
       for (var artist of artists_raw) {
         if (!artist_scores[artist.name]) {
           artist_scores[artist.name] = 0
@@ -98,8 +99,10 @@ export default {
           artist_scores[artist.name] += this.genres[genre][display_name]
         }
       }
+
       var track_scores = {}
       var max_score = 0
+
       for (var track of tracks_raw) {
         track.title = track.artists[0].name + " - " + track.name
         track_scores[track.title] = { title: track.title, score: 0 }
@@ -114,11 +117,15 @@ export default {
           max_score = track_scores[track.title].score
         }
       }
+
+      console.log(track_scores)
+
       if (max_score == 0) {
         return Object.values(track_scores).sort(
           (a,b) => b.popularity-a.popularity
-        ).slice(0,1)
+        )[0]
       }
+
       return Object.values(track_scores).sort(
         (a,b) => b.score-a.score
       )[0]
