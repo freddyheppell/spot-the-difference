@@ -27,7 +27,7 @@ def get_user_from_token(token):
 
 
 
-def exchange_code(code):
+def exchange_code(redirect_uri,code):
     body = {
         "grant_type": "authorization_code",
         "code": code,
