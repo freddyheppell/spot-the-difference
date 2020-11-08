@@ -74,17 +74,19 @@ export default {
 
   width:100%;
 
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-
   text-align:center;
 
   .container {
     width:100%;
+    height:100%;
     max-width:1280px;
+    margin: 0 auto;
 
     .loading-notice {
+      height:100%;
+      display:flex;
+      justify-content: center;
+      align-items: center;
       .title {
         font-size: $font-size-m;
         @media(min-width:$breakpoint-width) {
