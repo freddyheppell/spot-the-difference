@@ -9,7 +9,7 @@
                   :options="{ canvas:false }"
                   @node-click="artist_clicked"/>
     </div>
-    <hr class="alt">
+    <hr v-if="artist_selected">
     <div v-if="artist_selected" class="selected-artist">
       <h2 class="artist-name alt">{{ artist_selected.name }}</h2>
       <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
@@ -23,7 +23,7 @@
             >{{ artist }}</li>
       </ul>
     </div>
-    <hr v-if="artist_selected" class="alt">
+    <hr class="alt">
   </div>
 </template>
 
@@ -47,8 +47,12 @@ export default {
   methods:{
     artist_clicked(event,node) {
       this.selection.nodes={}
-      this.selection.nodes[node.id] = node
-      this.artist_selected = this.artists[node.id]
+      if (!this.artist_selected || !(node.id === this.artist_selected.node.id)) {
+        this.selection.nodes[node.id] = node
+        this.artist_selected = this.artists[node.id]
+      } else {
+        this.artist_selected = undefined
+      }
     }
   },
   computed: {
