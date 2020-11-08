@@ -193,10 +193,6 @@ export default {
 
       font-family: 'Lato', sans-serif;
       font-weight:700;
-      font-size: $font-size;
-      @media(min-width:$breakpoint-width) {
-        font-size: $font-size-m;
-      }
 
       text-align:left;
       text-transform: uppercase;
