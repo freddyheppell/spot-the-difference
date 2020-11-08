@@ -6,6 +6,7 @@
       <li class="both">Both</li>
       <li class="display-name-2">{{ display_name_2 }}</li>
     </ol>
+    <p class="links-desc">Links represent mutual genres.</p>
     <div class="network-graph-container">
       <d3-network class="d3-network"
                   :net-nodes="Object.values(artists).map(a=>a.node)" 
@@ -149,6 +150,9 @@ export default {
     text-shadow: 0px 0px 20px $cyan-d;
     color: $cyan-l;    
   }  
+}
+.links-desc {
+  text-align:left;
 }
 .network-graph-container {
   height:70vh;
