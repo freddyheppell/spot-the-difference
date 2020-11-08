@@ -1,7 +1,9 @@
+from concurrent.futures.thread import ThreadPoolExecutor
 from os import environ
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
+from requests_futures.sessions import FuturesSession
 import spotify
 import boto3
 import share_code
@@ -27,22 +29,7 @@ else:
 def get_expiry_time(expires_in):
     return (datetime.datetime.today() + datetime.timedelta(seconds=expires_in)).strftime('%s')
 
-
-@app.route("/health")
-def health():
-    return "I'm healthy!"
-
-
-@app.route("/profile", methods=['POST'])
-def profile():
-    share_code = request.get_json()['share_code']
-    user = user_db.get_user_by_share_code(client, share_code)
-
-    if not user:
-        return {
-            "error": "Share code not found"
-        }, 404
-
+def refresh(user):
     # See if the user's API token needs to be refreshed
     try:
         refreshed_keys = spotify.refresh(user)
@@ -61,6 +48,25 @@ def profile():
             refreshed_keys["refresh_token"] if "refresh_token" in refreshed_keys else user["refresh_token"],
             get_expiry_time(refreshed_keys["expires_in"])
         )
+
+    return refreshed_keys
+
+@app.route("/health")
+def health():
+    return "I'm healthy!"
+
+
+@app.route("/profile", methods=['POST'])
+def profile():
+    share_code = request.get_json()['share_code']
+    user = user_db.get_user_by_share_code(client, share_code)
+
+    if not user:
+        return {
+            "error": "Share code not found"
+        }, 404
+
+    refreshed_keys = refresh(user)
 
     spotify_profile = spotify.get_user_from_token(refreshed_keys["access_token"])
 
@@ -112,19 +118,49 @@ def authorise():
         "share_codes": [user_share_code, passthrough_share_code]
     }
 
-# @app.route("/compare", methods=["POST"])
-# def compare():
-#     json = request.get_json()
-#     share_codes = json["share_codes"]
+def defuture(results):
+    for term, term_data in results.items():
+        for type, type_data in term_data.items():
+            results[term][type] = spotify.filter_popular_response(type_data.result().data)
 
-#     if len(share_codes) != 2:
-#         return jsonify({"error": "Must provide 2 codes"}), 422
+    return results
 
-#     resp = {}
+@app.route("/compare", methods=["POST"])
+def compare():
+    json = request.get_json()
+    share_code_1, share_code_2 = json["share_code_1"], json["share_code_2"]
 
-#     for share_code in share_codes:
-#         user = user_db.get_user_by_share_code(share_code)
-#         display_name, data = spotify.get_music_data_for_token(token)
-#         resp[display_name] = data
+    user_1 = user_db.get_user_by_share_code(client, share_code_1)
+    user_2 = user_db.get_user_by_share_code(client, share_code_2)
 
-#     return resp
+    if not user_1 or not user_2:
+        return {
+            "error": "Share code not found"
+        }, 404
+
+    user_1_keys = refresh(user_1)
+    user_2_keys = refresh(user_2)
+
+    executor = ThreadPoolExecutor()
+    session = FuturesSession(executor)
+
+    user_1_results = spotify.get_user_top(session, user_1_keys["access_token"])
+    user_2_results = spotify.get_user_top(session, user_2_keys["access_token"])
+
+    user_1_profile = spotify.async_user_from_token(session, user_1_keys["access_token"])
+    user_2_profile = spotify.async_user_from_token(session, user_2_keys["access_token"])
+
+    executor.shutdown(wait=True)
+
+    return {
+        "data": [
+            {
+                "profile": spotify.sanitise_profile_response(user_1_profile.result().data),
+                "listening_data": defuture(user_1_results)
+            },
+            {
+                "profile": spotify.sanitise_profile_response(user_2_profile.result().data),
+                "listening_data": defuture(user_2_results)
+            }
+        ]
+    }
