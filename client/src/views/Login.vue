@@ -104,7 +104,7 @@ export default {
 #login {
   align-self: center;
 
-  padding: $spacer*4;
+  padding: $spacer*2;
 
   display:flex;
   flex-direction: column;

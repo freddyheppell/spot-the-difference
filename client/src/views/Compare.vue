@@ -67,7 +67,7 @@ export default {
 
 <style scoped lang="scss">
 #compare {
-  padding: $spacer*4;
+  padding: $spacer*2;
 
   width:100%;
 
@@ -127,10 +127,6 @@ export default {
 
       .term-selector {
         margin-top: $spacer*8;
-      }
-
-      .artists-network {
-        height:70vh;
       }
     }
   }

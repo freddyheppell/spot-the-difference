@@ -1,9 +1,29 @@
 <template>
-  <div class="artists-network">
-    <d3-network class="d3-network"
-                :net-nodes="net_data['net-nodes']" 
-                :net-links="net_data['net-links']" 
-                :options="net_data['options']"/>
+  <div>
+    <hr class="alt">
+    <div class="network-graph-container">
+      <d3-network class="d3-network"
+                  :net-nodes="Object.values(artists).map(a=>a.node)" 
+                  :net-links="net_links" 
+                  :selection="selection"
+                  :options="{ canvas:false }"
+                  @node-click="artist_clicked"/>
+    </div>
+    <hr class="alt">
+    <div v-if="artist_selected" class="selected-artist">
+      <h2 class="artist-name alt">{{ artist_selected.name }}</h2>
+      <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
+        <li v-for="genre of artist_selected.genres" :key="genre" 
+            class="artist-genres-li"
+            >{{ genre }}</li>
+      </ul>
+      <ul class="similar-artists-ul" v-if="similar_artists.length>0">
+        <li v-for="artist of similar_artists" :key="artist"
+            class="similar-artists-li"
+            >{{ artist }}</li>
+      </ul>
+    </div>
+    <hr v-if="artist_selected" class="alt">
   </div>
 </template>
 
@@ -12,38 +32,61 @@ import D3Network from 'vue-d3-network'
 
 export default {
   name: 'ArtistNetwork',
-  props: ["artists_1_raw", "artists_2_raw"],
   components: {
     D3Network
   },
+  props: ["artists_1_raw", "artists_2_raw"],
+  watch: {
+    artists_1_raw: function(){this.artist_selected=undefined},
+    artists_2_raw: function(){this.artist_selected=undefined}
+  },
+  data(){return{
+    artist_selected:undefined,
+    selection:{nodes:{},links:{}},
+  }},
+  methods:{
+    artist_clicked(event,node) {
+      this.selection.nodes={}
+      this.selection.nodes[node.id] = node
+      this.artist_selected = this.artists[node.id]
+    }
+  },
   computed: {
-    net_data() {
+    similar_artists() {
+      var similar_artists = {}
+      for (var genre of this.artist_selected.genres) {
+        for (var artist of this.genres[genre]) {
+          if (artist === this.artist_selected.name) {
+            continue
+          }
+          similar_artists[artist] = true
+        }
+      }
+      return Object.keys(similar_artists)
+    },
+    artists() {
       var artists = {}
       for (var artist of this.artists_1_raw.slice(25)) {
-        artists[artist.name] = {
-          node: {
-            id:artist.name,
-            _cssClass:"user1-artist-node",
-          },
-          genres: artist.genres
+        artists[artist.name] = artist
+        artists[artist.name].node = {
+          id:artist.name, _cssClass:"user1-artist-node"
         }
       }
       for (artist of this.artists_2_raw.slice(25)) {
         if (artists[artist.name]) {
           artists[artist.name].node._cssClass="both-artist-node"
         } else {
-          artists[artist.name] = {
-          node: {
-            id:artist.name,
-            _cssClass:"user2-artist-node",
-          },
-          genres: artist.genres
+          artists[artist.name] = artist
+          artists[artist.name].node = {
+            id:artist.name, _cssClass:"user2-artist-node"
           }
         }
       }
-
+      return artists
+    },
+    genres() {
       var genres = {}
-      for (artist of Object.values(artists)) {
+      for (var artist of Object.values(this.artists)) {
         for (var genre of artist.genres) {
           if (genres[genre]) {
             genres[genre].push(artist.node.id)
@@ -51,12 +94,14 @@ export default {
             genres[genre] = [artist.node.id]
           }
         }
-      }
-
+      }   
+      return genres   
+    },
+    net_links() {
       var net_links = []
-      for (genre in genres) {
-        for (var artist_1 of genres[genre]) {
-          for (var artist_2 of genres[genre]) {
+      for (var genre in this.genres) {
+        for (var artist_1 of this.genres[genre]) {
+          for (var artist_2 of this.genres[genre]) {
             if (artist_1 === artist_2) { continue }
             net_links.push({
               tid: artist_1,
@@ -65,33 +110,87 @@ export default {
           }
         }
       }
-
-      return {
-        "net-nodes":Object.values(artists).map(a=>a.node),
-        "net-links":net_links,
-        "options":{
-          canvas:false,
-        }
-      }
+      return net_links
     },
   }
 }
 </script>
 
 <style lang="scss">
-.d3-network {
-  width:100%;height:100%;
+.network-graph-container {
+  height:70vh;
 
-  .user1-artist-node { fill: $magenta; }
-  .user2-artist-node { fill: $cyan; }
-  .both-artist-node { fill: $white; }
+  .d3-network {
+    width:100%;height:100%;
 
-  .node {
-    r: 5;
+    .user1-artist-node { fill: $magenta; }
+    .user2-artist-node { fill: $cyan; }
+    .both-artist-node { fill: $white; }
+
+    .node {
+      r: 5;
+      &.selected {
+        r:10;
+      }
+    }
+    .link { 
+      stroke: $cyan;
+      opacity: 0.075;
+    }
   }
-  .link { 
-    stroke: $cyan;
-    opacity: 0.075;
+}
+.selected-artist {
+  font-family: 'Lato', sans-serif;
+  line-height:1;
+  padding: $spacer*2;
+  .artist-name {
+    text-align:left;
+    font-size: $font-size-m;
+    @media(min-width:$breakpoint-width) {
+      font-size: $font-size-l;
+    }
+  }
+  .artist-genres-ul {
+    padding-top: $spacer*3;
+    text-align:left;
+    .artist-genres-li {
+      display: inline;
+      &::after {
+        content:", "
+      }
+      &:last-child {
+        &::after {
+          content:""
+        }
+      }
+    }
+  }
+  .similar-artists-ul {
+    padding-top: $spacer*3;
+
+    font-family: 'Lato', sans-serif;
+    font-weight:700;
+    font-size: $font-size;
+    @media(min-width:$breakpoint-width) {
+      font-size: $font-size-m;
+    }
+
+    text-align:left;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 20px $magenta-d;
+    color: $magenta-l;
+
+    .similar-artists-li {
+      display: inline;
+      &::after {
+        content:", "
+      }
+      &:last-child {
+        &::after {
+          content:""
+        }
+      }
+    }
   }
 }
 </style>
