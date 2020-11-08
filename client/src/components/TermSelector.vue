@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'ArtistNetwork',
+  name: 'TermSelector',
   props: ["selected_term"],
   methods:{
     selectTerm(term) {

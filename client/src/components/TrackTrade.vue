@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'CommonGenres',
+  name: 'TrackTrade',
   props: ["artists_1_raw", "artists_2_raw", "tracks_1_raw", "tracks_2_raw", "display_name_1", "display_name_2", "avatar_1", "avatar_2"],
   computed:{
     genres() {
