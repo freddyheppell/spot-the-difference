@@ -31,7 +31,7 @@ def exchange_code(redirect_uri,code):
     body = {
         "grant_type": "authorization_code",
         "code": code,
-        "redirect_uri": environ.get('REDIRECT_URI')
+        "redirect_uri": redirect_uri
     }
 
     headers = {
