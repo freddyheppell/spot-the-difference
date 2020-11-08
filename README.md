@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://spotdiff.online">
+  <a href="https://www.youtube.com/watch?v=6hVnVGF87qA">
     <img src="/client/public/assets/banner.png" alt="Spot the Difference" width="750">
   </a>
 </p>
