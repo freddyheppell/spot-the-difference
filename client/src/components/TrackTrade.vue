@@ -118,8 +118,6 @@ export default {
         }
       }
 
-      console.log(track_scores)
-
       if (max_score == 0) {
         return Object.values(track_scores).sort(
           (a,b) => b.popularity-a.popularity
