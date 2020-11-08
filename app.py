@@ -6,7 +6,7 @@ import requests
 from requests_futures.sessions import FuturesSession
 import spotify
 import boto3
-import share_code
+import code_generator
 import user_db
 import datetime
 
@@ -15,7 +15,7 @@ CORS(app)
 
 IS_OFFLINE = environ.get('IS_OFFLINE')
 
-word_list = share_code.load()
+word_list = code_generator.load()
 
 if IS_OFFLINE:
     client = boto3.client(
@@ -104,7 +104,7 @@ def authorise():
             "error": str(e)
         }, 500
 
-    user_share_code = share_code.generate_share_code(word_list)
+    user_share_code = code_generator.generate_share_code(word_list)
 
     expiry_time = get_expiry_time(access_token["expires_in"])
 
@@ -135,6 +135,8 @@ def compare():
 
     user_1 = user_db.get_user_by_share_code(client, share_code_1)
     user_2 = user_db.get_user_by_share_code(client, share_code_2)
+
+    print(user_1, user_2)
 
     if not user_1 or not user_2:
         return {
