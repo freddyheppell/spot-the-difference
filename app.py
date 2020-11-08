@@ -31,6 +31,7 @@ def get_expiry_time(expires_in):
 
 def refresh(user):
     # See if the user's API token needs to be refreshed
+    print("refresh user", user)
     try:
         refreshed_keys = spotify.refresh(user)
     except Exception as e:
@@ -43,7 +44,7 @@ def refresh(user):
         # Key has been refreshed
         user_db.update_user(
             client,
-            share_code,
+            user["share_code"],
             refreshed_keys["access_token"],
             refreshed_keys["refresh_token"] if "refresh_token" in refreshed_keys else user["refresh_token"],
             get_expiry_time(refreshed_keys["expires_in"])
