@@ -168,6 +168,9 @@ export default {
       .track {
         padding-top: $spacer*4;
         height:100%;
+        width:100%;
+        padding-left: $spacer*4;
+        padding-right:$spacer*4;
         display:flex;
         flex-direction: column;
         align-items: stretch;
