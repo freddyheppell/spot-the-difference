@@ -18,7 +18,7 @@
 
 <script>
 import axios from "axios"
-const API_Path = "https://api-dev.spotdiff.online/dev"
+const API_Path = "https://api-dev.spotdiff.online"
 
 export default {
   name: 'Login',
@@ -102,6 +102,8 @@ export default {
 @import '../assets/styles/_vars.scss';
 
 #login {
+  align-self: center;
+
   padding: $spacer*4;
 
   display:flex;

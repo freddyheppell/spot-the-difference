@@ -18,9 +18,13 @@
           </h1>
         </div>
 
-        <TermSelector :selected_term="selected_term" @select="selected_term = $event"/>
-        {{ selected_term }}
+        <TermSelector class="term-selector" :selected_term="selected_term" @select="selected_term = $event"/>
+
         <!-- Different data visualisation components will live here! -->
+
+        <ArtistsNetwork class="artists-network"
+                        :artists_1_raw="data[0].listening_data[selected_term].artists"
+                        :artists_2_raw="data[1].listening_data[selected_term].artists"/>
 
       </div>
     </div>
@@ -30,54 +34,32 @@
 <script>
 import axios from "axios"
 import TermSelector from "../components/TermSelector.vue"
-const API_Path = "https://api-dev.spotdiff.online/dev"
+import ArtistsNetwork from "../components/ArtistsNetwork.vue"
+const API_Path = "https://api-dev.spotdiff.online"
 
 export default {
   name: 'Compare',
-  components: { TermSelector },
+  components: { 
+    TermSelector,
+    ArtistsNetwork
+ },
   data(){return{
     data: undefined,
     loading: true,
-    selected_term:"long_term",
+    selected_term:"medium_term",
   }},
   mounted() {
     axios.post(API_Path+"/compare",{
         share_code_1: this.$route.params.share_code_1,
         share_code_2: this.$route.params.share_code_2
      }).then(function(response) {
-       console.log(response.data)
+       console.log(response.data.data)
        //TODO - Waiting for Freddy to implement this endpoint xoxo
-        this.loading = false;
+       this.data = response.data.data
+       this.loading = false;
      }.bind(this)
      ).catch(function(reason) {
         console.log("/compare failed: ", reason)
-        this.data = [
-          {
-            profile: {
-              display_name: "TheTeaCat",
-              external_urls: { spotify: "" },
-              images: [ { url: " "} ],
-            },
-            listening_data: {
-              short_term: { artists: [], tracks: [] },
-              medium_term: { artists: require("../assets/mock_data/mock_artists_1.json"), tracks: [] },
-              long_term: { artists: [], tracks: [] }
-            }
-          },
-          {
-            profile: {
-              display_name: "Freddy",
-              external_urls: { spotify: "" },
-              images: [ { url: " "} ],
-            },
-            listening_data: {
-              short_term: { artists: [], tracks: [] },
-              medium_term: { artists: require("../assets/mock_data/mock_artists_2.json"), tracks: [] },
-              long_term: { artists: [], tracks: [] }
-            }
-          }
-        ]
-        this.loading = false;
      }.bind(this))
   }
 }
@@ -86,6 +68,8 @@ export default {
 <style scoped lang="scss">
 #compare {
   padding: $spacer*4;
+
+  width:100%;
 
   display:flex;
   flex-direction: column;
@@ -110,7 +94,6 @@ export default {
       width:100%;
 
       .title {
-        margin-bottom: $spacer*4;
         word-break: break-all;
 
         span {
@@ -131,6 +114,7 @@ export default {
         .display-name { 
           text-align: right;
           color: $cyan;
+          text-shadow: 0px 0px 20px $cyan-d;
         }
 
         .comparing {
@@ -138,7 +122,15 @@ export default {
           @media(min-width:$breakpoint-width) {
             font-size: $font-size-ll;
           }
-        }    
+        }
+      }
+
+      .term-selector {
+        margin-top: $spacer*8;
+      }
+
+      .artists-network {
+        height:70vh;
       }
     }
   }
