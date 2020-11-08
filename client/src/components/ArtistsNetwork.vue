@@ -172,7 +172,7 @@ export default {
     }
     .link { 
       stroke: $white;
-      opacity: 0.1;
+      opacity: 0.15;
     }
   }
 }
