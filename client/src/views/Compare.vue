@@ -6,6 +6,7 @@
       </div>
 
       <div v-else class="results">
+        <hr class="alt"/>
         <div class="header">
           <h1 class="title">
             <span class="comparing">Comparing</span>
