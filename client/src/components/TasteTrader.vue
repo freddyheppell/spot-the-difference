@@ -159,7 +159,7 @@ export default {
        * logarithmically such that having three common genres doubles the score
        * over simply having one common genre.
        */
-      const tags_to_double = 2
+      const genres_to_double = 2
       for (artist of Object.keys(artists)) {
         artists[artist].score = 0
         var common_genres = 0
@@ -176,8 +176,15 @@ export default {
           / Math.sqrt(
             artists[artist].genres.map(g => (1*iafs[g])**2)
                                   .reduce((a,b) => a+b, 0)
-            )
-          ) * ((Math.log((((Math.E-1)*(common_genres-1))/tags_to_double)+1))+1)
+            )   // This does the funky scaling so an artist with 1 genre will be
+          ) * ( // multiplied by 1 while an artist with genres_to_double+1 will 
+            (   // be multiplied by 2:
+              Math.log(( 
+                  ((Math.E-1)*(common_genres-1))
+                  /genres_to_double
+                ) + 1)
+            ) + 1
+          )
       }
 
       //Determining the best artist.
