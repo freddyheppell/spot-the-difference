@@ -34,7 +34,16 @@
                       :artists_2_raw="data[1].listening_data[selected_term].artists"
                       :display_name_1="data[0].profile.display_name"
                       :display_name_2="data[1].profile.display_name"/>
-                      
+        
+        <TrackTrade class="track-trade"
+                    :artists_1_raw="data[0].listening_data[selected_term].artists"
+                    :artists_2_raw="data[1].listening_data[selected_term].artists"
+                    :tracks_1_raw="data[0].listening_data[selected_term].tracks"
+                    :tracks_2_raw="data[1].listening_data[selected_term].tracks"
+                    :display_name_1="data[0].profile.display_name"
+                    :display_name_2="data[1].profile.display_name"
+                    :avatar_1="data[0].profile.images[0].url"
+                    :avatar_2="data[1].profile.images[0].url"/>
 
       </div>
     </div>
@@ -46,6 +55,8 @@ import axios from "axios"
 import TermSelector from "../components/TermSelector.vue"
 import ArtistsNetwork from "../components/ArtistsNetwork.vue"
 import CommonGenres from "../components/CommonGenres.vue"
+import TrackTrade from "../components/TrackTrade.vue"
+
 const API_Path = process.env.VUE_APP_API_BASE_URI ? process.env.VUE_APP_API_BASE_URI : "https://api-dev.spotdiff.online"
 
 export default {
@@ -54,6 +65,7 @@ export default {
     TermSelector,
     ArtistsNetwork,
     CommonGenres,
+    TrackTrade,
  },
   data(){return{
     data: undefined,

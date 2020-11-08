@@ -64,9 +64,7 @@ export default {
           genres[genre][this.display_name_2] = genres[genre][this.display_name_2]/denoms[this.display_name_2]
         }
       }
-
-      console.log(genres,denoms)
-
+      
       return Object.values(genres).sort(
         (a, b) => { return (b[this.display_name_1]+b[this.display_name_2])
                           -(a[this.display_name_1]+a[this.display_name_2])}
@@ -109,7 +107,7 @@ export default {
     text-align:left;
   }
   .genres-ol {
-    padding: $spacer*3 $spacer*2 0 $spacer*2;
+    padding-top: $spacer*2;
 
     text-align:left;
 
