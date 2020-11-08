@@ -78,8 +78,10 @@ def authorise():
     spotify_code = json["spotify_code"]
     passthrough_share_code = json["share_code"] if "share_code" in json else None
 
+    redirect_uri = "https://spotdiff.online" if request.headers.get("Referer").startswith("https://spotdiff.online") else "http://localhost:8080"
+
     try:
-        access_token = spotify.exchange_code(spotify_code)
+        access_token = spotify.exchange_code(redirect_uri, spotify_code)
     except Exception as e:
         return {
             "desc": "Error exchanging code",
