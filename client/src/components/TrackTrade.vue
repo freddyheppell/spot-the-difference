@@ -4,27 +4,31 @@
     <p class="desc">A track {{ display_name_2 }} likes that {{ display_name_1 }} might like, and vice versa.</p>
 
     <div class="grid">
-      <div class="avatar-cont-cont">
+      <div class="avatar-cont-cont" id="avatar1">
         <div class="avatar-cont">
           <img class="avatar" :src="avatar_1"/>
         </div>
       </div>
-      <div class="track">
-        <hr>
-        {{ display_name_1 }} Should Try Listening To: 
-        <span class="track-title">{{ best_track_for_user(display_name_1).title }}</span>
-        <hr>
-      </div>
-      <div class="track">
-        <hr>
-        {{ display_name_2 }} Should Try Listening To: 
-        <span class="track-title">{{ best_track_for_user(display_name_2).title }}</span>
-        <hr>
-      </div>
-      <div class="avatar-cont-cont">
+      <div class="avatar-cont-cont" id="avatar2">
         <div class="avatar-cont">
           <img class="avatar" :src="avatar_2"/>
         </div>
+      </div>
+      <div class="track" id="track1">
+        <hr>
+        <span>
+          {{ display_name_1 }} Should Try Listening To: 
+          <span class="track-title">{{ best_track_for_user(display_name_1).title }}</span>
+        </span>
+        <hr>
+      </div>
+      <div class="track" id="track2">
+        <hr>
+        <span>
+          {{ display_name_2 }} Should Try Listening To: 
+          <span class="track-title">{{ best_track_for_user(display_name_2).title }}</span>
+        </span>
+        <hr>
       </div>
     </div>
 
@@ -142,6 +146,32 @@ export default {
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+
+    grid-template-areas:
+     "a b"
+     "c d";
+     #avatar1 { grid-area: a }
+     #avatar2 { grid-area: d }
+     #track1 { grid-area: b }
+     #track2 { grid-area: c }
+     @media (min-width: $breakpoint-width) {
+      #avatar1 { grid-area: a }
+      #avatar2 { grid-area: b }
+      #track1 { grid-area: c }
+      #track2 { grid-area: d }
+      .track {
+        padding-top: $spacer*4;
+        height:100%;
+        display:flex;
+        flex-direction: column;
+        align-items: stretch;
+        hr {
+          width:100%;
+        }
+        justify-content: space-between;
+      }
+     }
+
     align-items: center;
     justify-items: center;
     >* {
