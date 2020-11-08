@@ -128,9 +128,9 @@ export default {
     .both-artist-node { fill: $white; }
 
     .node {
-      r: 5;
+      r: 5px;
       &.selected {
-        r:10;
+        r:10px;
       }
     }
     .link { 
