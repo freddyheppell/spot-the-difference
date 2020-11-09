@@ -75,13 +75,13 @@ export default {
     },
     artists() {
       var artists = {}
-      for (var artist of this.artists_1_raw.slice(0,15)) {
+      for (var artist of this.artists_1_raw.slice(0,25)) {
         artists[artist.name] = artist
         artists[artist.name].node = {
           id:artist.name, _cssClass:"user1-artist-node"
         }
       }
-      for (artist of this.artists_2_raw.slice(0,15)) {
+      for (artist of this.artists_2_raw.slice(0,25)) {
         if (artists[artist.name]) {
           artists[artist.name].node._cssClass="both-artist-node"
         } else {
@@ -108,14 +108,16 @@ export default {
     },
     net_links() {
       var net_links = []
-      for (var genre in this.genres) {
-        for (var artist_1 of this.genres[genre]) {
-          for (var artist_2 of this.genres[genre]) {
-            if (artist_1 === artist_2) { continue }
+      var all_artists = Object.values(this.artists)
+      for (var [i, artist_1] of all_artists.entries()) {
+        for (var artist_2 of all_artists.slice(i)) {
+          if (artist_1.genres.filter(g => artist_2.genres.includes(g))
+                             .length > 0) {
             net_links.push({
-              tid: artist_1,
-              sid: artist_2,
+              sid: artist_1.name,
+              tid: artist_2.name
             })
+            
           }
         }
       }
@@ -230,7 +232,7 @@ export default {
   }
   .link { 
     stroke: $white;
-    opacity: 0.15;
+    opacity: 0.4;
   }
 }
 </style>
