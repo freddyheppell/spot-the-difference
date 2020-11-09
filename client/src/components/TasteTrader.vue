@@ -22,7 +22,7 @@
         <hr>
         <span>
           {{ display_name_1 + (recommendation_1.new ? 
-                               " Might Like" : " Probably Likes")}}: 
+                               " Might Like" : " Likes")}}: 
           <span class="rec-title">
             {{ 
               recommendation_1.name +
