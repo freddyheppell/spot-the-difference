@@ -69,7 +69,7 @@ export default {
   data(){return{
     data: undefined,
     loading: true,
-    selected_term:"long_term",
+    selected_term:"medium_term",
   }},
   mounted() {
     axios.post(API_Path+"/compare",{
