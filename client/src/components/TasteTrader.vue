@@ -286,7 +286,8 @@ export default {
     }
     .avatar-cont-cont {
       width:100%;
-      max-width:200px;
+      max-width:200px+$spacer*4;
+      padding: 0 $spacer*2;
       .avatar-cont {
         width:100%;
         padding-top: 100%;
