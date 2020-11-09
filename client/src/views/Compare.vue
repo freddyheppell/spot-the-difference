@@ -21,6 +21,7 @@
 
         <TermSelector class="term-selector" :selected_term="selected_term" @select="selected_term = $event"/>
 
+        <hr class="alt">
         <!-- Different data visualisation components will live here! -->
 
         <ArtistsNetwork class="artists-network"
@@ -28,7 +29,9 @@
                         :artists_2_raw="data[1].listening_data[selected_term].artists"
                         :display_name_1="data[0].profile.display_name"
                         :display_name_2="data[1].profile.display_name"/>
-        
+
+        <hr class="alt">
+
         <TasteTrader class="taste-trader"
                     :artists_1_raw="data[0].listening_data[selected_term].artists"
                     :artists_2_raw="data[1].listening_data[selected_term].artists"
@@ -38,6 +41,8 @@
                     :display_name_2="data[1].profile.display_name"
                     :avatar_1="data[0].profile.images[0].url"
                     :avatar_2="data[1].profile.images[0].url"/>
+
+        <hr class="alt">
 
         <CommonGenres class="common-genres"
                       :artists_1_raw="data[0].listening_data[selected_term].artists"

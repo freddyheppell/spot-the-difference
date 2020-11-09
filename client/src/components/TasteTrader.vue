@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">Taste Trader</h1>
+    <h1 class="title">Taste Trader</h1>    
     <p class="desc">
       Something for {{ display_name_1 }} from 
       {{ display_name_2 + (display_name_2.slice(-1) === "s" ? "'" : "'s") }} 
@@ -8,63 +8,37 @@
     </p>
 
     <div class="grid">
-      <div class="avatar-cont-cont" id="avatar1">
-        <div class="avatar-cont">
-          <img class="avatar" :src="avatar_1"/>
-        </div>
-      </div>
-      <div class="avatar-cont-cont" id="avatar2">
-        <div class="avatar-cont">
-          <img class="avatar" :src="avatar_2"/>
-        </div>
-      </div>
-      <div class="rec" id="rec1">
-        <hr>
-        <span>
-          {{ display_name_1 + (recommendation_1.new ? 
-                               " Might Like" : " Likes")}}: 
-          <span class="rec-title">
-            {{ 
-              recommendation_1.name +
-              (recommendation_1.top_track 
-                 ? " - " + recommendation_1.top_track.name 
-                 : ""
-              )
-            }}
-          </span>
-          <ul class="matching-genres-ul">
-            <li class="matching-genres-li"
-                v-for="genre of recommendation_1.genres" :key="genre">
-                {{ genre }}</li>
-          </ul>
-        </span>
-        <hr>
-      </div>
-      <div class="rec" id="rec2">
-        <hr>
-        <span>
-          {{ display_name_2 + (recommendation_2.new ? 
-                               " Might Like" : " Likes")}}: 
-          <span class="rec-title">
-            {{ 
-              recommendation_2.name +
-              (recommendation_2.top_track 
-                 ? " - " + recommendation_2.top_track.name 
-                 : ""
-              )
-            }}
-          </span>
-          <ul class="matching-genres-ul">
-            <li class="matching-genres-li"
-                v-for="genre of recommendation_2.genres" :key="genre">
-                {{ genre }}</li>
-          </ul>
-        </span>
-        <hr>
-      </div>
-    </div>
 
-    <hr class="alt">
+      <div v-for="avatar of [{ id:'avatar1', src:avatar_1 },
+                             { id:'avatar2', src:avatar_2 }]" 
+          :key="avatar.id" :id="avatar.id" class="avatar-cont-cont">
+        <div class="avatar-cont">
+          <img class="avatar" :src="avatar.src"/>
+        </div>
+      </div>
+
+      <div v-for="rec of [{ id:'rec1', rec:recommendation_1 }, 
+                          { id:'rec2', rec:recommendation_2 }]" 
+           :key="rec.id" :id="rec.id" class="rec">
+        <hr>
+        <span>
+          {{ display_name_1 + (rec.rec.new ? " Might Like" : " Likes")}}: 
+          <a class="rec-title" target="_blank" 
+             :href="rec.top_track
+                    ? rec.rec.top_track.external_urls.spotify
+                    : rec.rec.external_urls.spotify">
+            {{ rec.rec.name +
+               (rec.rec.top_track ? " - " + rec.rec.top_track.name : "") }}
+          </a>
+          <ul class="matching-genres-ul">
+            <li v-for="genre of rec.rec.genres" :key="genre" 
+                class="matching-genres-li"                
+                >{{ genre }}</li>
+          </ul>
+        </span>
+        <hr>
+      </div>      
+    </div>
   </div>
 </template>
 
@@ -123,7 +97,11 @@ export default {
       for (artist of display_name == this.display_name_1
                      ? this.artists_2_raw : this.artists_1_raw) {
         if (artist.genres.length > 0) {
-          artists[artist.name] = { name: artist.name, genres: artist.genres }
+          artists[artist.name] = { 
+            name: artist.name, 
+            genres: artist.genres,
+            external_urls: artist.external_urls
+          }
         }
       }
 

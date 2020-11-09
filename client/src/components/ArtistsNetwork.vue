@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <hr class="alt">
     <h1 class="title">Artists</h1>
     <ol class="key">
       <li class="display-name-1">{{ display_name_1 }}</li>
@@ -30,7 +29,6 @@
             >{{ artist }}</li>
       </ul>
     </div>
-    <hr class="alt">
   </div>
 </template>
 
