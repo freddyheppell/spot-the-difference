@@ -17,21 +17,21 @@
         </div>
       </div>
 
-      <div v-for="rec of [{ id:'rec1', rec:recommendation_1 }, 
-                          { id:'rec2', rec:recommendation_2 }]" 
-           :key="rec.id" :id="rec.id" class="rec">
+      <div v-for="pane of [{ id:'rec1', rec:recommendation_1, display_name: display_name_1 }, 
+                           { id:'rec2', rec:recommendation_2, display_name: display_name_2 }]" 
+           :key="pane.id" :id="pane.id" class="rec">
         <hr>
         <span>
-          {{ display_name_1 + (rec.rec.new ? " Might Like" : " Likes")}}: 
+          {{ pane.display_name + (pane.rec.new ? " Might Like" : " Likes")}}: 
           <a class="rec-title" target="_blank" 
-             :href="rec.top_track
-                    ? rec.rec.top_track.external_urls.spotify
-                    : rec.rec.external_urls.spotify">
-            {{ rec.rec.name +
-               (rec.rec.top_track ? " - " + rec.rec.top_track.name : "") }}
+             :href="pane.top_track
+                    ? pane.rec.top_track.external_urls.spotify
+                    : pane.rec.external_urls.spotify">
+            {{ pane.rec.name +
+               (pane.rec.top_track ? " - " + pane.rec.top_track.name : "") }}
           </a>
           <ul class="matching-genres-ul">
-            <li v-for="genre of rec.rec.genres" :key="genre" 
+            <li v-for="genre of pane.rec.genres" :key="genre" 
                 class="matching-genres-li"                
                 >{{ genre }}</li>
           </ul>
