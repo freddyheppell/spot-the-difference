@@ -21,7 +21,7 @@
       <div class="rec" id="rec1">
         <hr>
         <span>
-          {{ display_name_1 }} Should Try Listening To: 
+          {{ display_name_1 }} Probably Likes: 
           <span class="rec-title">
             {{ 
               recommendation_1.name +
@@ -42,7 +42,7 @@
       <div class="rec" id="rec2">
         <hr>
         <span>
-          {{ display_name_2 }} Should Try Listening To: 
+          {{ display_name_2 }} Probably Likes: 
           <span class="rec-title">
             {{ 
               recommendation_2.name +
@@ -80,7 +80,6 @@ export default {
   },
   methods:{
     recommendation_for_user(display_name) {
-      console.log("Finding a recommendation for " + display_name)
       /** 
        * Performing TF.IDF ranking. The query is the union of all the genres 
        * used on the artists in the user's artists sample. The documents are 
@@ -175,10 +174,29 @@ export default {
           )
       }
 
-      //Determining the best artist.
+      //Determining which artists the users have in common in their top artists
+      for (artist of Object.keys(artists)) {
+        artists[artist].new = true
+      }
+      for (artist of display_name == this.display_name_1 
+                     ? this.artists_1_raw : this.artists_2_raw) {
+        if (artists[artist.name]) {
+          artists[artist.name].new = false
+        }
+      }
+
+      //Determining the best new artist.
       var bestArtist = artists[Object.keys(artists)
-        .reduce((a, b) => artists[a].score > artists[b].score ? a : b)]
-      
+        .filter(a => artists[a].new)
+        .reduce((a, b) => a && artists[a].score > artists[b].score ? a : b,
+                undefined)]
+      //If there is no best _new_ artist, we revert to just the best artist.
+      if (bestArtist === undefined) {
+        bestArtist = artists[Object.keys(artists)
+          .reduce((a, b) => a && artists[a].score > artists[b].score ? a : b,
+                  undefined)]
+      }
+
       /**
        * Iterating over all the other user's top tracks to find if the best 
        * artist has a track that features in the other user's top tracks. 
@@ -205,7 +223,7 @@ export default {
         bestArtist.genres.filter(g => genres_query[g] ? true : false)
                          .sort((a,b) => genres_query[b]-genres_query[a])
                          .slice(0,3)
-      console.log(bestArtist)
+
       return bestArtist
     }
   }
