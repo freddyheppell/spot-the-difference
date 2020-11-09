@@ -193,9 +193,13 @@ export default {
       
       /**
        * Filtering out the genres field in the bestArtist to include only those 
-       * that appear in the genres_query
+       * that appear in the genres_query, sorting them by their weight in the
+       * genres query and then taking up to the first three.
        */
-      bestArtist.genres = bestArtist.genres.filter(g => genres_query[g] ? true : false)
+      bestArtist.genres = 
+        bestArtist.genres.filter(g => genres_query[g] ? true : false)
+                         .sort((a,b) => genres_query[b]-genres_query[a])
+                         .slice(0,3)
       console.log(bestArtist)
       return bestArtist
     }
