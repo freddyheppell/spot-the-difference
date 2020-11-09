@@ -125,22 +125,6 @@ export default {
           artists[artist.name] = { name: artist.name, genres: artist.genres }
         }
       }
-      /**
-       * Iterating over all the tracks and determining the most popular track 
-       * for each artist
-      */
-      for (var track of display_name == this.display_name_1
-                        ? this.tracks_2_raw : this.tracks_1_raw) {
-        for (artist of track.artists) {
-          if (artists[artist.name]) {
-            artists[artist.name].top_track = 
-              artists[artist.name].top_track &&
-              artists[artist.name].top_track.popularity >= track.popularity 
-              ? artists[artist.name].top_track
-              : track
-          }
-        }
-      }
 
       var iafs = {} //Inverse Artist FrequencieS
       for (artist of Object.values(artists)) {
@@ -195,6 +179,23 @@ export default {
       var bestArtist = artists[Object.keys(artists)
         .reduce((a, b) => artists[a].score > artists[b].score ? a : b)]
       
+      /**
+       * Iterating over all the other user's top tracks to find if the best 
+       * artist has a track that features in the other user's top tracks. 
+      */
+      for (var track of display_name == this.display_name_1
+                        ? this.tracks_2_raw : this.tracks_1_raw) {
+        for (artist of track.artists) {
+          if (bestArtist.name === artist.name) {
+            bestArtist.top_track = 
+              bestArtist.top_track &&
+              bestArtist.top_track.popularity >= track.popularity 
+              ? bestArtist.top_track
+              : track
+          }
+        }
+      }
+
       /**
        * Filtering out the genres field in the bestArtist to include only those 
        * that appear in the genres_query, sorting them by their weight in the
