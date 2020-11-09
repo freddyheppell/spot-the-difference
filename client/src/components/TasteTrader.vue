@@ -105,6 +105,10 @@ export default {
        *  |        ....        like this -> |       ......
        *  |            .....   (linear)     |             ......
        *  +-------------------              +-------------------
+       * because otherwise the genre "pop" is probably going to have a weight of
+       * shinty-six billion while other more niche genres that express the 
+       * subtle differences in people's tastes will have a weight of 1 and be
+       * practically insignificant.
        */
       for (genre of Object.keys(genres_query)) {
         genres_query[genre] = Math.log(genres_query[genre]+Math.E)
