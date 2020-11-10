@@ -13,7 +13,7 @@
             <a class="display-name" target="_blank" 
                :href="data[0].profile.external_urls.spotify"
                >{{ data[0].profile.display_name }}
-               <font-awesome-icon icon="arrow-up" :transform="{ rotate:45 }"/>
+               <font-awesome-icon class="icon" icon="arrow-up" :transform="{ rotate:45 }"/>
                </a>
             <hr/>
             <span class="and">And</span>
@@ -21,7 +21,7 @@
             <a class="display-name" target="_blank" 
                :href="data[1].profile.external_urls.spotify"
                >{{ data[1].profile.display_name }}
-               <font-awesome-icon icon="arrow-up" :transform="{ rotate:45 }"/>
+               <font-awesome-icon class="icon" icon="arrow-up" :transform="{ rotate:45 }"/>
                </a>
           </h1>
         </div>

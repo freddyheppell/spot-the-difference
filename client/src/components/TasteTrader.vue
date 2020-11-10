@@ -28,7 +28,7 @@
                     : pane.rec.external_urls.spotify">
             {{ pane.rec.name +
                (pane.rec.top_track ? " - " + pane.rec.top_track.name : "") }}
-            <font-awesome-icon icon="arrow-up" :transform="{ rotate:45 }"/>
+            <font-awesome-icon class="icon" icon="arrow-up" :transform="{ rotate:45 }"/>
           </a>
           <ul class="matching-genres-ul">
             <li v-for="genre of pane.rec.genres" :key="genre" 

@@ -12,12 +12,21 @@
 @mixin glowText() {
   color: $magenta-l;
   text-shadow: 0px 0px 15px $magenta-d;
+  .icon {
+    filter:drop-shadow(0px 0px 15px $magenta-d);
+  }
 }
 @mixin glowTextAlt() {
   color: $cyan-l;
   text-shadow: 0px 0px 15px $cyan-d;
+  .icon {
+    filter:drop-shadow(0px 0px 15px $cyan-d);
+  }
 }
 @mixin glowTextWhite() {
   color: $white;
   text-shadow: 0px 0px 15px $white;
+  .icon {
+    filter:drop-shadow(0px 0px 15px $white);
+  }
 }
