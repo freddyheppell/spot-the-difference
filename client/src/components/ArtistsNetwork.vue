@@ -18,16 +18,22 @@
     <div v-if="artist_selected" class="selected-artist">
       <hr class="alt">
       <h2 class="artist-name alt">{{ artist_selected.name }}</h2>
-      <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
-        <li v-for="genre of artist_selected.genres" :key="genre" 
-            class="artist-genres-li"
-            >{{ genre }}</li>
-      </ul>
-      <ul class="similar-artists-ul" v-if="similar_artists.length>0">
-        <li v-for="artist of similar_artists" :key="artist"
-            class="similar-artists-li"
-            >{{ artist }}</li>
-      </ul>
+      <section class="genres">
+        Genres:
+        <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
+          <li v-for="genre of artist_selected.genres" :key="genre" 
+              class="artist-genres-li"
+              >{{ genre }}</li>
+        </ul>
+      </section>
+      <section class="mutual-artists">
+        Artists With Mutual Genres:
+        <ul class="similar-artists-ul" v-if="similar_artists.length>0">
+          <li v-for="artist of similar_artists" :key="artist"
+              class="similar-artists-li"
+              >{{ artist }}</li>
+        </ul>
+      </section>
     </div>
   </div>
 </template>
@@ -146,26 +152,29 @@ export default {
   
   .selected-artist {
     padding: $spacer*4;
+    @include sansUpperWhite();
     hr {
       margin-bottom: $spacer*4;
     }
-    .artist-genres-ul, .similar-artists-ul {
-      padding-top: $spacer*3;
-      line-height:1;
-      li {
-        display: inline;
-        &::after {
-          content:", "
-        }
-        &:last-child {
+    .genres, .mutual-artists {
+      margin-top: $spacer*3;
+      .artist-genres-ul { @include sansUpper(); }
+      .similar-artists-ul { @include sansUpperAlt(); }
+      .artist-genres-ul, .similar-artists-ul {
+        display:inline;
+        line-height:1;
+        li {
+          display: inline;
           &::after {
-            content:""
+            content:", "
+          }
+          &:last-child {
+            &::after {
+              content:""
+            }
           }
         }
       }
-    }
-    .similar-artists-ul {
-      @include sansUpper();
     }
   }
 }
