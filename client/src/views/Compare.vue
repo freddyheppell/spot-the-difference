@@ -10,11 +10,19 @@
             <hr/>
             <span class="comparing">Comparing</span>
             <hr class="alt"/>
-            <span class="display-name">{{ data[0].profile.display_name }}</span>
+            <a class="display-name" target="_blank" 
+               :href="data[0].profile.external_urls.spotify"
+               >{{ data[0].profile.display_name }}
+               <font-awesome-icon icon="arrow-up" :transform="{ rotate:45 }"/>
+               </a>
             <hr/>
             <span class="and">And</span>
             <hr class="alt"/>
-            <span class="display-name">{{ data[1].profile.display_name }}</span>
+            <a class="display-name" target="_blank" 
+               :href="data[1].profile.external_urls.spotify"
+               >{{ data[1].profile.display_name }}
+               <font-awesome-icon icon="arrow-up" :transform="{ rotate:45 }"/>
+               </a>
           </h1>
         </div>
 
@@ -121,21 +129,17 @@ export default {
       margin-bottom: $spacer*8;
 
       .title {
-        span { display:block; }
+        display:flex;
+        flex-direction: column;
+        align-items: stretch;
+
         hr { margin: $spacer*4 0 $spacer*2 0; }
         
-        .and, .display-name {
-          font-size: $font-size-m;
-          @media(min-width:$breakpoint-width) {
-            font-size: $font-size-l;
-          }
-        }
+        .comparing { @include displayFontHuge(); }
+        .and { @include displayFont(); }
         .display-name { 
           @include displayFontAlt();
-          text-align: right;
-        }
-        .comparing {
-          @include displayFontHuge();
+          align-self: flex-end;
         }
       }
     }
