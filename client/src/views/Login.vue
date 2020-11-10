@@ -117,6 +117,7 @@ export default {
   .title {
     margin-bottom: $spacer*4;
     .difference {
+      @include displayFontAltHuge();
       display:block;
     }
   }

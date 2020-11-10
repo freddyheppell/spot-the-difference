@@ -45,6 +45,13 @@
     font-size: $font-size-ll;
   }
 }
+@mixin displayFontAltHuge() {
+  @include displayFontAlt();
+  font-size: $font-size-l;
+  @media(min-width:$breakpoint-width) {
+    font-size: $font-size-ll;
+  }
+}
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ sans upper font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 @mixin sansUpper() {
