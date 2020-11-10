@@ -119,6 +119,7 @@ export default {
     display:flex;
     flex-direction: column;
     align-items: stretch;
+    padding: 0 $spacer*4;
     margin-top: $spacer*3;
     margin-bottom: $spacer*6;
     .genres-li {
