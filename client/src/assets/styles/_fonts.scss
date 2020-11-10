@@ -13,14 +13,14 @@
   font-weight: 400;
   text-transform: uppercase;
   line-height:1;
-}
-@mixin displayFontAlt() {
-  @include displayFont();
-  @include glowTextAlt();
   font-size: $font-size-m;
   @media(min-width:$breakpoint-width) {
     font-size: $font-size-l;
   }
+}
+@mixin displayFontAlt() {
+  @include displayFont();
+  @include glowTextAlt();
 }
 @mixin displayFontHuge() {
   @include displayFont();
@@ -30,11 +30,8 @@
   }
 }
 @mixin displayFontAltHuge() {
+  @include displayFontHuge();
   @include displayFontAlt();
-  font-size: $font-size-l;
-  @media(min-width:$breakpoint-width) {
-    font-size: $font-size-ll;
-  }
 }
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ sans upper font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
