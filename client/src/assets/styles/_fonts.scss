@@ -1,0 +1,72 @@
+@import '_vars.scss';
+@import '_mixins.scss';
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ google fonts imports ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ display font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+@mixin displayFont() {
+  @include glowText();
+  font-family: 'Faster One', serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height:1;
+}
+@mixin displayFontAlt() {
+  @include displayFont();
+  @include glowTextAlt();
+  font-size: $font-size-m;
+  @media(min-width:$breakpoint-width) {
+    font-size: $font-size-l;
+  }
+}
+@mixin displayFontHuge() {
+  @include displayFont();
+  font-size: $font-size-l;
+  @media(min-width:$breakpoint-width) {
+    font-size: $font-size-ll;
+  }
+}
+@mixin displayFontAltHuge() {
+  @include displayFontAlt();
+  font-size: $font-size-l;
+  @media(min-width:$breakpoint-width) {
+    font-size: $font-size-ll;
+  }
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ sans upper font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+@mixin sansUpper() {
+  @include glowText();
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+@mixin sansUpperAlt() {
+  @include sansUpper();
+  @include glowTextAlt();
+}
+@mixin sansUpperWhite() {
+  @include sansUpper();
+  @include glowTextWhite();
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ default (sans) font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+@mixin defaultFont() {
+  @include glowTextWhite();
+  font-family: 'Montserrat', sans-serif;
+  font-size: $font-size;
+  font-weight:600;
+  letter-spacing: 2px;
+  line-height:1.4;
+  color: $white;
+}
+@mixin sansLower() {
+  @include defaultFont();
+  @include glowText();  
+}
+@mixin sansLowerAlt() {
+  @include sansLower();
+  @include glowTextAlt();
+}
