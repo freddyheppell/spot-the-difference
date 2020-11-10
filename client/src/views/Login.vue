@@ -2,8 +2,8 @@
   <div id="login">
     <h1 class="title">Spot The <span class="difference alt">Difference</span></h1>
     <div v-if="profile_data" class="about">
-      {{ profile_data.self ? "Hey " : "Compare your music taste with " }} 
-      <a :href="profile_data.external_urls.spotify">{{ profile_data.display_name }}</a>!
+      {{ (profile_data.self ? "Hey " : "Compare your music taste with ")
+         + profile_data.display_name }}!
       <img class="avatar" :src="profile_data.images[0].url"/>
     </div>
     <a v-if="!profile_data || !profile_data.self" class="login-button button" :href="spotify_auth_link">
