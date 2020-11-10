@@ -130,6 +130,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   .key {
+    margin-top:$spacer*1.5;
     @include sansUpperWhite();
     >*{ display:inline-block }
     :first-child::after {content:"|"}
