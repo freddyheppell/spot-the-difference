@@ -70,6 +70,7 @@
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ default (sans) font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 @mixin defaultFont() {
+  @include glowTextWhite();
   font-family: 'Montserrat', sans-serif;
   font-size: $font-size;
   font-weight:600;
@@ -84,8 +85,4 @@
 @mixin sansLowerAlt() {
   @include sansLower();
   @include glowTextAlt();
-}
-@mixin sansLowerWhite() {
-  @include sansLower();
-  @include glowTextWhite();
 }
