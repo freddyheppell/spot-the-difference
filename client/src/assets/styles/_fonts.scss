@@ -31,7 +31,7 @@
 }
 @mixin displayFontAltHuge() {
   @include displayFontHuge();
-  @include displayFontAlt();
+  @include glowTextAlt();
 }
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ sans upper font ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
