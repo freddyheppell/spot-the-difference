@@ -1,22 +1,13 @@
 <template>
   <ol class="terms-ol">
-    <li :class="{ 'term-li':true, 'selected':selected_term=='long_term' }" 
-        @click="selectTerm('long_term')">
-        Long
-        Term
-        <hr v-if="selected_term=='long_term'"/>
-    </li>
-    <li :class="{ 'term-li':true, 'selected':selected_term=='medium_term' }" 
-        @click="selectTerm('medium_term')">
-        Medium
-        Term
-        <hr v-if="selected_term=='medium_term'"/>
-    </li>
-    <li :class="{ 'term-li':true, 'selected':selected_term=='short_term' }" 
-        @click="selectTerm('short_term')">
-        Short
-        Term
-        <hr v-if="selected_term=='short_term'"/>
+    <li v-for="term of [{ val:'short_term', display:'Short \nTerm' },
+                        { val:'medium_term', display:'Medium \nTerm' },
+                        { val:'long_term', display:'Long \nTerm' }]" 
+        :key="term.val"
+        :class="{ 'term-li':true, 'selected':selected_term==term.val }" 
+        @click="selectTerm(term.val)">
+        {{ term.display }}
+        <hr v-if="selected_term==term.val" class="alt"/>
     </li>
   </ol>
 </template>
