@@ -220,16 +220,18 @@ export default {
 .d3-network {
   width:100%;height:100%;
 
-  .user1-artist-node { fill: $magenta; }
-  .user2-artist-node { fill: $cyan; }
-  .both-artist-node { fill: $white; }
-
   .node {
-    r: 5px;
+    stroke:transparent;
+    stroke-width:30px;
+    r: 6px;
     &.selected {
-      r:10px;
+      r:12px;
     }
+    &.user1-artist-node { fill: $magenta; }
+    &.user2-artist-node { fill: $cyan; }
+    &.both-artist-node { fill: $white; }
   }
+
   .link { 
     stroke: $white;
     opacity: 0.4;
