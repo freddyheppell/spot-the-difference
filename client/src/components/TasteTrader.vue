@@ -277,6 +277,7 @@ export default {
     .rec {
       text-align:center;
       .rec-title {
+        margin-top: 4px;
         display:block;
         @include sansUpperAlt();
       }
