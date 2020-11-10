@@ -7,7 +7,10 @@
       <li class="display-name-2">{{ display_name_2 }}</li>
     </ol>
     <p class="desc">Up to 10 genres you have in common.</p>
-    <ol class="genres-ol">
+    <div v-if="stats.common_genres.length == 0" class="err">
+      You don't have any genres in common! :(
+    </div>
+    <ol v-else class="genres-ol">
       <li v-for="genre of stats.common_genres" :key="genre.name" 
           class="genres-li">
           <span class="freq-1">{{ genre[display_name_1] + (genre[display_name_1] > 1 ? ' artists' : ' artist')}} |</span>
@@ -105,6 +108,12 @@ export default {
     :last-child::before {content:"|"}
     .display-name-1 { @include sansUpper(); }  
     .display-name-2 { @include sansUpperAlt(); }  
+  }
+  .err {
+    @include sansUpperAlt();
+    text-align: center;
+    margin-top: $spacer*3;
+    margin-bottom: $spacer*6;
   }
   .genres-ol {
     display:flex;
