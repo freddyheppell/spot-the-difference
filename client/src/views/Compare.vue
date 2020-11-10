@@ -39,8 +39,12 @@
                     :tracks_2_raw="data[1].listening_data[selected_term].tracks"
                     :display_name_1="data[0].profile.display_name"
                     :display_name_2="data[1].profile.display_name"
-                    :avatar_1="data[0].profile.images[0].url"
-                    :avatar_2="data[1].profile.images[0].url"/>
+                    :avatar_1="data[0].profile.images[0] 
+                               ? data[0].profile.images[0].url
+                               : '/assets/img/placeholder_avatar.jpg'"
+                    :avatar_2="data[1].profile.images[0] 
+                               ? data[1].profile.images[0].url
+                               : '/assets/img/placeholder_avatar.jpg'"/>
 
         <hr>
 
