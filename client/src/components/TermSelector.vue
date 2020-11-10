@@ -1,8 +1,8 @@
 <template>
   <ol class="terms-ol">
-    <li v-for="term of [{ val:'short_term', display:'Short \nTerm' },
+    <li v-for="term of [{ val:'long_term', display:'Long \nTerm' },
                         { val:'medium_term', display:'Medium \nTerm' },
-                        { val:'long_term', display:'Long \nTerm' }]" 
+                        { val:'short_term', display:'Short \nTerm' }]" 
         :key="term.val"
         :class="{ 'term-li':true, 'selected':selected_term==term.val }" 
         @click="selectTerm(term.val)">
@@ -26,21 +26,22 @@ export default {
 
 <style scoped lang="scss">
 .terms-ol {
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-  display:flex;
   width:100%;
+
+  display:flex;
   flex-wrap: nowrap;
-  overflow-x:auto;
+
   .term-li {
-    flex-grow:1;
     padding: 0 $spacer*2;
-    color: $magenta-l;
-    text-shadow: 0px 0px 15px $magenta-d;
+    flex-grow:1;
+
+    @include sansUpper();
     &.selected {
-      color: $cyan-l;
-      text-shadow: 0px 0px 15px $cyan-d;
+      @include glowTextAlt();
     }
+
+    text-align: center;
+
     white-space:pre-line;
     @media(min-width:$breakpoint-width) {
       white-space: normal;

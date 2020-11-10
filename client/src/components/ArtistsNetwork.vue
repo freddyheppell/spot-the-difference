@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">Artists</h1>
+    <h2 class="title">Artists</h2>
     <ol class="key">
       <li class="display-name-1">{{ display_name_1 }}</li>
       <li class="both">Both</li>
@@ -15,8 +15,8 @@
                   :options="{ canvas:false }"
                   @node-click="artist_clicked"/>
     </div>
-    <hr v-if="artist_selected">
     <div v-if="artist_selected" class="selected-artist">
+      <hr class="alt">
       <h2 class="artist-name alt">{{ artist_selected.name }}</h2>
       <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
         <li v-for="genre of artist_selected.genres" :key="genre" 
@@ -129,55 +129,29 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  .title {
-    text-align:left;
-    font-size: $font-size-m;
-    @media(min-width:$breakpoint-width) {
-      font-size: $font-size-l;
-    }
-  }
   .key {
-    font-family: 'Lato', sans-serif;
-    font-weight:700;
-
-    text-align:left;
-    text-transform: uppercase;
-
+    @include sansUpperWhite();
     >*{ display:inline-block }
     :first-child::after {content:"|"}
     :last-child::before {content:"|"}
-
-    .display-name-1 {
-      text-shadow: 0px 0px 20px $magenta-d;
-      color: $magenta-l;    
-    }  
-    .display-name-2 {
-      text-shadow: 0px 0px 20px $cyan-d;
-      color: $cyan-l;    
-    }  
+    .display-name-1 { @include sansUpper(); }  
+    .display-name-2 { @include sansUpperAlt(); }  
   }
-  .desc {
-    text-align:left;
-  }
+  
   .network-graph-container {
     height:70vh;
     max-height: 500px;
   }
+  
   .selected-artist {
-    font-family: 'Lato', sans-serif;
-    line-height:1;
-    padding: $spacer*2 0;
-    .artist-name {
-      text-align:left;
-      font-size: $font-size-m;
-      @media(min-width:$breakpoint-width) {
-        font-size: $font-size-l;
-      }
+    padding: $spacer*4;
+    hr {
+      margin-bottom: $spacer*4;
     }
-    .artist-genres-ul {
+    .artist-genres-ul, .similar-artists-ul {
       padding-top: $spacer*3;
-      text-align:left;
-      .artist-genres-li {
+      line-height:1;
+      li {
         display: inline;
         &::after {
           content:", "
@@ -190,27 +164,7 @@ export default {
       }
     }
     .similar-artists-ul {
-      padding-top: $spacer*3;
-
-      font-family: 'Lato', sans-serif;
-      font-weight:700;
-
-      text-align:left;
-      text-transform: uppercase;
-      text-shadow: 0px 0px 20px $magenta-d;
-      color: $magenta-l;
-
-      .similar-artists-li {
-        display: inline;
-        &::after {
-          content:", "
-        }
-        &:last-child {
-          &::after {
-            content:""
-          }
-        }
-      }
+      @include sansUpper();
     }
   }
 }
@@ -223,9 +177,9 @@ export default {
   .node {
     stroke:transparent;
     stroke-width:30px;
-    r: 6px;
+    r: 5px;
     &.selected {
-      r:12px;
+      r:10px;
     }
     &.user1-artist-node { fill: $magenta; }
     &.user2-artist-node { fill: $cyan; }

@@ -10,6 +10,7 @@
       Log In With Spotify
     </a>
     <div class="shareables" v-if="profile_data">
+      <hr>
       Share this link so others can compare their tastes with {{ profile_data.self ? "you" : profile_data.display_name }}!
       <button class="copy-link button" @click="share">Copy Link</button>
     </div>
@@ -98,8 +99,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../assets/styles/_vars.scss';
-
 #login {
   align-self: center;
 
@@ -117,10 +116,6 @@ export default {
 
   .title {
     margin-bottom: $spacer*4;
-    font-size: $font-size-l;
-    @media(min-width:$breakpoint-width) {
-      font-size: $font-size-ll;
-    }
     .difference {
       display:block;
     }
@@ -129,11 +124,10 @@ export default {
   .about {
     margin-top: $spacer*4;
     .avatar {
-      display:block;
       margin:$spacer*4 auto;
-
+      display:block;
       width:200px;
-      height:200px;      
+      height:200px;
       object-fit: cover;
       border-radius:50%;
     }
@@ -141,11 +135,12 @@ export default {
 
   .shareables {
     margin-top: $spacer*8;
-    padding-top: $spacer*4;
-    border-top: 1px solid $white;
+    hr {
+      margin-bottom: $spacer*4;
+    }
     .copy-link {
-      display:block;
       margin: $spacer*4 auto 0 auto;
+      display:block;
     }
   }
 }

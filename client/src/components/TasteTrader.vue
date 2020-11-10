@@ -1,14 +1,12 @@
 <template>
   <div class="container">
-    <h1 class="title">Taste Trader</h1>    
+    <h2 class="title">Taste Trader</h2>    
     <p class="desc">
       Something for {{ display_name_1 }} from 
       {{ display_name_2 + (display_name_2.slice(-1) === "s" ? "'" : "'s") }} 
       library & vice versa.
     </p>
-
     <div class="grid">
-
       <div v-for="avatar of [{ id:'avatar1', src:avatar_1 },
                              { id:'avatar2', src:avatar_2 }]" 
           :key="avatar.id" :id="avatar.id" class="avatar-cont-cont">
@@ -16,12 +14,13 @@
           <img class="avatar" :src="avatar.src"/>
         </div>
       </div>
-
-      <div v-for="pane of [{ id:'rec1', rec:recommendation_1, display_name: display_name_1 }, 
-                           { id:'rec2', rec:recommendation_2, display_name: display_name_2 }]" 
+      <div v-for="pane of [{ id:'rec1', rec:recommendation_1, 
+                             display_name: display_name_1 }, 
+                           { id:'rec2', rec:recommendation_2, 
+                             display_name: display_name_2 }]" 
            :key="pane.id" :id="pane.id" class="rec">
-        <hr>
-        <span>
+        <hr class="alt">
+        <div class="container">
           {{ pane.display_name + (pane.rec.new ? " Might Like" : " Likes")}}: 
           <a class="rec-title" target="_blank" 
              :href="pane.top_track
@@ -36,9 +35,9 @@
                 class="matching-genres-li"                
                 >{{ genre }}</li>
           </ul>
-        </span>
-        <hr>
-      </div>      
+        </div>
+        <hr class="alt">
+      </div>
     </div>
   </div>
 </template>
@@ -46,7 +45,8 @@
 <script>
 export default {
   name: 'TasteTrader',
-  props: ["artists_1_raw", "artists_2_raw", "tracks_1_raw", "tracks_2_raw", "display_name_1", "display_name_2", "avatar_1", "avatar_2"],
+  props: ["artists_1_raw", "artists_2_raw", "tracks_1_raw", "tracks_2_raw", 
+          "display_name_1", "display_name_2", "avatar_1", "avatar_2"],
   computed:{
     recommendation_1() {
       return this.recommendation_for_user(this.display_name_1)
@@ -213,58 +213,49 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  .title {
-    text-align:left;
-    font-size: $font-size-m;
-    @media(min-width:$breakpoint-width) {
-      font-size: $font-size-l;
-    }
-  }
-  .desc {
-    text-align:left;
-  }
   .grid {
     margin: $spacer*4 0;
+
     display: grid;
+
+    align-items: center;
+    justify-items: center;
+
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+
     grid-column-gap: $spacer*2;
     grid-row-gap: 0px;
 
-    grid-template-areas:
-     "a b"
-     "c d";
-     #avatar1 { grid-area: a }
-     #avatar2 { grid-area: d }
-     #rec1 { grid-area: b }
-     #rec2 { grid-area: c }
-     @media (min-width: $breakpoint-width) {
+    grid-template-areas: "a b" "c d";
+
+    #avatar1 { grid-area: a }
+    #avatar2 { grid-area: d }
+    #rec1 { grid-area: b }
+    #rec2 { grid-area: c }
+
+    @media (min-width: $breakpoint-width) {
       margin-top: $spacer*8;
       #avatar1 { grid-area: a }
       #avatar2 { grid-area: b }
       #rec1 { grid-area: c }
       #rec2 { grid-area: d }
       .rec {
-        padding-top: $spacer*4;
+        padding: $spacer*4 $spacer*4 0 $spacer*4;
+
         height:100%;
         width:100%;
-        padding-left: $spacer*4;
-        padding-right:$spacer*4;
+
         display:flex;
         flex-direction: column;
         align-items: stretch;
+        justify-content: space-between;
         hr {
           width:100%;
         }
-        justify-content: space-between;
       }
-     }
-
-    align-items: center;
-    justify-items: center;
-    >* {
-      margin: 0 auto;
     }
+    
     .avatar-cont-cont {
       width:100%;
       max-width:200px;
@@ -282,21 +273,17 @@ export default {
         }
       }
     }
+
     .rec {
+      text-align:center;
       .rec-title {
         display:block;
-        font-family: 'Lato', sans-serif;
-        font-weight:700;
-        text-transform: uppercase;
-        text-shadow: 0px 0px 20px $cyan-d;
-        color: $cyan-l;
+        @include sansUpperAlt();
       }
       .matching-genres-ul {
-        overflow:visible;
         .matching-genres-li {
           display: inline;
-          text-shadow: 0px 0px 20px $magenta-d;
-          color: $magenta-l;
+          @include sansLower();
           &::after {
             content:", "
           }

@@ -1,27 +1,27 @@
 <template>
   <div id="compare">
-    <div class="container">
       <div v-if="loading" class="loading-notice">
         <h1 class="title">Loading Your Data</h1>
       </div>
 
       <div v-else class="results">
-        <hr class="alt"/>
         <div class="header">
           <h1 class="title">
+            <hr/>
             <span class="comparing">Comparing</span>
-            <hr/>
-            <span class="display-name">{{ data[0].profile.display_name }}</span>
             <hr class="alt"/>
-            <span class="and">And</span>
+            <span class="display-name">{{ data[0].profile.display_name }}</span>
             <hr/>
+            <span class="and">And</span>
+            <hr class="alt"/>
             <span class="display-name">{{ data[1].profile.display_name }}</span>
           </h1>
         </div>
 
         <TermSelector class="term-selector" :selected_term="selected_term" @select="selected_term = $event"/>
 
-        <hr class="alt">
+        <hr>
+
         <!-- Different data visualisation components will live here! -->
 
         <ArtistsNetwork class="artists-network"
@@ -30,7 +30,7 @@
                         :display_name_1="data[0].profile.display_name"
                         :display_name_2="data[1].profile.display_name"/>
 
-        <hr class="alt">
+        <hr>
 
         <TasteTrader class="taste-trader"
                     :artists_1_raw="data[0].listening_data[selected_term].artists"
@@ -42,15 +42,16 @@
                     :avatar_1="data[0].profile.images[0].url"
                     :avatar_2="data[1].profile.images[0].url"/>
 
-        <hr class="alt">
+        <hr>
 
         <CommonGenres class="common-genres"
                       :artists_1_raw="data[0].listening_data[selected_term].artists"
                       :artists_2_raw="data[1].listening_data[selected_term].artists"
                       :display_name_1="data[0].profile.display_name"
                       :display_name_2="data[1].profile.display_name"/>
+
+        <hr>
       </div>
-    </div>
   </div>
 </template>
 
@@ -96,43 +97,31 @@ export default {
   padding: $spacer*2;
 
   width:100%;
+  max-width:1280px;
 
-  text-align:center;
-
-  .container {
-    width:100%;
+  .loading-notice {
     height:100%;
-    max-width:1280px;
-    margin: 0 auto;
 
-    .loading-notice {
-      height:100%;
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      .title {
-        font-size: $font-size-m;
-        @media(min-width:$breakpoint-width) {
-          font-size: $font-size-l;
-        }
-      }
-    }
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .results {
-      width:100%;
+    text-align: center;
+  }
+
+  .results {
+    width:100%;
+
+    .header {
+      margin-bottom: $spacer*8;
 
       .title {
         word-break: break-all;
 
-        span {
-          display:block;
-        }
+        span { display:block; }
+        hr { margin: $spacer*4 0 $spacer*2 0; }
 
-        hr {
-          margin: $spacer*4 0 $spacer*2 0;
-        }
-
-        .comparing, .and { text-align: left }
         .and, .display-name {
           font-size: $font-size-m;
           @media(min-width:$breakpoint-width) {
@@ -140,21 +129,12 @@ export default {
           }
         }
         .display-name { 
+          @include displayFontAlt();
           text-align: right;
-          color: $cyan;
-          text-shadow: 0px 0px 20px $cyan-d;
         }
-
         .comparing {
-          font-size: $font-size-l;
-          @media(min-width:$breakpoint-width) {
-            font-size: $font-size-ll;
-          }
+          @include displayFontHuge();
         }
-      }
-
-      .term-selector {
-        margin-top: $spacer*8;
       }
     }
   }

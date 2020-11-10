@@ -2,92 +2,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap');
 @import '_vars.scss';
+@import '_mixins.scss';
 
-@font-face {
-  font-family: "MS Sans Serif Bold";
-  src: url("/assets/fonts/MS Sans Serif Bold.ttf")
-}
-
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ html, body ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 html {
   height:100%;
 }
-
 body {
   height:0;
   min-height:100%;
-
-  font-family: 'Montserrat', sans-serif;
-  font-weight:600;
-  font-size: $font-size;
-
-  letter-spacing: 2px;
-  line-height:1.4;
-
-  color: $white;
+  @include defaultFont();
 }
 
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ headings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 h1,h2 {
-  font-family: 'Faster One', serif;
-  font-weight: 400;
-  text-transform: uppercase;
-  line-height:1;
-
-  text-shadow: 0px 0px 20px $magenta-d;
-  color: $magenta-l;
-
+  @include displayFont();
   &.alt, .alt {
-    color: $cyan;
-    text-shadow: 0px 0px 20px $cyan-d;
+    @include displayFontAlt();
   }
 }
-h3 {
-  font-family: 'Lato', sans-serif;
-  font-weight:700;
+h1 { font-size: $font-size-l }
+h2 { font-size: $font-size-m }
+@media(min-width:$breakpoint-width) {
+  h1 { font-size: $font-size-ll }
+  h2 { font-size: $font-size-l }
 }
 
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ links ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 a {
-  font-weight:800;
   color: $white;
   text-decoration: none;
 }
 
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ horizontal rules ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 hr {
   border:none;
   height:2px;
-  background: $cyan;
-  box-shadow: 0px 0px 10px $cyan-d;
+  background: $magenta-l;
+  @include glowBox();
   &.alt {
-    background: $magenta-l;
-    box-shadow: 0px 0px 10px $magenta-d;
+    background: $cyan;
+    @include glowBoxAlt();
   }
 }
 
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ buttons ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 button {
   color: $white;
   letter-spacing: 2px;
 }
 
 .button {
+  padding: $spacer*4;
+
   font-family: 'Lato', sans-serif;
   font-weight:400;
-
   font-size: $font-size;
-
   text-transform: uppercase;
 
   background: rgba(0,0,0,0.5);
 
-  padding: $spacer*3;
-
   border: 1px solid $white;
-  border-radius: $spacer*6;
+  border-radius: $spacer*8;
 
-  box-shadow: 0px 0px 5px $cyan;
+  @include glowBoxAlt();
   transition: .25s box-shadow ease, 
               1s color ease, 
               1s background ease;
   &:hover {
-    box-shadow: 0px 0px 20px $cyan;
+    @include glowBoxAlt(25px);
   }
 
   &:active {

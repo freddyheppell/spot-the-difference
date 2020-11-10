@@ -15,7 +15,6 @@
           v-for="genre of genres" :key="genre.name"
           >{{ genre.name }}</li>
     </ol>
-    <hr class="alt">
   </div>
 </template>
 
