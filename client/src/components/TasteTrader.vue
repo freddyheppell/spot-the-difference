@@ -228,7 +228,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
+    grid-column-gap: $spacer*2;
     grid-row-gap: 0px;
 
     grid-template-areas:
@@ -267,8 +267,7 @@ export default {
     }
     .avatar-cont-cont {
       width:100%;
-      max-width:200px+$spacer*4;
-      padding: 0 $spacer*2;
+      max-width:200px;
       .avatar-cont {
         width:100%;
         padding-top: 100%;
