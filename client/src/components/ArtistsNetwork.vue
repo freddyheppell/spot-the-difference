@@ -157,11 +157,11 @@ export default {
   
   .selected-artist {
     padding: $spacer*4;
-    @include sansUpperWhite();
     hr {
       margin-bottom: $spacer*4;
     }
     .genres, .mutual-artists {
+      @include sansUpperWhite();
       margin-top: $spacer*3;
       .artist-genres-ul { @include sansUpper(); }
       .similar-artists-ul { @include sansUpperAlt(); }
