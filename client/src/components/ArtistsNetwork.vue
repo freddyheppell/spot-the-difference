@@ -17,7 +17,12 @@
     </div>
     <div v-if="artist_selected" class="selected-artist">
       <hr class="alt">
-      <h2 class="artist-name alt">{{ artist_selected.name }}</h2>
+      <a :href="artist_selected.external_urls.spotify" target="_blank" class="artist-name">
+        <h2 class="alt">
+          {{ artist_selected.name }}
+          <font-awesome-icon icon="arrow-up" :transform="{ rotate:45 }"/>
+        </h2>
+      </a>
       <section class="genres">
         Genres:
         <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
