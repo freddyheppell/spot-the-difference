@@ -117,11 +117,9 @@ export default {
       margin-bottom: $spacer*8;
 
       .title {
-        word-break: break-all;
-
         span { display:block; }
         hr { margin: $spacer*4 0 $spacer*2 0; }
-
+        
         .and, .display-name {
           font-size: $font-size-m;
           @media(min-width:$breakpoint-width) {
