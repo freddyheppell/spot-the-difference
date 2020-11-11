@@ -73,6 +73,26 @@
                       :display_name_2="data[1].profile.display_name"/>
 
         <hr>
+
+        <footer class="footer">
+          <ul class="footer-ul">
+            <li class="authors">
+              Built by 
+              <a href="https://freddyheppell.com/" target="_blank" class="freddy"
+                ><font-awesome-icon class="icon" icon="globe"/>
+                Freddy</a> & 
+              <a href="http://joshuarainbow.co.uk/" target="_blank" class="josh"
+                ><font-awesome-icon class="icon" icon="globe"/>
+                Josh</a>
+            </li>
+            <li class="github">
+              <a href="https://github.com/freddyheppell/spot-the-difference" 
+                target="_blank" class="github"
+                ><font-awesome-icon class="icon" :icon="['fab', 'github']"/> 
+                Github</a>
+            </li>
+          </ul>
+        </footer>
       </div>
   </div>
 </template>
@@ -122,7 +142,6 @@ export default {
   padding: $spacer*2;
 
   width:100%;
-  max-width:1280px;
 
   .loading-notice {
     height:100%;
@@ -210,9 +229,34 @@ export default {
         }
       }
     }
+  }
 
-    >:last-child {
-      margin-bottom: $spacer;
+  .footer {
+    margin: $spacer*3 0 $spacer 0;
+
+    .footer-ul {
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      .authors {
+        margin: 0 $spacer*2;
+        flex-shrink: 0;
+        .freddy { @include sansLower(); }
+        .josh { @include sansLowerAlt(); }
+      }
+      .github {
+        margin: 0 $spacer;
+        flex-shrink: 0;
+      }
+      @media(min-width:$breakpoint-width) {
+        display:block;
+        text-align: right;
+        li { display:inline }
+        .authors, .github { margin: 0 }
+        .authors::after { content: " | " }
+      }
     }
   }
 }

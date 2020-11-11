@@ -48,8 +48,9 @@ export default {
   position:relative;
 
   display:flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
 
   &::before {
     z-index: 1;
@@ -60,10 +61,11 @@ export default {
     background: rgba(0,0,0,0.7);
   }
 
-  .view {
-    position:relative;
+  >* {
+    flex-basis:100%;
     z-index: 2;
-    min-height:100%;
+    min-height: 100%;
+    max-width: $max-content-width;
   }
 }
 </style>
