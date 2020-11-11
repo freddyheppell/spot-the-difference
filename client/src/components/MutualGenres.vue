@@ -15,14 +15,14 @@
           class="genres-li">
           {{ genre.name }}
           <div class="freqs">
-            <span class="freq-1">{{ genre[display_name_1].raw + (genre[display_name_1].raw > 1 ? ' artists' : ' artist')}} |</span>
-            <span class="freq-2">| {{ genre[display_name_2].raw + (genre[display_name_2].raw > 1 ? ' artists' : ' artist')}}</span>
+            <span class="freq-1">{{ genre[display_name_1].frequency + (genre[display_name_1].frequency > 1 ? ' artists' : ' artist')}} |</span>
+            <span class="freq-2">| {{ genre[display_name_2].frequency + (genre[display_name_2].frequency > 1 ? ' artists' : ' artist')}}</span>
           </div>
           <div class="bars-cont">
             <hr class="bar-1" 
-                :style="{ width: 50*genre[display_name_1].raw/stats.max_frequency + '%' }"/>
+                :style="{ width: 50*genre[display_name_1].frequency/stats.max_frequency + '%' }"/>
             <hr class="bar-2 alt" 
-                :style="{ width: 50*genre[display_name_2].raw/stats.max_frequency + '%' }"/>
+                :style="{ width: 50*genre[display_name_2].frequency/stats.max_frequency + '%' }"/>
           </div>
       </li>
     </ol>
@@ -36,8 +36,6 @@ export default {
   computed:{
     stats() {
       var genre_frequencies = {}
-      var max_freq_1 = 0
-      var max_freq_2 = 0
       
       /**
        * Counting up all the frequencies of each tag on each users' artists
@@ -45,39 +43,24 @@ export default {
       for (var artist of this.artists_1_raw) {
         for (var genre of artist.genres) {
           if (genre_frequencies[genre]) {
-            genre_frequencies[genre][this.display_name_1].raw += 1
+            genre_frequencies[genre][this.display_name_1].frequency += 1
           } else {
             genre_frequencies[genre] = { name: genre }
-            genre_frequencies[genre][this.display_name_1] = { raw: 1 }
-            genre_frequencies[genre][this.display_name_2] = { raw: 0 }
+            genre_frequencies[genre][this.display_name_1] = { frequency: 1 }
+            genre_frequencies[genre][this.display_name_2] = { frequency: 0 }
           }
-          max_freq_1 = 
-            genre_frequencies[genre][this.display_name_1].raw > max_freq_1 
-            ? genre_frequencies[genre][this.display_name_1].raw
-            : max_freq_1  
         }
       }
       for (artist of this.artists_2_raw) {
         for (genre of artist.genres) {
           if (genre_frequencies[genre]) {
-            genre_frequencies[genre][this.display_name_2].raw += 1
+            genre_frequencies[genre][this.display_name_2].frequency += 1
           } else {
             genre_frequencies[genre] = { name: genre }
-            genre_frequencies[genre][this.display_name_1] = { raw: 0 }
-            genre_frequencies[genre][this.display_name_2] = { raw: 1 }
+            genre_frequencies[genre][this.display_name_1] = { frequency: 0 }
+            genre_frequencies[genre][this.display_name_2] = { frequency: 1 }
           }
-          max_freq_2 = 
-            genre_frequencies[genre][this.display_name_2].raw > max_freq_2 
-            ? genre_frequencies[genre][this.display_name_2].raw
-            : max_freq_2  
         }
-      }
-
-      for (genre of Object.values(genre_frequencies)) {
-        genre_frequencies[genre.name][this.display_name_1].normalised = 
-          genre[this.display_name_1].raw/max_freq_1
-        genre_frequencies[genre.name][this.display_name_2].normalised = 
-          genre[this.display_name_2].raw/max_freq_2
       }
 
       /**
@@ -86,8 +69,8 @@ export default {
        */
       for (genre of Object.values(genre_frequencies)) {
         genre_frequencies[genre.name].score = 
-          genre[this.display_name_1].normalised
-          * genre[this.display_name_2].normalised
+          genre[this.display_name_1].frequency
+          * genre[this.display_name_2].frequency
       }
 
       //Filtering down to the top 10 genres the users have in common
@@ -100,9 +83,10 @@ export default {
       var max_frequency = common_genres.reduce(
         (prev_freq, curr_genre) => {
           var curr_freq = 
-            curr_genre[this.display_name_1].raw > curr_genre[this.display_name_2].raw
-            ? curr_genre[this.display_name_1].raw
-            : curr_genre[this.display_name_2].raw
+            curr_genre[this.display_name_1].frequency 
+            > curr_genre[this.display_name_2].frequency
+            ? curr_genre[this.display_name_1].frequency
+            : curr_genre[this.display_name_2].frequency
           return curr_freq > prev_freq ? curr_freq : prev_freq
         }, 0
       )
