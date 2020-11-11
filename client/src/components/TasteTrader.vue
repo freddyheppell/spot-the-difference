@@ -135,8 +135,8 @@ export default {
           if (iafs[genre] && genres_query[genre]) {
             common_genres += 1
             artists[artist].score += 
-              (genres_query[genre]*iafs[genre])
-              * (1*iafs[genre]) //The genre frequencies on artists are always 1
+              genres_query[genre]*iafs[genre]
+              * 1 * iafs[genre] //The genre frequencies on artists are always 1
           }
         }
         artists[artist].score = 
