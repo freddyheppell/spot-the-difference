@@ -1,13 +1,17 @@
 <template>
   <div id="compare">
-      <div v-if="loading" class="loading-notice">
+      <div v-if="loading || err" class="loading-notice">
         <h1 class="title">
           Loading Your 
           <span class="data alt">Data</span>
         </h1>
-        <div class="bar">
+        <div v-if="loading" class="bar">
           <hr class="slider alt">
         </div>
+        <p v-if="err" class="err">
+          Something went wrong! :(
+          <span class="msg">{{ err }}</span>
+        </p>
       </div>
 
       <div v-else class="results">
@@ -93,6 +97,7 @@ export default {
   data(){return{
     data: undefined,
     loading: true,
+    err: undefined,
     selected_term:"medium_term",
   }},
   mounted() {
@@ -101,10 +106,12 @@ export default {
         share_code_2: this.$route.params.share_code_2
      }).then(function(response) {
        this.data = response.data.data
-       this.loading = false;
+       this.loading = false
      }.bind(this)
      ).catch(function(reason) {
         console.log("/compare failed: ", reason)
+         this.loading = false
+        this.err = reason
      }.bind(this))
   }
 }
@@ -165,6 +172,17 @@ export default {
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
+      }
+    }
+
+    .err {
+      margin-top: $spacer*4;
+
+      .msg {
+        margin-top: $spacer*4;
+        display:block;
+
+        @include sansUpperAlt();
       }
     }
   }
