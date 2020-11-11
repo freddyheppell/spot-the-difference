@@ -59,10 +59,10 @@
                     :display_name_2="data[1].profile.display_name"
                     :avatar_1="data[0].profile.images[0] 
                                ? data[0].profile.images[0].url
-                               : '/assets/img/placeholder_avatar.jpg'"
+                               : '/assets/img/placeholder_avatar_1.jpg'"
                     :avatar_2="data[1].profile.images[0] 
                                ? data[1].profile.images[0].url
-                               : '/assets/img/placeholder_avatar.jpg'"/>
+                               : '/assets/img/placeholder_avatar_2.jpg'"/>
 
         <hr>
 
