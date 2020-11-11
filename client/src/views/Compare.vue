@@ -1,7 +1,13 @@
 <template>
   <div id="compare">
       <div v-if="loading" class="loading-notice">
-        <h1 class="title">Loading Your Data</h1>
+        <h1 class="title">
+          Loading Your 
+          <span class="data alt">Data</span>
+        </h1>
+        <div class="bar">
+          <hr class="slider alt">
+        </div>
       </div>
 
       <div v-else class="results">
@@ -120,6 +126,47 @@ export default {
     align-items: center;
 
     text-align: center;
+
+    .title {
+      @include glowThrob();
+      .data {
+        @include displayFontAltHuge();
+        @include glowThrobAlt();
+      }
+    }
+
+    .bar {
+      margin-top: $spacer*4;
+
+      height:10px;
+      width:600px;
+      max-width:80%;
+
+      background: $magenta;
+      @include glowBox();
+
+      position:relative;
+
+      .slider {
+        margin: 0;
+
+        position:absolute;
+        top:0;left:0;
+        width: 25%;
+        height:100%;
+
+        @keyframes slide {
+          0% { left: 0; width:0; }
+          25% { left: 0; width:25%; }
+          75% { left: 75%; width:25%; }
+          100% { left: 100%; width:0; }
+        }
+        animation-name: slide;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
   }
 
   .results {

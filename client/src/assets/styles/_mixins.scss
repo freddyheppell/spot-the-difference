@@ -9,18 +9,18 @@
 }
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ text glows ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-@mixin glowText() {
+@mixin glowText($blur:15px) {
   color: $magenta-l;
-  text-shadow: 0px 0px 15px $magenta-d;
+  text-shadow: 0px 0px $blur $magenta-d;
   .icon {
-    filter:drop-shadow(0px 0px 15px $magenta-d);
+    filter:drop-shadow(0px 0px $blur $magenta-d);
   }
 }
-@mixin glowTextAlt() {
+@mixin glowTextAlt($blur:15px) {
   color: $cyan-l;
-  text-shadow: 0px 0px 15px $cyan-d;
+  text-shadow: 0px 0px $blur $cyan-d;
   .icon {
-    filter:drop-shadow(0px 0px 15px $cyan-d);
+    filter:drop-shadow(0px 0px $blur $cyan-d);
   }
 }
 @mixin glowTextWhite() {
@@ -29,4 +29,28 @@
   .icon {
     filter:drop-shadow(0px 0px 15px $white);
   }
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ animated text glows ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+@mixin glowThrob($blur1:10px,$blur2:30px) {
+  @keyframes throb {
+    0% { text-shadow: 0px 0px $blur1 $magenta-d; }
+    50% { text-shadow: -0.25ex 0px $blur2 $magenta-d; }
+    100% { text-shadow: 0px 0px $blur1 $magenta-d; }
+  }
+  animation-name: throb;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier( 0.445,  0.050,  0.550,  0.950 );
+}
+
+@mixin glowThrobAlt($blur1:10px,$blur2:30px) {
+  @include glowThrob($blur1,$blur2);
+  @keyframes throbAlt {
+    0% { text-shadow: 0px 0px $blur1 $cyan-d; }
+    50% { text-shadow: -0.25ex 0px $blur2 $cyan-d; }
+    100% { text-shadow: 0px 0px $blur1 $cyan-d; }
+  }
+  animation-name: throbAlt;
 }
