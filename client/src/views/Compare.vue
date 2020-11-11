@@ -145,7 +145,7 @@ export default {
     .bar {
       margin-top: $spacer*4;
 
-      height:10px;
+      height:2px;
       width:600px;
       max-width:80%;
 
