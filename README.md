@@ -44,7 +44,7 @@ Once the scores are computed for every artist, these scores are scaled by a func
 
 
 <p align="center">
-  <img src="/assets/taste_trader_log.png" alt="A logarithmic curve used to scale arists' scores." width="750">
+  <img src="/assets/taste_trader_log.png" alt="A logarithmic curve used to scale arists' scores.">
 </p>
 
 
@@ -52,7 +52,7 @@ Now we have scored all the artists it's simply a case of picking the artist with
 
 
 <p align="center">
-  <img src="/assets/taste_trader_track.png" alt="A screenshot of the Taste Trader" width="750">
+  <img src="/assets/taste_trader_track.png" alt="A screenshot of the Taste Trader">
 </p>
 
 
@@ -60,7 +60,7 @@ The Taste Trader then also checks over the other user's top tracks to see if it 
 
 
 <p align="center">
-  <img src="/assets/taste_trader_likes.png" alt="A screenshot of the Taste Trader" width="750">
+  <img src="/assets/taste_trader_likes.png" alt="A screenshot of the Taste Trader">
 </p>
 
 
