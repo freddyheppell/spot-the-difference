@@ -13,7 +13,9 @@
     <div class="shareables" v-if="profile_data">
       <hr>
       Share this link so others can compare their tastes with {{ profile_data.self ? "you" : profile_data.display_name }}!
-      <button class="copy-link button" @click="share">Copy Link</button>
+      <button class="copy-link button" @click="share">
+        {{ can_share ? 'Copy Link' : 'Copy Link To Clipboard' }}
+      </button>
     </div>
   </div>
 </template>
@@ -25,7 +27,8 @@ const API_Path = process.env.VUE_APP_API_BASE_URI ? process.env.VUE_APP_API_BASE
 export default {
   name: 'Login',
   data() {return {
-    profile_data: undefined
+    profile_data: undefined,
+    can_share: navigator.canShare,
   }},
   mounted() {
     //Check the route query for a code given to us by the spotify API after redirect...
