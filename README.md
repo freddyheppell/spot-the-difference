@@ -43,20 +43,25 @@ All of the artists belonging to the other user are then treated as documents on 
 Once the scores are computed for every artist, these scores are scaled by a function on the size of the union of the sets of genres in the search query and the artist (their "common genres"). This function (illustrated below) is a logarithmic curve such that an artist which shares one genre with the search query is scaled by a factor of 1 (so, is not scaled), while an artist with three common genres is scaled by a factor of two (so, doubled). The number of common genres required to double the artist's score was tuned to this value.
 
 
-![taste_trader_log](/assets/taste_trader_log.png)
+<p align="center">
+  <img src="/assets/taste_trader_log.png" alt="A logarithmic curve used to scale arists' scores.">
+</p>
 
 
 Now we have scored all the artists it's simply a case of picking the artist with the highest score that does not appear in the user's own top artists. If no such artist exists, then simply the highest scoring artist is selected (and the text "[display_name] Likes" is displayed in lieu of the text "[display_name] Might Like". 
 
 
-![taste_trader_track](/assets/taste_trader_track.png)
+<p align="center">
+  <img src="/assets/taste_trader_track.png" alt="A screenshot of the Taste Trader">
+</p>
 
 
 The Taste Trader then also checks over the other user's top tracks to see if it contains a track from that artist, which it will then recommend to the user specifically instead of simply the best scoring artist. This can be shown in the obvious case of a user comparing themselves to themselves.
 
 
-![taste_trader_likes](/assets/taste_trader_likes.png)
-
+<p align="center">
+  <img src="/assets/taste_trader_likes.png" alt="A screenshot of the Taste Trader">
+</p>
 
 
 ### Mutual Genres
