@@ -6,6 +6,7 @@
          + profile_data.display_name }}!
       <img class="avatar" :src="profile_data.images[0].url"/>
     </div>
+    <p v-if="!profile_data" class="desc">Compare music tastes with your friends by creating a shareable link.</p>
     <a v-if="!profile_data || !profile_data.self" class="login-button button" :href="spotify_auth_link">
       Log In With Spotify
     </a>
@@ -120,6 +121,10 @@ export default {
       @include displayFontAltHuge();
       display:block;
     }
+  }
+
+  .desc {
+    margin-bottom: $spacer*6;
   }
 
   .about {
