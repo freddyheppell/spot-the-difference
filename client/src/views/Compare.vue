@@ -66,7 +66,7 @@
 
         <hr>
 
-        <CommonGenres class="common-genres"
+        <MutualGenres class="mutual-genres"
                       :artists_1_raw="data[0].listening_data[selected_term].artists"
                       :artists_2_raw="data[1].listening_data[selected_term].artists"
                       :display_name_1="data[0].profile.display_name"
@@ -81,7 +81,7 @@
 import axios from "axios"
 import TermSelector from "../components/TermSelector.vue"
 import ArtistsNetwork from "../components/ArtistsNetwork.vue"
-import CommonGenres from "../components/CommonGenres.vue"
+import MutualGenres from "../components/MutualGenres.vue"
 import TasteTrader from "../components/TasteTrader.vue"
 
 const API_Path = process.env.VUE_APP_API_BASE_URI ? process.env.VUE_APP_API_BASE_URI : "https://api-dev.spotdiff.online"
@@ -91,7 +91,7 @@ export default {
   components: { 
     TermSelector,
     ArtistsNetwork,
-    CommonGenres,
+    MutualGenres,
     TasteTrader,
  },
   data(){return{

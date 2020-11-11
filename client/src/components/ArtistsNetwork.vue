@@ -1,12 +1,13 @@
 <template>
   <div class="container">
-    <h2 class="title">Artists</h2>
+    <h2 class="title">Artists Network</h2>
     <ol class="key">
       <li class="display-name-1">{{ display_name_1 }}</li>
       <li class="both">Both</li>
       <li class="display-name-2">{{ display_name_2 }}</li>
     </ol>
     <p class="desc">Links represent mutual genres.</p>
+    <p class="desc">Click nodes to expand.</p>
     <div class="network-graph-container">
       <d3-network class="d3-network"
                   :net-nodes="Object.values(artists).map(a=>a.node)" 

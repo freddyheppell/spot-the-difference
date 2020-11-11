@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2 class="title">Genres</h2>
+    <h2 class="title">Mutual Genres</h2>
     <ol class="key">
       <li class="display-name-1">{{ display_name_1 }}</li>
       |
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'CommonGenres',
+  name: 'MutualGenres',
   props: ["artists_1_raw", "artists_2_raw", "display_name_1", "display_name_2"],
   computed:{
     stats() {
