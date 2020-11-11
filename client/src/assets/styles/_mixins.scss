@@ -8,6 +8,11 @@
   box-shadow: 0px 0px $radius $cyan-d;
 }
 
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ box shadows ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+@mixin boxShadow($radius: 10px) {
+  box-shadow: 0px 0px $radius #000;
+}
+
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ text glows ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 @mixin glowText($blur:15px) {
   color: $magenta-l;
