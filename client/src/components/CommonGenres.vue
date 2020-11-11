@@ -3,7 +3,7 @@
     <h2 class="title">Genres</h2>
     <ol class="key">
       <li class="display-name-1">{{ display_name_1 }}</li>
-      <li class="both">Both</li>
+      |
       <li class="display-name-2">{{ display_name_2 }}</li>
     </ol>
     <p class="desc">Up to 10 genres you have in common.</p>
@@ -13,9 +13,11 @@
     <ol v-else class="genres-ol">
       <li v-for="genre of stats.common_genres" :key="genre.name" 
           class="genres-li">
-          <span class="freq-1">{{ genre[display_name_1] + (genre[display_name_1] > 1 ? ' artists' : ' artist')}} |</span>
           {{ genre.name }}
-          <span class="freq-2">| {{ genre[display_name_2] + (genre[display_name_2] > 1 ? ' artists' : ' artist')}}</span>
+          <div class="freqs">
+            <span class="freq-1">{{ genre[display_name_1] + (genre[display_name_1] > 1 ? ' artists' : ' artist')}} |</span>
+            <span class="freq-2">| {{ genre[display_name_2] + (genre[display_name_2] > 1 ? ' artists' : ' artist')}}</span>
+          </div>
           <div class="bars-cont">
             <hr class="bar-1" 
                 :style="{ width: 50*genre[display_name_1]/stats.max_frequency + '%' }"/>
@@ -104,8 +106,6 @@ export default {
     margin-top:$spacer*1.5;
     @include sansUpperWhite();
     >*{ display:inline-block }
-    :first-child::after {content:"|"}
-    :last-child::before {content:"|"}
     .display-name-1 { @include sansUpper(); }  
     .display-name-2 { @include sansUpperAlt(); }  
   }
@@ -116,12 +116,13 @@ export default {
     margin-bottom: $spacer*6;
   }
   .genres-ol {
+    margin-top: $spacer*3;
+    margin-bottom: $spacer*6;
+    padding: 0 $spacer*4;
+    line-height:1;
     display:flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 0 $spacer*4;
-    margin-top: $spacer*3;
-    margin-bottom: $spacer*6;
     .genres-li {
       text-align:center;
       margin: $spacer 0;
