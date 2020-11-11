@@ -25,7 +25,10 @@
       </a>
       <section class="genres">
         Genres:
-        <ul class="artist-genres-ul" v-if="artist_selected.genres.length>0">
+        <div v-if="artist_selected.genres.length==0" class="genres-err">
+          Couldn't find any! :(
+        </div>
+        <ul v-else class="artist-genres-ul">
           <li v-for="genre of artist_selected.genres" :key="genre" 
               class="artist-genres-li"
               >{{ genre }}</li>
@@ -33,7 +36,10 @@
       </section>
       <section class="mutual-artists">
         Artists With Mutual Genres:
-        <ul class="similar-artists-ul" v-if="similar_artists.length>0">
+        <div v-if="similar_artists.length==0" class="mutual-artists-err">
+          Couldn't find any! :(
+        </div>
+        <ul v-else class="similar-artists-ul">
           <li v-for="artist of similar_artists" :key="artist"
               class="similar-artists-li"
               >{{ artist }}</li>
@@ -157,9 +163,13 @@ export default {
   
   .selected-artist {
     padding: $spacer*4;
-    hr {
-      margin-bottom: $spacer*4;
+    hr { margin-bottom: $spacer*4; }
+    h2 { display:inline-block; }
+    .genres-err, .mutual-artists-err { 
+      display:inline-block; 
     }
+    .genres-err { @include sansUpper() }
+    .mutual-artists-err { @include sansUpperAlt() }
     .genres, .mutual-artists {
       @include sansUpperWhite();
       margin-top: $spacer*3;
