@@ -107,8 +107,6 @@ export default {
         }, 0
       )
 
-      console.log(genre_frequencies, max_frequency)
-
       return {
         common_genres: common_genres,
         max_frequency: max_frequency
