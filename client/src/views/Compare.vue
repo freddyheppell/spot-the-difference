@@ -12,16 +12,16 @@
             <hr class="alt"/>
             <a class="display-name" target="_blank" 
                :href="data[0].profile.external_urls.spotify"
-               >{{ data[0].profile.display_name }}
-               <font-awesome-icon class="icon" icon="arrow-up" :transform="{ rotate:45 }"/>
+               >{{ data[0].profile.display_name 
+               }}<font-awesome-icon class="icon" icon="external-link-alt" transform="shrink-5"/>
                </a>
             <hr/>
             <span class="and">And</span>
             <hr class="alt"/>
             <a class="display-name" target="_blank" 
                :href="data[1].profile.external_urls.spotify"
-               >{{ data[1].profile.display_name }}
-               <font-awesome-icon class="icon" icon="arrow-up" :transform="{ rotate:45 }"/>
+               >{{ data[1].profile.display_name 
+               }}<font-awesome-icon class="icon" icon="external-link-alt" transform="shrink-5"/>
                </a>
           </h1>
         </div>

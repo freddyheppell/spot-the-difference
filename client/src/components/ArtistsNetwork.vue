@@ -19,8 +19,8 @@
       <hr class="alt">
       <a :href="artist_selected.external_urls.spotify" target="_blank" class="artist-name">
         <h2 class="alt">
-          {{ artist_selected.name }}
-          <font-awesome-icon class="icon" icon="arrow-up" :transform="{ rotate:45 }"/>
+          {{ artist_selected.name 
+          }}<font-awesome-icon class="icon" icon="external-link-alt" transform="shrink-5"/>
         </h2>
       </a>
       <section class="genres">
