@@ -8,6 +8,7 @@
 #app {
   background-image: url("/assets/backgrounds/sean-foley-0JD7kvxAq0Y-unsplash.jpg");
   background-size: cover;
+  background-position: center;
   min-height:100%;
   z-index: 0;
   position:relative;
