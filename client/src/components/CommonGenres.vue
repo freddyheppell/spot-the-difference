@@ -126,10 +126,16 @@ export default {
     .genres-li {
       text-align:center;
       margin: $spacer 0;
+      .freq-1, .freq-2 {
+        display:inline-block;
+        width:50%;
+      }
       .freq-1 {
+        text-align:right;
         @include sansLower();
       }
       .freq-2 {
+        text-align:left;
         @include sansLowerAlt();
       }
       .bars-cont {
