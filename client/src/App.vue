@@ -30,7 +30,6 @@ export default {
     ]
     this.$refs["app"].style["background-image"] = 
       "url('"+backgrounds[Math.floor(Math.random()*backgrounds.length)]+"')"
-    console.log(this.$refs["app"].style)
   }
 }
 </script>
