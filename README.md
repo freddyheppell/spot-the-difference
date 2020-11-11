@@ -3,11 +3,12 @@
     <img src="/assets/banner.png" alt="Spot the Difference" width="750">
   </a>
 </p>
+Spot the Difference is an application that lets you and your friends compare music tastes. Just sign in with Spotify and share your link!
 
-Spot the Difference is an application that lets you and your friends compare music tastes. Just sign in with Spotify and share your link.
+
 
 ## Technologies
-The client side is built with Vue.js and the server side is a Python-powered AWS Lambda. We use the Spotify API to acquire users' top 50 tracks and top 50 artists over the long, medium and short term time periods Spotify provides. The artists graph uses [emiliorizzo/vue-d3-network](https://github.com/emiliorizzo/vue-d3-network), any icons are from [fontawesome](https://fontawesome.com/), and the background images are from 
+The client side is built with Vue.js and the server side is a Python-powered AWS Lambda with a DynamoDB. We use the Spotify API to acquire users' top 50 tracks and top 50 artists over the long, medium and short term time periods Spotify provides. 
 
 
 
@@ -42,19 +43,19 @@ All of the artists belonging to the other user are then treated as documents on 
 Once the scores are computed for every artist, these scores are scaled by a function on the size of the union of the sets of genres in the search query and the artist (their "common genres"). This function (illustrated below) is a logarithmic curve such that an artist which shares one genre with the search query is scaled by a factor of 1 (so, is not scaled), while an artist with three common genres is scaled by a factor of two (so, doubled). The number of common genres required to double the artist's score was tuned to this value.
 
 
-![taste_trader_log](/home/theteacat/Documents/spot-the-difference/assets/taste_trader_log.png)
+![taste_trader_log](/assets/taste_trader_log.png)
 
 
 Now we have scored all the artists it's simply a case of picking the artist with the highest score that does not appear in the user's own top artists. If no such artist exists, then simply the highest scoring artist is selected (and the text "[display_name] Likes" is displayed in lieu of the text "[display_name] Might Like". 
 
 
-![taste_trader_track](/home/theteacat/Documents/spot-the-difference/assets/taste_trader_track.png)
+![taste_trader_track](/assets/taste_trader_track.png)
 
 
 The Taste Trader then also checks over the other user's top tracks to see if it contains a track from that artist, which it will then recommend to the user specifically instead of simply the best scoring artist. This can be shown in the obvious case of a user comparing themselves to themselves.
 
 
-![taste_trader_likes](/home/theteacat/Documents/spot-the-difference/assets/taste_trader_likes.png)
+![taste_trader_likes](/assets/taste_trader_likes.png)
 
 
 
@@ -80,3 +81,9 @@ The backend is powered by a Lambda and DynamoDB table, orchestrated by [Serverle
 To run locally you'll also need a DynamoDB mock, run `sls dynamodb install` followed by `sls dynamodb start` to run.
 
 You'll need to copy the `env.example.json` file to `env.json` and put a set of spotify application credentials in there.
+
+
+
+## Acknowledgements
+
+The artists graph uses [emiliorizzo/vue-d3-network](https://github.com/emiliorizzo/vue-d3-network), any icons are from [fontawesome](https://fontawesome.com/), and the background images are from [Unsplash](https://unsplash.com/), taken by [Sean Foley](https://unsplash.com/@_stfeyes).
