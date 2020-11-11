@@ -276,6 +276,7 @@ export default {
 
     .rec {
       text-align:center;
+      hr { margin:$spacer*2 0 }
       .rec-title {
         margin-top: 4px;
         display:block;

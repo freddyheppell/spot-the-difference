@@ -198,7 +198,9 @@ export default {
         flex-direction: column;
         align-items: stretch;
 
-        hr { margin: $spacer*4 0 $spacer*2 0; }
+        >:first-child {
+          margin-top:$spacer;
+        }
         
         .comparing { @include displayFontHuge(); }
         .and { @include displayFont(); }
@@ -207,6 +209,10 @@ export default {
           align-self: flex-end;
         }
       }
+    }
+
+    >:last-child {
+      margin-bottom: $spacer;
     }
   }
 }

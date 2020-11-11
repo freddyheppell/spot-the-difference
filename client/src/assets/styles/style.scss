@@ -35,6 +35,7 @@ a {
 
 // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ horizontal rules ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 hr {
+  margin: $spacer*4 0 $spacer*2 0;
   border:none;
   height:2px;
   background: $magenta-l;
