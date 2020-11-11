@@ -135,7 +135,7 @@ export default {
   }
   .genres-ol {
     margin-top: $spacer*3;
-    margin-bottom: $spacer*6;
+    margin-bottom: $spacer*4;
     padding: 0 $spacer*4;
     line-height:1;
     display:flex;
