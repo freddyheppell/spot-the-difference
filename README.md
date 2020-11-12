@@ -7,18 +7,18 @@ Spot the Difference is an application that lets you and your friends compare mus
 
 
 
-## Technologies
+# Technologies
 The client side is built with Vue.js and the server side is a Python-powered AWS Lambda with a DynamoDB. We use the Spotify API to acquire users' top 50 tracks and top 50 artists over the long, medium and short term time periods Spotify provides. 
 
 
 
-## Visualisations
+# Visualisations
 
 Each visualisation is available within each of the three time periods provided by Spotify (long, medium and short term).
 
 
 
-### Artists Network
+## Artists Network
 
 The artists network builds a network graph out of the artists from each of the users, with artists as nodes and edges representing the presence of at least one mutual genre between two artists.
 
@@ -32,7 +32,7 @@ The visualisation is built using [emiliorizzo/vue-d3-network](https://github.com
 
 
 
-### Taste Trader
+## Taste Trader
 
 The Taste Trader constructs a query for each user from the genres and their frequencies over that user's artists. For example, if a user listened to three artists tagged "pop", and one artist tagged "electropop", their search query would contain the term "pop" repeated thrice, and "electropop" once - "pop pop pop electropop". This query is stored as a vector in which each word corresponds to a dimension with a length along that dimension - `{ pop: 3, electropop: 1 }`. 
 
@@ -64,46 +64,50 @@ The Taste Trader then also checks over the other user's top tracks to see if it 
 </p>
 
 
-### Mutual Genres
+## Mutual Genres
 
 The mutual genres component is relatively simple. For each user, the frequency of genres over their top artists is counted to produce a vector in which each word is a dimension, and the frequency is the length of the vector along that dimension. (`{ art pop: 2, electropop: 5, metropopolis: 1, ... }`). The dot product of these two vectors is then computed (`{ art pop: 2, electropop: 4 } x { electropop: 4, indie: 10} = { art pop: 0, electropop: 16, indie: 0 }`), and up to the top 10 genres by the length of the vector along their dimension, given it is greater than zero, are selected to be displayed in a mirror bar chart.
 
 
 
-## Local Setup
+# Setup
 
-### Running the client
-
-From the client directory, `npm install` then `npm run serve` or `npm run build` for production.
-There's an included `netlify.toml` file to deploy automatically to Netlify.
-
-### Running the server
+## Server
 
 The backend is powered by a Lambda and DynamoDB table, orchestrated by [Serverless](https://www.serverless.com/). You'll need to install the Serverless CLI globally.
 
 Python dependencies are managed with [Pipenv](https://pipenv.pypa.io/en/latest/):
 
-1. Make sure you've got an installation of Python 3.8 on your path and Pipenv
+1. Make sure you've got an installation of Python 3.8 on your path and Pipenv.
 2. Change directory into `/server`.
-3. Run `pipenv install` to create a virtual environment and install pip dependencies
-4. Run `npm install` to get Serverless packages
-5. Copy `env.example.json` to `env.json` and put in spotify app credentials
-6. Run `pipenv run sls dynamodb install --stage=dev` to install the DynamoDB mock
-7. Either use the AWS CLI to setup your `~/.aws/credentials` file, or put [this dummy file](https://gist.github.com/freddyheppell/380e1ae436010a4697447606e33af410) there instead
+3. Run `pipenv install` to create a virtual environment and install pip dependencies.
+4. Run `npm install` to get Serverless packages.
+5. Copy `env.example.json` to `env.json` and put in spotify app credentials.
+6. Run `pipenv run sls dynamodb install --stage=dev` to install the DynamoDB mock.
+7. Either use the AWS CLI to setup your `~/.aws/credentials` file, or put [this dummy file](https://gist.github.com/freddyheppell/380e1ae436010a4697447606e33af410) there instead.
 
-To run the server locally:
-1. Run `pipenv run dynamodb` to start the DynamoDB mock
-2. Run `pipenv run server` to run the application server locally
+To run the server **locally**:
 
-To deploy to AWS:
-* Run `pipenv run serverless deploy --stage=dev`
+1. Run `pipenv run dynamodb` to start the DynamoDB mock.
+2. Run `pipenv run server` to run the application server locally.
 
-### Running the client
+To **deploy to AWS**:
 
-The client is just a normal vue project. You should be able to get it going by running `npm install` and then `npm run serve` from within `/client`. 
+* Run `pipenv run serverless deploy --stage=dev`.
 
-If you're wanting to run it in tandem with a backend running in a development environment, then you need to set an environment variable `VUE_APP_SPOT_DIFF_API_BASE_URI` to the base URI provided by serverless when you start the development server (e.g. `export VUE_APP_SPOT_DIFF_API_BASE_URI="http://localhost:5000"` - note the lack of a trailing slash).
 
-## Acknowledgements
+
+## Client
+
+The client is just a normal Vue project. You should be able to get it going by running `npm install` and then `npm run serve` from within the `/client` directory. You can also run `npm run build` as usual to create a local test build.
+
+If you're wanting to run it in tandem with a backend running in a development environment too, then you need to set an environment variable `VUE_APP_SPOT_DIFF_API_BASE_URI` to the base URI provided by serverless when you start the development server (e.g. `export VUE_APP_SPOT_DIFF_API_BASE_URI="http://localhost:5000"` - note the lack of a trailing slash).
+
+For **deployment to Netlify** there's an included `netlify.toml` configuration file.
+
+
+
+# Acknowledgements
 
 The artists graph uses [emiliorizzo/vue-d3-network](https://github.com/emiliorizzo/vue-d3-network), any icons are from [fontawesome](https://fontawesome.com/), and the background images are from [Unsplash](https://unsplash.com/), taken by [Sean Foley](https://unsplash.com/@_stfeyes).
+
