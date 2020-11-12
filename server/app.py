@@ -26,8 +26,9 @@ if IS_OFFLINE:
 else:
     client = boto3.client('dynamodb')
 
-def get_expiry_time(expires_in):
-    return (datetime.datetime.today() + datetime.timedelta(seconds=expires_in)).strftime('%s')
+get_expiry_time = lambda expires_in: (datetime.datetime.today()
+                                      + datetime.timedelta(seconds=expires_in)
+                                     ).strftime('%s')
 
 def refresh(user):
     # See if the user's API token needs to be refreshed
