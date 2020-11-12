@@ -3,6 +3,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+server = "sls wsgi serve --stage=dev"
+dynamodb = "sls dynamodb start --stage=dev"
+
 [packages]
 boto3 = "~=1.16"
 botocore = "~=1.19"

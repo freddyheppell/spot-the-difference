@@ -79,26 +79,29 @@ There's an included `netlify.toml` file to deploy automatically to Netlify.
 
 ### Running the server
 
-The backend is powered by a Lambda and DynamoDB table, orchestrated by [Serverless](https://www.serverless.com/).
+The backend is powered by a Lambda and DynamoDB table, orchestrated by [Serverless](https://www.serverless.com/). You'll need to install the Serverless CLI globally.
 
-You'll need to copy the `env.example.json` file to `env.json` and put a set of spotify application credentials in there. You'll then need to install the python dependencies for the project by running `pip install -r requirements.txt` (or pip3).
+Python dependencies are managed with [Pipenv](https://pipenv.pypa.io/en/latest/):
 
-* Use `serverless deploy --stage=dev` to deploy
-* Use `sls wsgi serve --stage=dev` to run locally
+1. Make sure you've got an installation of Python 3.8 on your path and Pipenv
+2. Run `pipenv install` to create a virtual environment and install pip dependencies
+3. Run `npm install` to get Serverless packages
+3. Copy `env.example.json` to `env.json` and put in spotify app credentials
+4. Run `pipenv run sls dynamodb install --stage=dev` to install the DynamoDB mock
+5. Either use the AWS CLI to setup your `~/.aws/credentials` file, or put [this dummy file](https://gist.github.com/freddyheppell/380e1ae436010a4697447606e33af410) there instead
 
-To run locally you'll also need a DynamoDB mock, run `sls dynamodb install --stage=dev` followed by `sls dynamodb start --stage=dev` to run.
+To run the server locally:
+1. Run `pipenv run dynamodb` to start the DynamoDB mock
+2. Run `pipenv run server` to run the application server locally
+
+To deploy to AWS:
+* Run `pipenv run serverless deploy --stage=dev`
 
 ### Running the client
 
 The client is just a normal vue project. You should be able to get it going by running `npm install` and then `npm run serve` from within `/client`. 
 
-If you're wanting to run it in tandem with a backend running in a development environment, then you need to set an environment variable `VUE_APP_SPOT_DIFF_API_BASE_URI` to the base URI provided by serverless when you start the development server (e.g. `export VUE_APP_SPOT_DIFF_API_BASE_URI="http://localhost:5000"` - note the lack of a trailing slash). You may also need to create some dummy AWS credentials in `~/.aws/credentials` alike the following:
-
-```
-[default]
-aws_access_key_id = placeholder_id
-aws_secret_access_key = placeholder_key
-```
+If you're wanting to run it in tandem with a backend running in a development environment, then you need to set an environment variable `VUE_APP_SPOT_DIFF_API_BASE_URI` to the base URI provided by serverless when you start the development server (e.g. `export VUE_APP_SPOT_DIFF_API_BASE_URI="http://localhost:5000"` - note the lack of a trailing slash).
 
 ## Acknowledgements
 
