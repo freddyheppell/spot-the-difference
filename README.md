@@ -48,7 +48,7 @@ Once the scores are computed for every artist, these scores are scaled by a func
 </p>
 
 
-Now we have scored all the artists it's simply a case of picking the artist with the highest score that does not appear in the user's own top artists. If no such artist exists, then simply the highest scoring artist is selected (and the text "[display_name] Likes" is displayed in lieu of the text "[display_name] Might Like". 
+Now we have scored all the artists it's simply a case of picking the artist with the highest score that does not appear in the user's own top artists. If no such artist exists, then simply the highest scoring artist is selected (and the text "[display_name] Likes" is displayed in lieu of the text "[display_name] Might Like". This can be shown in the obvious case of a user comparing themselves to themselves.
 
 
 <p align="center">
@@ -56,7 +56,7 @@ Now we have scored all the artists it's simply a case of picking the artist with
 </p>
 
 
-The Taste Trader then also checks over the other user's top tracks to see if it contains a track from that artist, which it will then recommend to the user specifically instead of simply the best scoring artist. This can be shown in the obvious case of a user comparing themselves to themselves.
+The Taste Trader then also checks over the other user's top tracks to see if it contains a track from that artist, which it will then recommend to the user specifically instead of simply the best scoring artist.
 
 
 <p align="center">
