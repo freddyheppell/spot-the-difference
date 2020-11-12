@@ -84,11 +84,12 @@ The backend is powered by a Lambda and DynamoDB table, orchestrated by [Serverle
 Python dependencies are managed with [Pipenv](https://pipenv.pypa.io/en/latest/):
 
 1. Make sure you've got an installation of Python 3.8 on your path and Pipenv
-2. Run `pipenv install` to create a virtual environment and install pip dependencies
-3. Run `npm install` to get Serverless packages
-3. Copy `env.example.json` to `env.json` and put in spotify app credentials
-4. Run `pipenv run sls dynamodb install --stage=dev` to install the DynamoDB mock
-5. Either use the AWS CLI to setup your `~/.aws/credentials` file, or put [this dummy file](https://gist.github.com/freddyheppell/380e1ae436010a4697447606e33af410) there instead
+2. Change directory into `/server`.
+3. Run `pipenv install` to create a virtual environment and install pip dependencies
+4. Run `npm install` to get Serverless packages
+5. Copy `env.example.json` to `env.json` and put in spotify app credentials
+6. Run `pipenv run sls dynamodb install --stage=dev` to install the DynamoDB mock
+7. Either use the AWS CLI to setup your `~/.aws/credentials` file, or put [this dummy file](https://gist.github.com/freddyheppell/380e1ae436010a4697447606e33af410) there instead
 
 To run the server locally:
 1. Run `pipenv run dynamodb` to start the DynamoDB mock
