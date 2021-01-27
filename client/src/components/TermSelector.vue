@@ -16,8 +16,18 @@
 export default {
   name: 'TermSelector',
   props: ["selected_term"],
+  mounted(){
+      this.$gtag.event("success",{
+        "event_category":"Term Selector",
+        "event_label":"Selected term set to: " + this.selected_term,
+      })
+  },
   methods:{
     selectTerm(term) {
+      this.$gtag.event("success",{
+        "event_category":"Term Selector",
+        "event_label":"Selected term set to: " + term,
+      })
       this.$emit("select",term)
     }
   }

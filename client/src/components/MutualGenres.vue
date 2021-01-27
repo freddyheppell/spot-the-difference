@@ -91,6 +91,13 @@ export default {
         }, 0
       )
 
+      //Reporting the number of common genres found to google analytics.
+      this.$gtag.event("success",{
+        "event_category":"Common Genres",
+        "event_label":"Number of common genres found",
+        "value":common_genres.length,
+      })
+
       return {
         common_genres: common_genres,
         max_frequency: max_frequency

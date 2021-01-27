@@ -176,6 +176,15 @@ export default {
         bestArtist = artists[Object.keys(artists)
           .reduce((a, b) => a && artists[a].score > artists[b].score ? a : b,
                   undefined)]
+          this.$gtag.event("fail",{
+            "event_category":"Taste Trader",
+            "event_label":"No new artist found for recommendation"
+          })
+      } else {
+          this.$gtag.event("success",{
+            "event_category":"Taste Trader",
+            "event_label":"New artist found for recommendation"
+          })
       }
 
       /**
@@ -193,6 +202,21 @@ export default {
               : track
           }
         }
+      }
+
+      /**
+       * Reporting to google analytics if a track was found.
+       */
+      if (bestArtist.top_track) {
+          this.$gtag.event("success",{
+            "event_category":"Taste Trader",
+            "event_label":"Track found for recommendation"
+          })
+      } else {
+          this.$gtag.event("fail",{
+            "event_category":"Taste Trader",
+            "event_label":"No track found for recommendation"
+          })
       }
 
       /**

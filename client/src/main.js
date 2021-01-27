@@ -4,6 +4,11 @@ import router from './router'
 
 import "./plugins/fontawesome";
 
+import VueGtag from "vue-gtag";
+Vue.use(VueGtag, {
+  config: { id: "G-KKR8FCH84N" }
+});
+
 Vue.config.productionTip = false
 
 new Vue({
