@@ -7,6 +7,7 @@ from requests_futures.sessions import FuturesSession
 
 from flask import jsonify
 
+# Grab the fields to return to users for a spotify profile response
 def sanitise_profile_response(spotify_response):
     response = {
         "id": spotify_response['id'],
@@ -25,8 +26,8 @@ def get_user_from_token(token):
 
     return resp.json()
 
-
-
+# Exchange an authorization code
+# Requires the redirect uri for spotify api reasons
 def exchange_code(redirect_uri,code):
     body = {
         "grant_type": "authorization_code",
@@ -45,6 +46,7 @@ def exchange_code(redirect_uri,code):
 
     return resp.json()
 
+# Generate the basic authorization header
 def basic_encoded():
     key_string = environ.get('CLIENT_ID')+ ":" + environ.get('CLIENT_SECRET')
     key_string_encoded = key_string.encode('ascii')
@@ -52,8 +54,10 @@ def basic_encoded():
 
     return "Basic " +  key_string_b64.decode('ascii')
 
+# Refresh a user with the spotify api
 def refresh(user):
     if int(user["expiry_time"]) > int(time.time()):
+        # Don't refresh if the user's token expiry time is in the future
         return user
     else:
         body = {
@@ -72,9 +76,13 @@ def refresh(user):
 
         return resp.json()
 
+# Function to deserialise the response
 def response_hook(resp, *args, **kwargs):
     resp.data = resp.json()
 
+# Get the user's top response
+# Type: "tracks", "artists"
+# Time:"short_term", "medium_term", "long_term"
 def user_top_for(session, token, type, time):
     print("make a request")
     params = {
@@ -89,6 +97,7 @@ def user_top_for(session, token, type, time):
         'response': response_hook,
     })
 
+# Fetch all the users' top data
 def get_user_top(session, token):
     return {
         "long_term": {
@@ -105,6 +114,7 @@ def get_user_top(session, token):
         }
     }
 
+# Asynchronously fetch the user, using a given FuturesSession
 def async_user_from_token(session, token):
     return session.get('https://api.spotify.com/v1/me',
         headers={"Authorization": "Bearer " + token},
@@ -113,6 +123,7 @@ def async_user_from_token(session, token):
         }
     )
 
+# Terms to remove from top responses
 blacklist = set([
     "followers",
     "href",
@@ -129,6 +140,7 @@ blacklist = set([
     "track_number"
 ])
 
+# Filter a single popular item against the blacklist
 def filter_popular_item(item):
     new_data = {}
     for k, v in item.items():
@@ -137,6 +149,7 @@ def filter_popular_item(item):
 
     return new_data
 
+# Filter a set of popular items against the blacklist
 def filter_popular_response(data):
     items = data["items"]
 

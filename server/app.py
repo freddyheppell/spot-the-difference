@@ -13,27 +13,33 @@ import datetime
 app = Flask(__name__)
 CORS(app)
 
-IS_OFFLINE = environ.get('IS_OFFLINE')
-
+# Load the word list for tokens
 word_list = code_generator.load()
 
+# If the application is running locally
+IS_OFFLINE = environ.get('IS_OFFLINE')
+
 if IS_OFFLINE:
+    # Connect to the DynamoDB mock
     client = boto3.client(
         'dynamodb',
         region_name='localhost',
         endpoint_url='http://localhost:8000'
     )
 else:
+    # Connect to real dynamodb
     client = boto3.client('dynamodb')
 
+## Function to generate unix time for the specified number of times in the future
 get_expiry_time = lambda expires_in: (datetime.datetime.today()
                                       + datetime.timedelta(seconds=expires_in)
                                      ).strftime('%s')
 
+# See if the user's API token needs to be refreshed
 def refresh(user):
-    # See if the user's API token needs to be refreshed
     print("refresh user", user)
     try:
+        # Attempt to refresh the key
         refreshed_keys = spotify.refresh(user)
     except Exception as e:
         return {
@@ -42,7 +48,7 @@ def refresh(user):
         }, 500
 
     if refreshed_keys["access_token"] != user["access_token"]:
-        # Key has been refreshed
+        # If the key has changed, push to db
         user_db.update_user(
             client,
             user["share_code"],
@@ -80,6 +86,8 @@ def authorise():
     spotify_code = json["spotify_code"]
     passthrough_share_code = json["share_code"] if "share_code" in json else None
 
+    # Determine the redirect URI, either production or localhost
+    # TODO: load this from an env variable to allow for staging server too?
     redirect_uri = "https://spotdiff.online" if request.headers.get("Referer").startswith("https://spotdiff.online") else "http://localhost:8080"
 
     try:
@@ -96,7 +104,7 @@ def authorise():
         "refresh_token": access_token["refresh_token"]
     }
 
-    # Get the user's ID
+    # Get the user's ID using their token
     try:
         user_id = spotify.get_user_from_token(data["access_token"])["id"]
     except Exception as e:
@@ -105,6 +113,7 @@ def authorise():
             "error": str(e)
         }, 500
 
+    # TODO: don't always generate a new code, see if they already have one instead
     user_share_code = code_generator.generate_share_code(word_list)
 
     expiry_time = get_expiry_time(access_token["expires_in"])
@@ -122,6 +131,8 @@ def authorise():
         "share_codes": [user_share_code, passthrough_share_code]
     }
 
+# Filter the response to remove fields we don't need
+# Name is a legacy from an attempt at caching this data
 def defuture(results):
     for term, term_data in results.items():
         for type, type_data in term_data.items():
@@ -147,6 +158,7 @@ def compare():
     user_1_keys = refresh(user_1)
     user_2_keys = refresh(user_2)
 
+    ## Asynchronously get user data
     executor = ThreadPoolExecutor()
     session = FuturesSession(executor)
 
@@ -156,6 +168,7 @@ def compare():
     user_1_profile = spotify.async_user_from_token(session, user_1_keys["access_token"])
     user_2_profile = spotify.async_user_from_token(session, user_2_keys["access_token"])
 
+    ## Await completion of async tasks
     executor.shutdown(wait=True)
 
     return {
