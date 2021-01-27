@@ -3,6 +3,7 @@ from os import environ
 
 USERS_TABLE = environ.get('USERS_TABLE')
 
+# Persists the user data to the db
 def persist_user(client, share_code, access_token, refresh_token, expiry_time, user_id):
     return client.put_item(
         TableName=USERS_TABLE,
@@ -15,6 +16,7 @@ def persist_user(client, share_code, access_token, refresh_token, expiry_time, u
         }
     )
 
+# Updates the user given a share code
 def update_user(client, share_code, access_token, refresh_token, expiry_time):
     return client.update_item(
         TableName=USERS_TABLE,
@@ -29,7 +31,7 @@ def update_user(client, share_code, access_token, refresh_token, expiry_time):
         }
     )
 
-
+# Convert a result to a user dict
 def result_to_user(result):
     return {
         "access_token": result.get("access_token").get("S"),
@@ -39,6 +41,7 @@ def result_to_user(result):
         "user_id": result.get("user_id").get("S")
     }
 
+# Get a user by their share code
 def get_user_by_share_code(client, share_code):
     resp = client.get_item(
         TableName=USERS_TABLE,
