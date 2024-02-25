@@ -81,7 +81,7 @@
               <a href="https://freddyheppell.com/" target="_blank" class="freddy"
                 ><font-awesome-icon class="icon" icon="globe"/>
                 Freddy</a> & 
-              <a href="http://joshuarainbow.co.uk/" target="_blank" class="josh"
+              <a href="http://rainosullivan.com/" target="_blank" class="josh"
                 ><font-awesome-icon class="icon" icon="globe"/>
                 Josh</a>
             </li>
